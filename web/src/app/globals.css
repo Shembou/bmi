@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: #ffffff;
+    --defaultFontColor: #164346;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.16px;
+}
+
+body {
+    color: var(--defaultFontColor);
+    background: var(--background);
+    max-width: 1300px;
+    font-family: sans-serif;
+    font-style: normal;
+    padding: 16px 32px 48px 16px;
+    margin: 0 auto;
+    display: grid;
+    gap: 48px;
+}
+
+h1,
+h2 {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 110%;
+    letter-spacing: -0.96px;
+}
+
+h3 {
+    font-size: 32px;
+    letter-spacing: -0.32px;
+}
+
+h4 {
+    font-size: 24px;
+    letter-spacing: 0.24px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+ul li {
+    position: relative;
+    padding-left: 14px;
+}
+
+ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 50%;
+    top: 10px;
+}
+
+p>a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
