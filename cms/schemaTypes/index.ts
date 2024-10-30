@@ -16,9 +16,10 @@ import meta from './common/meta'
 import landingPages from './pages/multiple/landingPages'
 import bmi from './common/calculator/bmi'
 import calculator from './common/calculator/calculator'
-import instruction from './common/calculator/instruction'
+import instruction, {fileManagement, programInstruction} from './common/calculator/instruction'
 import formHero from './common/calculator/formHero'
 import score from './common/calculator/score'
+import program from './common/calculator/program'
 
 export const baseConfiguration = [header, footer, meta]
 export const singlePages = [homePage]
@@ -46,6 +47,9 @@ export const common = [
   bmi,
   calculator,
   score,
+  program,
+  programInstruction,
+  fileManagement,
 ]
 
 export const schemaTypes = [...common, ...singlePages, ...multiplePages, ...baseConfiguration]

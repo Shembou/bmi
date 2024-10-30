@@ -11,9 +11,9 @@ export default {
       name: 'programHero',
     }),
     defineField({
-      type: 'instruction',
-      title: 'Formularz SCORE',
-      name: 'bmiForm',
+      type: 'programInstruction',
+      title: 'Zapisanie się do programu',
+      name: 'programForm',
     }),
   ],
 }
