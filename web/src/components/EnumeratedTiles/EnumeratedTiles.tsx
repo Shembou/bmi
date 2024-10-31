@@ -2,7 +2,6 @@ import Markdown from '../common/Markdown/Markdown'
 import { IEnumeratedTiles } from './IEnumeratedTiles'
 
 export default function EnumeratedTiles({ heading, tiles }: IEnumeratedTiles) {
-  console.log(tiles)
   return (
     <section className="flex flex-auto justify-between py-24">
       <h2>{heading}</h2>

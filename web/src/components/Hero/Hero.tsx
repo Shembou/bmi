@@ -3,7 +3,6 @@ import Img from '../common/Img/Img'
 import { IHero } from './IHero'
 
 export default function Hero({ button, framedImage, heading, text }: IHero) {
-  console.log(button)
   return (
     <section className="flex gap-40 items-center">
       <div className="grid gap-6">

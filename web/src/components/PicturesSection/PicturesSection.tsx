@@ -2,7 +2,6 @@ import Img from '../common/Img/Img'
 import { IPicturesSection } from './IPicturesSection'
 
 export default function ({ description, heading, imagesGrid }: IPicturesSection) {
-  console.log(imagesGrid)
   return (
     <section className="grid gap-16 py-24">
       <div className="grid grid-cols-2 gap-16">
