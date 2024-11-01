@@ -9,7 +9,7 @@ export default function Tiles({ tiles }: { tiles: ITile[] }) {
   const arrowStrokeColors = ['#C1DADC', '#AFBEE3', '#C3DABA']
 
   return (
-    <div className="grid gap-6 justify-center grid-cols-23 h-full py-24" key={0}>
+    <div className="grid gap-6 justify-center grid-cols-23 h-full" key={0}>
       {tiles.map(({ heading, description }, index) =>
         index % 2 === 0 ? (
           <Fragment key={index}>

@@ -19,6 +19,15 @@ const config: Config = {
         'span-14': 'span 14 / span 14',
         'span-15': 'span 15 / span 15',
         'span-16': 'span 16 / span 16'
+      },
+      height: {
+        '130': '32.5rem'
+      },
+      width: {
+        '130': '32.5rem'
+      },
+      blur: {
+        '250': '250px'
       }
     },
     colors: {
@@ -41,7 +50,8 @@ const config: Config = {
       'progressbar-1': '#006C73',
       'progressbar-inactive': '#A3BCBD',
       'input-border': '#CCECEE',
-      'header-border': '#E8E8E8'
+      'header-border': '#E8E8E8',
+      'blur-color': '#B8A8E7'
     }
   },
   plugins: []
