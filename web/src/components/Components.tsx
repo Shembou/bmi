@@ -5,6 +5,7 @@ import { IComponents } from './IComponents'
 import PicturesSection from './PicturesSection/PicturesSection'
 import ProjectShowcase from './ProjectShowcase/ProjectShowcase'
 import ReferenceSection from './ReferenceSection/ReferenceSection'
+import SimpleHero from './SimpleHero/SimpleHero'
 import { TComponent } from './TComponent'
 import TilesSection from './TilesSection/TilesSection'
 
@@ -25,6 +26,8 @@ export default function Components({ content }: IComponents) {
         return <ProjectShowcase key={index} {...(component as TComponent)} />
       case 'calculator':
         return <Calculator key={index} {...(component as TComponent)} />
+      case 'simpleHero':
+        return <SimpleHero key={index} {...(component as TComponent)} />
       default:
         return null
     }

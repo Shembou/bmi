@@ -4,6 +4,7 @@ import { GetHeroData } from './Hero/HeroQuery'
 import { GetPictureSectionData } from './PicturesSection/PicturesSectionQuery'
 import { GetProjectShowcaseData } from './ProjectShowcase/ProjectShowcaseQuery'
 import { GetReferenceSectionData } from './ReferenceSection/ReferenceSectionQuery'
+import { GetSimpleHeroData } from './SimpleHero/SimpleHeroQuery'
 import { GetTilesSectionData } from './TilesSection/TilesSectionQuery'
 
 export const GetComponentData = `
@@ -16,5 +17,6 @@ export const GetComponentData = `
         ${GetTilesSectionData}
         ${GetProjectShowcaseData}
         ${GetCalculatorData}
+        ${GetSimpleHeroData}
     }
 `
