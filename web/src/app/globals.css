@@ -86,3 +86,25 @@ a {
     opacity: 0;
     transition: transform 300ms, opacity 300ms;
 }
+
+.menu-slide-enter {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.menu-slide-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+.menu-slide-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.menu-slide-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}

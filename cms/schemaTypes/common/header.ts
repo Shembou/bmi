@@ -36,5 +36,65 @@ export default {
         },
       ],
     }),
+    defineField({
+      name: 'links',
+      type: 'array',
+      title: 'Linki',
+      of: [
+        defineField({
+          type: 'headerLink',
+          name: 'headerLink',
+          title: 'Link do nawigacji',
+        }),
+      ],
+    }),
+  ],
+}
+
+export const headerLink = {
+  name: 'headerLink',
+  type: 'object',
+  title: 'Link do nawigacji',
+  fields: [
+    defineField({
+      type: 'string',
+      name: 'link',
+      title: 'Link',
+    }),
+    defineField({
+      type: 'string',
+      name: 'name',
+      title: 'Wyświetlana nazwa',
+    }),
+    defineField({
+      type: 'boolean',
+      name: 'isExpandable',
+      title: 'Czy jest rozwijany?',
+      initialValue: false,
+    }),
+    {
+      type: 'array',
+      name: 'sublinks',
+      title: 'Sublinki',
+      of: [
+        {
+          type: 'object',
+          name: 'sublink',
+          fields: [
+            {
+              type: 'string',
+              name: 'link',
+              title: 'Link',
+            },
+            {
+              type: 'string',
+              name: 'name',
+              title: 'Nazwa linka',
+            },
+          ],
+        },
+      ],
+      hidden: ({parent}: {parent: any}) => !parent?.isExpandable,
+    },
   ],
 }

@@ -1,6 +1,6 @@
 import button from './common/button'
 import footer from './common/footer'
-import header from './common/header'
+import header, {headerLink} from './common/header'
 import hero from './common/hero'
 import info, {addressConfiguration, mailConfiguration, phoneConfiguration} from './common/info'
 import enumeratedTiles from './common/enumeratedTiles'
@@ -57,6 +57,7 @@ export const common = [
   contactForm,
   contactInfo,
   employeeCard,
+  headerLink,
 ]
 
 export const schemaTypes = [...common, ...singlePages, ...multiplePages, ...baseConfiguration]

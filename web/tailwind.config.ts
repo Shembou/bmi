@@ -37,9 +37,11 @@ const config: Config = {
       'purple-font-color': '#435175',
       'custom-border-color': '#E0E0E0',
       white: '#FFFFFF',
+      black: '#000000',
       'progressbar-1': '#006C73',
       'progressbar-inactive': '#A3BCBD',
-      'input-border': '#CCECEE'
+      'input-border': '#CCECEE',
+      'header-border': '#E8E8E8'
     }
   },
   plugins: []

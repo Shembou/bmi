@@ -1,11 +1,22 @@
-import { IHeader } from './IHeader'
-import { getCmsData } from '@/utils/getCmsData'
-import { GetHeaderData } from './HeaderQueries'
-import Img from '../Img/Img'
-import { IMeta } from '../Meta/IMeta'
+'use client'
 
-const Header = async () => {
-  const data = await getCmsData<[IHeader, IMeta]>({ query: `${GetHeaderData}` })
+import { ExpandedItems, IHeader } from './IHeader'
+import Img from '../Img/Img'
+import Link from 'next/link'
+import { Fragment, useRef, useState } from 'react'
+import { IMeta } from '../Meta/IMeta'
+import { CSSTransition } from 'react-transition-group'
+
+const Header = ({ data }: { data: [IHeader, IMeta] }) => {
+  const [expandedItems, setExpandedItems] = useState<ExpandedItems>({})
+  const ref = useRef(null)
+
+  const handleOnClick = (index: number) => {
+    setExpandedItems(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }))
+  }
 
   return (
     <header className="grid gap-4">
@@ -24,8 +35,43 @@ const Header = async () => {
           </div>
         </div>
       </div>
-      <div className="py-3">
+      <div className="py-3 flex justify-between">
         <Img data={data[1].logo} width={183} height={51} />
+        <nav className="flex gap-8 text-base text-center items-center px-8 border border-header-border py-4 rounded-full">
+          {data[0].links.map(({ isExpandable, link, name, sublinks }, index) => (
+            <Fragment key={index}>
+              {isExpandable ? (
+                <div className="relative">
+                  <button className="flex text-black" onClick={() => handleOnClick(index)}>
+                    {name} <ChevronDown />
+                  </button>
+                  <CSSTransition
+                    in={expandedItems[index]}
+                    timeout={300}
+                    classNames="menu-slide"
+                    unmountOnExit
+                    nodeRef={ref}
+                  >
+                    <div
+                      className="absolute w-full grid border border-header-border bg-white rounded-2xl gap-1 p-2"
+                      ref={ref}
+                    >
+                      {sublinks?.map(({ link, name }, subIndex) => (
+                        <Link key={subIndex} href={link} className="no-underline text-black">
+                          {name}
+                        </Link>
+                      ))}
+                    </div>
+                  </CSSTransition>
+                </div>
+              ) : (
+                <Link href={link} className="no-underline text-black">
+                  {name}
+                </Link>
+              )}
+            </Fragment>
+          ))}
+        </nav>
       </div>
     </header>
   )
@@ -48,3 +94,14 @@ function ContrastIcon() {
 }
 
 export default Header
+
+const ChevronDown = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" fill="none" viewBox="0 0 18 19">
+    <path
+      stroke="#0A090B"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="m4 7.359 5 4.58 5-4.58"
+    ></path>
+  </svg>
+)

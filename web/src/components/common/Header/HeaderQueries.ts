@@ -7,7 +7,16 @@ export const GetHeaderData = `
        image {
             ${GetImage}
         }
-     }
+     },
+     links[] {
+      isExpandable,
+      link,
+      name,
+      sublinks[] {
+        link,
+        name
+      }
+    },
   },
   _type == 'meta' => {
     logo {
