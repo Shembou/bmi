@@ -20,6 +20,9 @@ import instruction, {fileManagement, programInstruction} from './common/calculat
 import formHero from './common/calculator/formHero'
 import score from './common/calculator/score'
 import program from './common/calculator/program'
+import simpleHero from './common/simpleHero'
+import contactForm from './common/contactForm'
+import contactInfo, {employeeCard} from './common/contactInfo'
 
 export const baseConfiguration = [header, footer, meta]
 export const singlePages = [homePage]
@@ -50,6 +53,10 @@ export const common = [
   program,
   programInstruction,
   fileManagement,
+  simpleHero,
+  contactForm,
+  contactInfo,
+  employeeCard,
 ]
 
 export const schemaTypes = [...common, ...singlePages, ...multiplePages, ...baseConfiguration]
