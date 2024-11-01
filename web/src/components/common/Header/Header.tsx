@@ -3,7 +3,7 @@
 import { ExpandedItems, IHeader } from './IHeader'
 import Img from '../Img/Img'
 import Link from 'next/link'
-import { Fragment, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { IMeta } from '../Meta/IMeta'
 import { CSSTransition } from 'react-transition-group'
 
@@ -17,6 +17,20 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
       [index]: !prev[index]
     }))
   }
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setExpandedItems({})
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
 
   return (
     <header className="grid gap-4 pb-14 relative">
