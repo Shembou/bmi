@@ -1,3 +1,4 @@
+import { GetCalculatorData } from './Calculator/CalculatorQuery'
 import { GetEnumeratedTilesData } from './EnumeratedTiles/EnumeratedTilesQuery'
 import { GetHeroData } from './Hero/HeroQuery'
 import { GetPictureSectionData } from './PicturesSection/PicturesSectionQuery'
@@ -14,5 +15,6 @@ export const GetComponentData = `
         ${GetReferenceSectionData}
         ${GetTilesSectionData}
         ${GetProjectShowcaseData}
+        ${GetCalculatorData}
     }
 `

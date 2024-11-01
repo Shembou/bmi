@@ -60,7 +60,29 @@ ul li::before {
     top: 10px;
 }
 
-p>a {
+a {
     text-decoration: underline;
     text-underline-offset: 2px;
+}
+
+.fade-enter {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.fade-enter-active {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 300ms, opacity 300ms;
+}
+
+.fade-exit {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.fade-exit-active {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 300ms, opacity 300ms;
 }

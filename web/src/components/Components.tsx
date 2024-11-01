@@ -1,3 +1,4 @@
+import Calculator from './Calculator/Calculator'
 import EnumeratedTiles from './EnumeratedTiles/EnumeratedTiles'
 import Hero from './Hero/Hero'
 import { IComponents } from './IComponents'
@@ -22,6 +23,8 @@ export default function Components({ content }: IComponents) {
         return <TilesSection key={index} {...(component as TComponent)} />
       case 'projectShowcase':
         return <ProjectShowcase key={index} {...(component as TComponent)} />
+      case 'calculator':
+        return <Calculator key={index} {...(component as TComponent)} />
       default:
         return null
     }

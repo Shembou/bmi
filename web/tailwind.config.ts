@@ -17,7 +17,8 @@ const config: Config = {
       gridColumn: {
         'span-13': 'span 13 / span 13',
         'span-14': 'span 14 / span 14',
-        'span-15': 'span 15 / span 15'
+        'span-15': 'span 15 / span 15',
+        'span-16': 'span 16 / span 16'
       }
     },
     colors: {
@@ -35,7 +36,10 @@ const config: Config = {
       'image-3-border-color': '#AFBEE3',
       'purple-font-color': '#435175',
       'custom-border-color': '#E0E0E0',
-      white: '#FFFFFF'
+      white: '#FFFFFF',
+      'progressbar-1': '#006C73',
+      'progressbar-inactive': '#A3BCBD',
+      'input-border': '#CCECEE'
     }
   },
   plugins: []

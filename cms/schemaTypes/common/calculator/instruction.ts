@@ -34,6 +34,11 @@ export const programInstruction = {
       title: 'Pliki do pobrania',
       of: [{type: 'fileManagement', name: 'fileManagement', title: 'plik'}],
     }),
+    defineField({
+      name: 'image',
+      type: 'image',
+      title: 'Zdjęcie obok formularza',
+    }),
   ],
 }
 
