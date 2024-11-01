@@ -19,7 +19,7 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
   }
 
   return (
-    <header className="grid gap-4">
+    <header className="grid gap-4 pb-14">
       <div className="flex justify-between items-center">
         {data[0].logos.map((logo, i) => (
           <Img className="flex-none" data={logo.image} width={443} height={46} key={i} />
