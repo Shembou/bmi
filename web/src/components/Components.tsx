@@ -1,4 +1,5 @@
 import Calculator from './Calculator/Calculator'
+import ContactForm from './ContactFrom/ContactForm'
 import EnumeratedTiles from './EnumeratedTiles/EnumeratedTiles'
 import Hero from './Hero/Hero'
 import { IComponents } from './IComponents'
@@ -28,6 +29,8 @@ export default function Components({ content }: IComponents) {
         return <Calculator key={index} {...(component as TComponent)} />
       case 'simpleHero':
         return <SimpleHero key={index} {...(component as TComponent)} />
+      case 'contactForm':
+        return <ContactForm key={index} {...(component as TComponent)} />
       default:
         return null
     }

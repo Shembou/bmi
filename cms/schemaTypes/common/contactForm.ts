@@ -1,4 +1,5 @@
 import {EnvelopeIcon} from '@sanity/icons'
+import {defineField} from 'sanity'
 
 export default {
   name: 'contactForm',
@@ -27,6 +28,10 @@ export default {
       hidden: true,
       initialValue: 'Treść wiadomości',
     },
+    defineField({
+      name: 'info',
+      type: 'info',
+    }),
   ],
   preview: {
     prepare() {

@@ -11,7 +11,9 @@ export default function ProgramForm({
   formValues: IFormValues
   setFormValues: Dispatch<SetStateAction<IFormValues>>
 }) {
-  const handleInputChange = ({ target: { name, value } }: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = ({
+    target: { name, value }
+  }: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormValues(prevValues => ({ ...prevValues, [name]: value }))
   }
 

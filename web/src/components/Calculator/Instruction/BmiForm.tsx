@@ -21,7 +21,9 @@ export default function BmiForm({
     setFormValues(prevValues => ({ ...prevValues, gender: value }))
   }
 
-  const handleInputChange = ({ target: { name, value } }: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = ({
+    target: { name, value }
+  }: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormValues(prevValues => ({ ...prevValues, [name]: value }))
   }
 

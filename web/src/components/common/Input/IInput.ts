@@ -2,7 +2,7 @@ export interface IInput {
   label: string
   type: string
   value: string
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
   placeholder?: string
   className?: string
   error?: string
@@ -12,4 +12,5 @@ export interface IInput {
   min?: number
   max?: number
   required?: boolean
+  textarea?: boolean
 }
