@@ -18,6 +18,6 @@ export const structure = (S: StructureBuilder) =>
       S.divider(),
       ...singlePages.map((page) => createSinglePage(S, page as any)),
       S.divider(),
-      ...multiplePages.map((page: DocumentType) => S.documentTypeListItem(page.name)),
+      ...multiplePages.map((page: any) => S.documentTypeListItem(page.name)),
       S.divider(),
     ])

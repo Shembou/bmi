@@ -23,10 +23,13 @@ import program from './common/calculator/program'
 import simpleHero from './common/simpleHero'
 import contactForm from './common/contactForm'
 import contactInfo, {employeeCard} from './common/contactInfo'
+import sicknessPages from './pages/multiple/sicknessPages'
+import portableText from './common/portableText'
+import portableImagesGrid from './common/portableImagesGrid'
 
 export const baseConfiguration = [header, footer, meta]
 export const singlePages = [homePage]
-export const multiplePages = [landingPages]
+export const multiplePages = [landingPages, sicknessPages]
 
 export const common = [
   hero,
@@ -58,6 +61,8 @@ export const common = [
   contactInfo,
   employeeCard,
   headerLink,
+  portableText,
+  portableImagesGrid,
 ]
 
 export const schemaTypes = [...common, ...singlePages, ...multiplePages, ...baseConfiguration]

@@ -19,8 +19,12 @@ export default {
     }),
     defineField({
       name: 'button',
-      title: 'Przycisk',
+      title: 'Przycisk (opcjonalne)',
       type: 'button',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
     }),
     defineField({
       name: 'framedImage',
