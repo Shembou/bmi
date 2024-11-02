@@ -1,5 +1,6 @@
 import { GetCalculatorData } from './Calculator/CalculatorQuery'
 import { GetContactFormData } from './ContactFrom/ContactFormQuery'
+import { GetContactInfoData } from './ContactInfo/ContactInfoQueries'
 import { GetEnumeratedTilesData } from './EnumeratedTiles/EnumeratedTilesQuery'
 import { GetHeroData } from './Hero/HeroQuery'
 import { GetPictureSectionData } from './PicturesSection/PicturesSectionQuery'
@@ -20,5 +21,6 @@ export const GetComponentData = `
         ${GetCalculatorData}
         ${GetSimpleHeroData}
         ${GetContactFormData}
+        ${GetContactInfoData}
     }
 `

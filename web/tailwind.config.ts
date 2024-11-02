@@ -51,7 +51,9 @@ const config: Config = {
       'progressbar-inactive': '#A3BCBD',
       'input-border': '#CCECEE',
       'header-border': '#E8E8E8',
-      'blur-color': '#B8A8E7'
+      'blur-color': '#B8A8E7',
+      'blur-green-color': '#A0EA91',
+      'blur-blue-color': '#8FE6EC'
     }
   },
   plugins: []

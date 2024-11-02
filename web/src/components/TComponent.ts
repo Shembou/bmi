@@ -1,5 +1,6 @@
 import { ICalculator } from './Calculator/ICalculator'
 import { IContactForm } from './ContactFrom/IContactForm'
+import { IContactInfo } from './ContactInfo/IContactInfo'
 import { IEnumeratedTiles } from './EnumeratedTiles/IEnumeratedTiles'
 import { IHero } from './Hero/IHero'
 import { IPicturesSection } from './PicturesSection/IPicturesSection'
@@ -14,8 +15,8 @@ type TComponentExtension = IHero &
   ITilesSection &
   IProjectShowcase &
   ICalculator &
-  IContactForm
-
+  IContactForm &
+  IContactInfo
 export type TComponent = {
   _type: string
 } & TComponentExtension
