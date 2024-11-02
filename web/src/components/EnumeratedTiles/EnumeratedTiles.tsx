@@ -3,7 +3,7 @@ import { IEnumeratedTiles } from './IEnumeratedTiles'
 
 export default function EnumeratedTiles({ heading, tiles }: IEnumeratedTiles) {
   return (
-    <section className="flex flex-auto justify-between py-24">
+    <section className="flex justify-between py-24 lg:flex-row flex-col gap-5">
       <h2>{heading}</h2>
       <div className="gap-16 justify-items-end grid">
         {tiles.map(({ heading, description }, i) => (

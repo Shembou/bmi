@@ -33,8 +33,8 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
   }, [])
 
   return (
-    <header className="grid gap-4 pb-14 relative">
-      <div className="absolute h-130 w-130 -right-40 -top-20 rounded-full opacity-50 bg-lime  blur-3xl -z-10"></div>
+    <header className="grid gap-4 pb-14 relative w-full">
+      {/* <div className="absolute h-130 w-130 -right-40 -top-20 rounded-full opacity-50 bg-lime blur-3xl -z-10"></div> */}
       <div className="flex justify-between items-center">
         {data[0].logos.map((logo, i) => (
           <Img className="flex-none" data={logo.image} width={443} height={46} key={i} />
@@ -50,9 +50,11 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
           </div>
         </div>
       </div>
-      <div className="py-3 flex justify-between">
-        <Img data={data[1].logo} width={183} height={51} />
-        <nav className="flex gap-8 text-base text-center items-center px-8 border border-header-border py-4 rounded-full bg-white">
+      <div className="py-3 flex justify-between gap-y-3 flex-col xl:flex-row items-center">
+        <Link href="/" className="xl:-order-1 order-2">
+          <Img data={data[1].logo} width={183} height={51} />
+        </Link>
+        <nav className="flex text-base text-center items-center px-8 border border-header-border py-4 rounded-full bg-white xl:w-fit w-full justify-between flex-wrap xl:gap-8">
           {data[0].links.map(({ isExpandable, link, name, sublinks }, index) => (
             <Fragment key={index}>
               {isExpandable ? (
