@@ -26,9 +26,12 @@ import contactInfo, {employeeCard} from './common/contactInfo'
 import sicknessPages from './pages/multiple/sicknessPages'
 import portableText from './common/portableText'
 import portableImagesGrid from './common/portableImagesGrid'
+import videoSection, {youtubeVideos} from './common/videoSection'
+import videoPage from './pages/single/videoPage'
+import videoContent from './common/videoContent'
 
 export const baseConfiguration = [header, footer, meta]
-export const singlePages = [homePage]
+export const singlePages = [homePage, videoPage]
 export const multiplePages = [landingPages, sicknessPages]
 
 export const common = [
@@ -63,6 +66,9 @@ export const common = [
   headerLink,
   portableText,
   portableImagesGrid,
+  videoSection,
+  youtubeVideos,
+  videoContent,
 ]
 
 export const schemaTypes = [...common, ...singlePages, ...multiplePages, ...baseConfiguration]

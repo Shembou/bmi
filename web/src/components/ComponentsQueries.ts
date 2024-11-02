@@ -8,6 +8,7 @@ import { GetProjectShowcaseData } from './ProjectShowcase/ProjectShowcaseQuery'
 import { GetReferenceSectionData } from './ReferenceSection/ReferenceSectionQuery'
 import { GetSimpleHeroData } from './SimpleHero/SimpleHeroQuery'
 import { GetTilesSectionData } from './TilesSection/TilesSectionQuery'
+import { GetVideoSectionData } from './VideoSection/VideoSectionQueries'
 
 export const GetComponentData = `
     content[] {
@@ -22,5 +23,6 @@ export const GetComponentData = `
         ${GetSimpleHeroData}
         ${GetContactFormData}
         ${GetContactInfoData}
+        ${GetVideoSectionData}
     }
 `

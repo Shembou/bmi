@@ -10,6 +10,7 @@ import ReferenceSection from './ReferenceSection/ReferenceSection'
 import SimpleHero from './SimpleHero/SimpleHero'
 import { TComponent } from './TComponent'
 import TilesSection from './TilesSection/TilesSection'
+import VideoSection from './VideoSection/VideoSection'
 
 export default function Components({ content }: IComponents) {
   return content?.map((component, index) => {
@@ -34,6 +35,8 @@ export default function Components({ content }: IComponents) {
         return <ContactForm key={index} {...(component as TComponent)} />
       case 'contactInfo':
         return <ContactInfo key={index} {...(component as TComponent)} />
+      case 'videoSection':
+        return <VideoSection key={index} {...(component as TComponent)} />
       default:
         return null
     }
