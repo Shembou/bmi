@@ -9,7 +9,7 @@ export default function Hero({ button, framedImage, heading, text }: IHero) {
       <div className="grid gap-6 sm:col-span-5">
         <h2>{heading}</h2>
         <p className="pb-6">{text}</p>
-        {button && <Button {...button}></Button>}
+        {button && <Button {...button} className="px-8"></Button>}
       </div>
       <div className="flex w-full relative sm:col-span-3 -order-1 sm:order-1">
         <div className="absolute -top-6 -left-6 bg-lime h-16 w-16 items-center flex justify-center rounded-2xl">
