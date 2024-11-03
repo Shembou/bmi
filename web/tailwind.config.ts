@@ -28,6 +28,9 @@ const config: Config = {
       },
       blur: {
         '250': '250px'
+      },
+      screens: {
+        '894': '894px'
       }
     },
     colors: {

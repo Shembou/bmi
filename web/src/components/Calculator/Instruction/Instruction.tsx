@@ -65,16 +65,21 @@ export default function Instruction({
     </>,
     <>
       <ProgramForm formValues={formValues} setFormValues={setFormValues} />
-      <Img data={image!} width={361} height={385} className="w-full col-span-6 self-end" />
+      <Img
+        data={image!}
+        width={361}
+        height={385}
+        className="lg:w-full lg:col-span-6 self-end col-span-full justify-self-center"
+      />
     </>
   ]
 
   return (
     <>
-      <div className="py-24 grid justify-between grid-flow-col grid-cols-23">
+      <div className="py-24 grid justify-between grid-cols-23 xl:grid-rows-1 grid-flow-row-dense items-start gap-y-5">
         {files ? (
           <>
-            <header className="col-span-8 grid gap-6 self-start">
+            <header className="lg:col-span-8 grid gap-6 self-start 894:col-span-12 col-span-full">
               <h2>{heading}</h2>
               <p>{description}</p>
               <div className="pt-16 grid gap-6">
@@ -92,7 +97,7 @@ export default function Instruction({
           </>
         ) : (
           <>
-            <header className="col-span-4 grid gap-6 self-start">
+            <header className="xl:col-span-4 grid gap-6 self-start col-span-full">
               <h2>{heading}</h2>
               <p>{description}</p>
             </header>

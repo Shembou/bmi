@@ -1,7 +1,7 @@
 export default function ScoreExplanation() {
   const lt = '<'
   return (
-    <div className="grid gap-8 mx-2 col-span-9">
+    <div className="grid gap-8 mx-2 xl:col-span-9 col-span-full 894:col-span-13">
       <header>
         <h3>Wynik</h3>
         <p>
@@ -10,26 +10,26 @@ export default function ScoreExplanation() {
         </p>
       </header>
       <div className="grid gap-6">
-        <div className="grid gap-6 grid-flow-col grid-cols-23 items-center">
+        <div className="grid gap-6 grid-flow-row lg:grid-flow-col items-center">
           <h4 className="col-span-9 text-xl">Niskie ryzyko ({lt}1%):</h4>
           <p className="col-span-14">
             Masa ciała jest zbyt niska; zalecana jest konsultacja z lekarzem lub dietetykiem.
           </p>
         </div>
         <div className="grid gap-6">
-          <div className="grid gap-6 grid-flow-col grid-cols-23 items-center">
+          <div className="grid gap-6 grid-flow-row lg:grid-flow-col items-center">
             <h4 className="col-span-9 text-xl">Umiarkowane ryzyko (≥1% - ≤5%):</h4>
             <p className="col-span-14">Zalecane są zmiany stylu życia i regularne kontrole.</p>
           </div>
         </div>
         <div className="grid gap-6">
-          <div className="grid gap-6 grid-flow-col grid-cols-23 items-center">
+          <div className="grid gap-6 grid-flow-row lg:grid-flow-col items-center">
             <h4 className="col-span-9 text-xl">Wysokie ryzyko (≥5% - ≤10%):</h4>
             <p className="col-span-14">Wymaga intensywnych działań prewencyjnych i leczenia.</p>
           </div>
         </div>
         <div className="grid gap-6">
-          <div className="grid gap-6 grid-flow-col grid-cols-23 items-center">
+          <div className="grid gap-6 grid-flow-row lg:grid-flow-col items-center">
             <h4 className="col-span-9 text-xl">Bardzo wysokie ryzyko (≥10%):</h4>
             <p className="col-span-14">Konieczna jest natychmiastowa interwencja medyczna.</p>
           </div>

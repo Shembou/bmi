@@ -8,7 +8,7 @@ export default function TilesSection({ description, heading, tiles }: ITilesSect
         <h2>{heading}</h2>
         <h4 className="ml-16">{description}</h4>
       </header>
-      <div className="flex gap-6">
+      <div className="flex gap-6 justify-center">
         <Tiles tiles={tiles} />
       </div>
     </section>

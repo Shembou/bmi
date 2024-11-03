@@ -35,7 +35,7 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
   return (
     <header className="grid gap-4 pb-14 relative w-full">
       {/* <div className="absolute h-130 w-130 -right-40 -top-20 rounded-full opacity-50 bg-lime blur-3xl -z-10"></div> */}
-      <div className="flex justify-between items-center">
+      <div className="flex md:justify-between items-center md:content-center justify-center flex-wrap md:flex-nowrap gap-y-5">
         {data[0].logos.map((logo, i) => (
           <Img className="flex-none" data={logo.image} width={443} height={46} key={i} />
         ))}

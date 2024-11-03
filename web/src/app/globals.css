@@ -5,7 +5,7 @@
 :root {
     --background: #FDFDFD;
     --defaultFontColor: #164346;
-    font-size: 16px;
+    font-size: clamp(0.5rem, 2vw, 16px);
     font-weight: 500;
     letter-spacing: 0.16px;
 }
@@ -37,17 +37,18 @@ h2 {
 }
 
 h3 {
-    font-size: clamp(0.7rem, 3vw, 2rem);
+    font-size: clamp(0.7rem, 4vw, 2rem);
     letter-spacing: -0.32px;
 }
 
 h4 {
-    font-size: 24px;
+    font-size: clamp(0.6rem, 4vw, 1.5rem);
     letter-spacing: 0.24px;
 }
 
 p {
     line-height: 1.6;
+    font-size: clamp(0.5rem, 2vw, 16px);
 }
 
 .unorderedList li {
