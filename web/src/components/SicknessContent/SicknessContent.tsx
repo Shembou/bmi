@@ -74,7 +74,7 @@ export default function SicknessContent({ content }: { content: PortableTextBloc
   return (
     <section className="grid gap-12  grid-flow-row xl:grid-flow-col xl:grid-cols-12">
       <TableOfContent content={nodes} />
-      <div className="col-span-7">
+      <div className="xl:col-span-7">
         <PortableText
           components={components as unknown as Partial<PortableTextReactComponents>}
           value={content}

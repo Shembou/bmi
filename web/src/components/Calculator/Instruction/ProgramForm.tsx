@@ -30,7 +30,7 @@ export default function ProgramForm({
 
   return (
     <form
-      className="grid place-self-center self-start gap-8 col-span-full 894:w-80 894:col-span-9 w-130"
+      className="grid place-self-center self-start gap-8 col-span-full 894:w-80 894:col-span-9 max-w-130 w-full"
       onSubmit={handleSubmit}
     >
       <Input
@@ -65,7 +65,7 @@ export default function ProgramForm({
         value={formValues['policy'] ?? false}
         required
       />
-      <Button content="Wyślij zgłoszenie" color="primary" className="w-full px-0" />
+      <Button content="Wyślij zgłoszenie" color="primary" className="w-full sm:px-0" />
     </form>
   )
 }

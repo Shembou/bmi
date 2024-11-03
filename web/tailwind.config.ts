@@ -31,6 +31,9 @@ const config: Config = {
       },
       screens: {
         '894': '894px'
+      },
+      maxWidth: {
+        '130': '32.5rem'
       }
     },
     colors: {

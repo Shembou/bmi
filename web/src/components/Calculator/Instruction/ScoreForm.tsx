@@ -36,7 +36,7 @@ export default function ScoreForm({
 
   return (
     <form
-      className="grid place-self-center self-start gap-8 col-span-full 894:w-80 894:col-span-9 w-130"
+      className="grid place-self-center self-start gap-8 col-span-full 894:w-80 894:col-span-9 max-w-130 w-full"
       onSubmit={e => handleSubmit(e)}
     >
       <Input
@@ -66,7 +66,7 @@ export default function ScoreForm({
         max={310}
         required
       />
-      <Button content="Oblicz SCORE" color="primary" className="w-full px-0" />
+      <Button content="Oblicz SCORE" color="primary" className="w-full sm:px-0" />
     </form>
   )
 }

@@ -8,7 +8,7 @@ const TableOfContent = ({ content }: { content: INode[] }) => {
   return (
     <nav
       className={
-        'h-min top-4 col-span-5 p-8 rounded-2xl overflow-hidden xl:sticky xl:max-w-xl xl: bg-white'
+        'h-min top-4 xl:col-span-5 p-8 rounded-2xl overflow-hidden w-full xl:sticky xl:max-w-xl xl:bg-white'
       }
     >
       <div className="relative z-10">
@@ -18,7 +18,7 @@ const TableOfContent = ({ content }: { content: INode[] }) => {
               <Link
                 href={`#${slug}`}
                 onClick={e => smoothScroll(e, slug)}
-                className={'flex gap-2 text-lg no-underline'}
+                className={'flex gap-2 text-lg no-underline w-fit'}
               >
                 <span>{String(index + 1).padStart(2, '0')}</span>
                 <span>{removeMarkdown(text as string)}</span>

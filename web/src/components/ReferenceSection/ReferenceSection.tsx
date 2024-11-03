@@ -9,7 +9,7 @@ export default function ReferenceSection({
   isPictureOnRight
 }: IReferenceSection) {
   return (
-    <section className="grid px-8 items-center justify-between relative overflow-hidden rounded-3xl flex-wrap gap-y-5 gap-x-2 grid-flow-col gap-1">
+    <section className="grid md:px-8 items-center justify-between relative overflow-hidden rounded-3xl gap-x-2 grid-flow-col gap-1">
       {isPictureOnRight ? (
         <>
           <div className="absolute h-130 w-130 -left-32 -bottom-48 rounded-full opacity-60 bg-input-border  blur-3xl -z-10"></div>

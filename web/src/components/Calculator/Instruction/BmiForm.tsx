@@ -36,7 +36,7 @@ export default function BmiForm({
 
   return (
     <form
-      className="grid place-self-center self-start gap-8 col-span-full 894:w-80 894:col-span-9 w-130"
+      className="grid place-self-center self-start gap-8 col-span-full 894:w-80 894:col-span-9 max-w-130 w-full"
       onSubmit={handleSubmit}
     >
       <Input
@@ -81,7 +81,7 @@ export default function BmiForm({
         max={400}
         required
       />
-      <Button content="Oblicz BMI" color="primary" className="w-full px-0" />
+      <Button content="Oblicz BMI" color="primary" className="w-full sm:px-0" />
     </form>
   )
 }

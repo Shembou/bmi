@@ -5,7 +5,7 @@
 :root {
     --background: #FDFDFD;
     --defaultFontColor: #164346;
-    font-size: clamp(0.5rem, 2vw, 16px);
+    font-size: clamp(0.8rem, 3.5vw, 16px);
     font-weight: 500;
     letter-spacing: 0.16px;
 }
@@ -30,25 +30,25 @@ main {
 
 h1,
 h2 {
-    font-size: clamp(1rem, 4vw, 3rem);
+    font-size: clamp(1.5rem, 4.5vw, 3rem);
     font-weight: 600;
     line-height: 110%;
     letter-spacing: -0.96px;
 }
 
 h3 {
-    font-size: clamp(0.7rem, 4vw, 2rem);
+    font-size: clamp(1.2rem, 4.5vw, 2rem);
     letter-spacing: -0.32px;
 }
 
 h4 {
-    font-size: clamp(0.6rem, 4vw, 1.5rem);
+    font-size: clamp(1rem, 4.5vw, 1.5rem);
     letter-spacing: 0.24px;
 }
 
 p {
     line-height: 1.6;
-    font-size: clamp(0.5rem, 2vw, 16px);
+    font-size: clamp(0.8rem, 3.5vw, 16px);
 }
 
 .unorderedList li {

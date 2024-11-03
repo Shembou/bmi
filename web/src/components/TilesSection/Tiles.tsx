@@ -14,7 +14,7 @@ export default function Tiles({ tiles }: { tiles: ITile[] }) {
         index % 2 === 0 ? (
           <Fragment key={index}>
             <div
-              className={`w-130 md:w-full bg-${colors[index % 3]} border-${borderColors[index % 3]} grid gap-2 ${index == 4 && 'md:col-span-11'} ${index == 0 && 'md:col-span-7'} ${index == 2 && 'md:col-span-10'} ${index + 1 == tiles.length && 'md:col-span-full max-w-xl justify-self-center'} p-8 rounded-xl border`}
+              className={`justify-self-center max-w-130 md:max-w-none md:w-full bg-${colors[index % 3]} border-${borderColors[index % 3]} grid gap-2 ${index == 4 && 'md:col-span-11'} ${index == 0 && 'md:col-span-7'} ${index == 2 && 'md:col-span-10'} ${index + 1 == tiles.length && 'md:col-span-full md:max-w-xl justify-self-center'} p-8 rounded-xl border`}
             >
               <div className="flex gap-2">
                 <h4>{`0${index + 1}`}</h4>
@@ -32,7 +32,7 @@ export default function Tiles({ tiles }: { tiles: ITile[] }) {
         ) : (
           <div
             key={index}
-            className={`w-130 md:w-full bg-${colors[(index + 1) % 3]} border-${borderColors[(index + 1) % 3]} grid gap-2  ${index == 1 && 'md:col-span-15'} ${index == 3 && 'md:col-span-12'} ${index == 5 && 'md:col-span-11'} p-8 rounded-xl border`}
+            className={`justify-self-center max-w-130 md:max-w-none md:w-full bg-${colors[(index + 1) % 3]} border-${borderColors[(index + 1) % 3]} grid gap-2  ${index == 1 && 'md:col-span-15'} ${index == 3 && 'md:col-span-12'} ${index == 5 && 'md:col-span-11'} p-8 rounded-xl border`}
           >
             <div className="flex gap-2">
               <h4>{`0${index + 1}`}</h4>

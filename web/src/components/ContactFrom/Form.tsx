@@ -69,7 +69,7 @@ export default function Form({
         value={formValues['policy'] ?? false}
         required
       />
-      <Button content="Wyślij wiadomość" color="primary" className="w-80" />
+      <Button content="Wyślij wiadomość" color="primary" className="w-full sm:px-0" />
     </form>
   )
 }
