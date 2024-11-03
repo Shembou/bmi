@@ -18,4 +18,13 @@ export interface IFooter {
       }[]
     }
   }
+  links: {
+    name: string
+    isExpandable: boolean
+    link: string
+    sublinks: {
+      link: string
+      name: string
+    }[]
+  }[]
 }

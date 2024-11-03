@@ -16,13 +16,13 @@ export default function ContactInfo({ employeeCards }: IContactInfo) {
           <h4>{name}</h4>
           <p>{title}</p>
           <div className="flex gap-2 items-center">
-            <div className="p-1 border rounded-full bg-icon-bg-color border-icon-border-color">
+            <div className="p-1 border rounded-full bg-icon-bg-color border-icon-border-color dark:bg-dark-icon-bg-color">
               <Envelope />
             </div>
             <p>{mail}</p>
             <button
               onClick={() => handleOnClick({ mail })}
-              className="border border-default-font-color rounded-full px-2 text-sm py-1 text-default-font-color bg-icon-bg-color"
+              className="border border-default-font-color rounded-full px-2 text-sm py-1 text-default-font-color bg-icon-bg-color dark:bg-dark-icon-bg-color dark:text-dark-default-font-color"
             >
               SKOPIUJ
             </button>

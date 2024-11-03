@@ -24,7 +24,7 @@ export default function ({ description, heading, imagesGrid }: IPicturesSection)
             ) : (
               <div className={`grid text-center ${i == 2 && 'h-full'}`}>
                 <p
-                  className={`p-8 ${i == 1 ? 'border-image-2-border-color border bg-image-2-background-color' : 'border-image-3-border-color border bg-image-3-background-color text-purple-font-color'} rounded-tr-2xl rounded-tl-2xl`}
+                  className={`p-8 ${i == 1 ? 'border-image-2-border-color border bg-image-2-background-color' : 'border-image-3-border-color border bg-image-3-background-color text-purple-font-color'} rounded-tr-2xl rounded-tl-2xl dark:text-dark-icon-border-color`}
                 >
                   {description}
                 </p>

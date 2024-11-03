@@ -15,7 +15,7 @@ export default function ContactForm({ content, email, info, name }: IContactForm
         <h4>{info.name}</h4>
         <div className="flex gap-4">
           <div className="flex gap-1 items-start">
-            <div className="p-1 border rounded-full bg-icon-bg-color border-icon-border-color">
+            <div className="p-1 border rounded-full bg-icon-bg-color border-icon-border-color dark:bg-dark-icon-bg-color">
               <Img
                 data={info.addressConfiguration.logo}
                 height={16}
@@ -26,7 +26,7 @@ export default function ContactForm({ content, email, info, name }: IContactForm
             <p>{info.addressConfiguration.address}</p>
           </div>
           <div className="flex gap-1 items-start">
-            <div className="p-1 border rounded-full bg-icon-bg-color border-icon-border-color">
+            <div className="p-1 border rounded-full bg-icon-bg-color border-icon-border-color dark:bg-dark-icon-bg-color">
               <Img
                 data={info.mailConfiguration.logo}
                 height={16}
@@ -37,7 +37,7 @@ export default function ContactForm({ content, email, info, name }: IContactForm
             <p>{info.mailConfiguration.mail}</p>
           </div>
           <div className="flex gap-1 items-start">
-            <div className="p-1 border rounded-full bg-icon-bg-color border-icon-border-color">
+            <div className="p-1 border rounded-full bg-icon-bg-color border-icon-border-color dark:bg-dark-icon-bg-color">
               <Img
                 data={info.phoneConfiguration.logo}
                 height={16}

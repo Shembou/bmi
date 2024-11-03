@@ -23,7 +23,17 @@ export const GetFooterData = `
                     },
                     phoneNumbers
                 }
+            },
+            links[] {
+                name,
+                isExpandable,
+                link,
+                sublinks[] {
+                    link,
+                    name
+                }
             }
+
         },
         _type == 'meta' => {
             logo {

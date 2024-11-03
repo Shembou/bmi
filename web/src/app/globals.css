@@ -5,7 +5,13 @@
 :root {
     --background: #FDFDFD;
     --defaultFontColor: #164346;
-    font-size: clamp(0.8rem, 3.5vw, 16px);
+    --h1-font-size: clamp(1.5rem, 4.5vw, 3rem);
+    --h3-font-size: clamp(1.2rem, 4.5vw, 2rem);
+    --h4-font-size: clamp(1rem, 4.5vw, 1.5rem);
+    --p-font-size: clamp(0.8rem, 3.5vw, 16px);
+    --default-font-size: clamp(0.8rem, 3.5vw, 16px);
+
+    font-size: var(--default-font-size);
     font-weight: 500;
     letter-spacing: 0.16px;
 }
@@ -13,42 +19,49 @@
 body {
     color: var(--defaultFontColor);
     background: var(--background);
-    max-width: 1300px;
     font-family: sans-serif;
     font-style: normal;
-    padding: 16px 32px 48px 16px;
-    margin: 0 auto;
+    padding-top: 16px;
     display: grid;
-    gap: 48px;
+}
+
+.dark {
+    --background: #FFFFFF;
+    --defaultFontColor: #000000;
 }
 
 main {
     display: grid;
+    margin: 0 auto;
     gap: 48px;
     position: relative;
+    max-width: 1368px;
+    padding-left: 32px;
+    padding-right: 32px;
 }
+
 
 h1,
 h2 {
-    font-size: clamp(1.5rem, 4.5vw, 3rem);
+    font-size: var(--h1-font-size);
     font-weight: 600;
     line-height: 110%;
     letter-spacing: -0.96px;
 }
 
 h3 {
-    font-size: clamp(1.2rem, 4.5vw, 2rem);
+    font-size: var(--h3-font-size);
     letter-spacing: -0.32px;
 }
 
 h4 {
-    font-size: clamp(1rem, 4.5vw, 1.5rem);
+    font-size: var(--h4-font-size);
     letter-spacing: 0.24px;
 }
 
 p {
     line-height: 1.6;
-    font-size: clamp(0.8rem, 3.5vw, 16px);
+    font-size: var(--p-font-size);
 }
 
 .unorderedList li {
@@ -114,4 +127,8 @@ a {
     opacity: 0;
     transform: translateY(-20px);
     transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+.footerLink {
+    font-size: clamp(0.9rem, 3.5vw, 20px);
 }

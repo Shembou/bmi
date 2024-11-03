@@ -1,5 +1,5 @@
 import button from './common/button'
-import footer from './common/footer'
+import footer, {footerLink} from './common/footer'
 import header, {headerLink} from './common/header'
 import hero from './common/hero'
 import info, {addressConfiguration, mailConfiguration, phoneConfiguration} from './common/info'
@@ -69,6 +69,7 @@ export const common = [
   videoSection,
   youtubeVideos,
   videoContent,
+  footerLink,
 ]
 
 export const schemaTypes = [...common, ...singlePages, ...multiplePages, ...baseConfiguration]

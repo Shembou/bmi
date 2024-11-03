@@ -4,7 +4,8 @@ import { IHero } from './IHero'
 
 export default function Hero({ button, framedImage, heading, text }: IHero) {
   return (
-    <section className="grid lg:gap-28 xl:gap-40 items-center sm:grid-flow-col md:grid-cols-8 sm:gap-3 grid-flow-row gap-16">
+    <section className="grid lg:gap-28 xl:gap-40 items-center sm:grid-flow-col md:grid-cols-8 sm:gap-3 grid-flow-row gap-16 relative">
+      {/* <div className="absolute h-130 w-130 -left-64 -bottom-40 rounded-full opacity-50 bg-icon-bg-color blur-3xl -z-10"></div> */}
       <div className="grid gap-6 sm:col-span-5">
         <h2>{heading}</h2>
         <p className="pb-6">{text}</p>

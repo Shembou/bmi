@@ -33,7 +33,14 @@ const config: Config = {
         '894': '894px'
       },
       maxWidth: {
+        '130': '32.5rem',
+        default: '1368px'
+      },
+      minWidth: {
         '130': '32.5rem'
+      },
+      borderRadius: {
+        '32': '32px'
       }
     },
     colors: {
@@ -59,9 +66,23 @@ const config: Config = {
       'header-border': '#E8E8E8',
       'blur-color': '#B8A8E7',
       'blur-green-color': '#A0EA91',
-      'blur-blue-color': '#8FE6EC'
+      'blur-blue-color': '#8FE6EC',
+
+      'dark-icon-bg-color': '#ffffff',
+      'dark-icon-border-color': '#000000',
+      'dark-default-font-color': '#000000',
+      'dark-lime': '#ffffff',
+      'dark-lime-gray': '#ffffff',
+      'dark-button-border-color': '#000000',
+      'dark-image-border-color': '#000000',
+      'dark-image-background-color': '#ffffff',
+      'dark-progressbar-1': '#000000',
+      'dark-progressbar-inactive': '#333333',
+      'dark-input-border': '#000000',
+      'dark-header-border': '#000000'
     }
   },
-  plugins: []
+  plugins: [],
+  darkMode: 'class'
 }
 export default config
