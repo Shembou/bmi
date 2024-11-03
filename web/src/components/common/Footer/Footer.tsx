@@ -62,7 +62,7 @@ export default async function Footer() {
         <div className="flex flex-wrap justify-between max-w-130 w-full gap-2">
           <div className="flex flex-col">
             {singlePages.map(({ name, link }, index) => (
-              <Link key={index} href={link} className="no-underline py-2 footerLink">
+              <Link key={index} href={link} className="no-underline py-2 footerLink w-fit">
                 {name}
               </Link>
             ))}
@@ -74,7 +74,7 @@ export default async function Footer() {
                   <p className="no-underline py-2 footerLink">{name}</p>
                   <div className="grid gap-2">
                     {sublinks.map(({ link, name }, subIndex) => (
-                      <Link key={subIndex} href={link} className="no-underline">
+                      <Link key={subIndex} href={link} className="no-underline w-fit">
                         {name}
                       </Link>
                     ))}

@@ -132,3 +132,8 @@ a {
 .footerLink {
     font-size: clamp(0.9rem, 3.5vw, 20px);
 }
+
+:focus-visible {
+    outline: 2px dashed red;
+    outline-offset: 2px;
+}
