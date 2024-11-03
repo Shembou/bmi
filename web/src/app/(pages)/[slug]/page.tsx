@@ -2,6 +2,7 @@ import { getCmsData } from '@/utils/getCmsData'
 import { GetLandingPageData, GetStaticParams } from './LandingPagesQueries'
 import { ILandingPage } from './ILandingPage'
 import Components from '@/components/Components'
+import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
   const dynamicPages = await getCmsData<ILandingPage[]>({ query: GetStaticParams })
@@ -15,9 +16,12 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
   const slug = await params
 
   const data = await getCmsData<ILandingPage>({ query: GetLandingPageData, params: slug })
-  return (
+
+  return data ? (
     <main>
       <Components content={data.content} />
     </main>
+  ) : (
+    notFound()
   )
 }

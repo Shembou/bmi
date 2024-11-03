@@ -4,6 +4,7 @@ import { GetSicknessPageData, GetSicknessPagesStaticParams } from './SicknessPag
 import Components from '@/components/Components'
 import Hero from '@/components/Hero/Hero'
 import SicknessContent from '@/components/SicknessContent/SicknessContent'
+import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
   const dynamicPages = await getCmsData<ISicknessPage[]>({ query: GetSicknessPagesStaticParams })
@@ -18,11 +19,13 @@ export default async function SicknessPage({ params }: { params: Promise<{ slug:
 
   const data = await getCmsData<ISicknessPage>({ query: GetSicknessPageData, params: slug })
 
-  return (
+  return data ? (
     <main>
       <Hero {...data.hero} />
       <SicknessContent content={data.portableText} />
       <Components content={data.content} />
     </main>
+  ) : (
+    notFound()
   )
 }
