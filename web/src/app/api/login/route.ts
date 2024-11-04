@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     })
-  } catch  {
+  } catch {
     return new Response('Error while getting user', { status: 500 })
   }
 }

@@ -14,15 +14,19 @@ export async function middleware(request: NextRequest) {
       new TextEncoder().encode(process.env.TOKEN_SECRET_KEY)
     )
 
+    if (payload && request.nextUrl.pathname == '/login') {
+      return NextResponse.redirect(new URL('/subscribers', request.url))
+    }
     if (payload) {
       return NextResponse.next()
     }
   } catch {
-    request.cookies.delete('Auth')
-    return NextResponse.redirect(new URL('/', request.url))
+    const response = NextResponse.redirect(new URL('/', request.url))
+    response.cookies.set('Auth', '', { maxAge: 0 })
+    return response
   }
 }
 
 export const config = {
-  matcher: ['/subscribers/:path*', '/subscribers']
+  matcher: ['/subscribers/:path*', '/subscribers', '/login']
 }
