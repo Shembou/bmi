@@ -49,14 +49,11 @@ export async function POST(request: NextRequest) {
 
     const isPasswordCorrect = await comparePassword(body.password, user?.password as string)
 
-    console.log(isPasswordCorrect)
-
     if (!isPasswordCorrect) {
       return new Response('invalid credentials', { status: 400 })
     }
 
     const generatedToken = await generateToken(user)
-    console.log(generatedToken)
 
     cookieStore.set({
       name: 'Auth',
@@ -67,8 +64,7 @@ export async function POST(request: NextRequest) {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     })
-  } catch (error) {
-    console.log((error as Error).message)
+  } catch  {
     return new Response('Error while getting user', { status: 500 })
   }
 }

@@ -25,7 +25,6 @@ export default function ProgramForm({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log(formValues)
   }
 
   return (
