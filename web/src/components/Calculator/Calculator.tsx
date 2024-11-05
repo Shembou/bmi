@@ -11,10 +11,42 @@ export default function Calculator({ bmi, program, score }: ICalculator) {
   const [order, setOrder] = useState(0)
   const nodeRef = useRef(null)
 
+  const [formValues, setFormValues] = useState({
+    age: '',
+    gender: 'male',
+    weight: '',
+    height: '',
+    pressure: '',
+    isSmoking: 'no',
+    cholesterol: '',
+    name: '',
+    email: '',
+    phone: '',
+    policy: false
+  })
+
   const renderOrder = [
-    <Bmi {...bmi} currentStep={order} setStep={setOrder} />,
-    <Score {...score} currentStep={order} setStep={setOrder} />,
-    <Program {...program} currentStep={order} setStep={setOrder} />
+    <Bmi
+      {...bmi}
+      currentStep={order}
+      setStep={setOrder}
+      formValues={formValues}
+      setFormValues={setFormValues}
+    />,
+    <Score
+      {...score}
+      currentStep={order}
+      setStep={setOrder}
+      formValues={formValues}
+      setFormValues={setFormValues}
+    />,
+    <Program
+      {...program}
+      currentStep={order}
+      setStep={setOrder}
+      formValues={formValues}
+      setFormValues={setFormValues}
+    />
   ]
 
   return (

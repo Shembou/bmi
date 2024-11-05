@@ -1,5 +1,6 @@
-import { Dispatch } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import { IImage } from '../common/Img/IImg'
+import { IFormValues } from './Instruction/IFormValues'
 
 export interface ICalculator {
   program: IProgram
@@ -18,6 +19,8 @@ export interface IBmi {
   }
   currentStep: number
   setStep: Dispatch<number>
+  formValues: IFormValues
+  setFormValues: Dispatch<SetStateAction<IFormValues>>
 }
 
 export interface IScore {
@@ -31,6 +34,8 @@ export interface IScore {
   }
   currentStep: number
   setStep: Dispatch<number>
+  formValues: IFormValues
+  setFormValues: Dispatch<SetStateAction<IFormValues>>
 }
 
 export interface IProgram {
@@ -54,6 +59,8 @@ export interface IProgram {
     }[]
   }
   setStep: Dispatch<number>
+  formValues: IFormValues
+  setFormValues: Dispatch<SetStateAction<IFormValues>>
 
   currentStep: number
 }

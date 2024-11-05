@@ -17,6 +17,10 @@ export default function BmiSummary({
     return 'Otyłość III stopnia'
   }
 
+  const handleClick = () => {
+    setStep(1)
+  }
+
   return (
     <div className="p-8 flex justify-between border rounded-3xl border-input-border items-center">
       <h4>Twój wynik BMI</h4>
@@ -24,7 +28,7 @@ export default function BmiSummary({
         <h4>{bmiResult}</h4>
         <p>{calculateBmiType(bmiResult)}</p>
       </div>
-      <Button content="Przejdź do kalkulatora SCORE" onClick={() => setStep(1)} />
+      <Button content="Przejdź do kalkulatora SCORE" onClick={handleClick} />
     </div>
   )
 }

@@ -6,7 +6,9 @@ export default function Program({
   currentStep,
   programForm: { titleAndDescription, files, image },
   programHero,
-  setStep
+  setStep,
+  formValues,
+  setFormValues
 }: IProgram) {
   return (
     <section>
@@ -21,6 +23,8 @@ export default function Program({
         files={files}
         image={image}
         setStep={setStep}
+        formValues={formValues}
+        setFormValues={setFormValues}
       />
     </section>
   )

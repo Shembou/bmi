@@ -6,9 +6,10 @@ import ScoreForm from './ScoreForm'
 import Link from 'next/link'
 import ProgramForm from './ProgramForm'
 import Img from '@/components/common/Img/Img'
-import { Dispatch, useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import BmiSummary from './BmiSummary'
 import ScoreSummary from './ScoreSummary'
+import { IFormValues } from './IFormValues'
 
 export default function Instruction({
   heading,
@@ -16,7 +17,9 @@ export default function Instruction({
   currentStep,
   image,
   files,
-  setStep
+  setStep,
+  formValues,
+  setFormValues
 }: {
   heading: string
   description: string
@@ -31,21 +34,9 @@ export default function Instruction({
       }
     }
   }[]
+  formValues: IFormValues
+  setFormValues: Dispatch<SetStateAction<IFormValues>>
 }) {
-  const [formValues, setFormValues] = useState({
-    age: '',
-    gender: 'male',
-    weight: '',
-    height: '',
-    pressure: '',
-    isSmoking: 'no',
-    cholesterol: '',
-    name: '',
-    email: '',
-    phone: '',
-    policy: false
-  })
-
   const [bmiResult, setBmiResult] = useState(0)
 
   const [scoreResult, setScoreResult] = useState<number | undefined>(undefined)
