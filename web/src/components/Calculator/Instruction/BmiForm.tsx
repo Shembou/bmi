@@ -45,7 +45,6 @@ export default function BmiForm({
         onChange={e => handleInputChange(e)}
         name="age"
         value={formValues['age'].toString() ?? ''}
-        pattern="^(0|[1-9]|[1-9][0-9]|100|1[01][0-9]|120)$|^(?!\s*$).*$"
         title="Proszę podać poprawny wiek"
         min={1}
         max={120}

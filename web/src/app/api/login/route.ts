@@ -9,12 +9,12 @@ import { cookies } from 'next/headers'
 import { comparePassword } from '@/utils/passwordManager'
 
 export async function POST(request: NextRequest) {
+  await initializeDatabase()
+
   interface IUser {
     username: string
     password: string
   }
-
-  await initializeDatabase()
 
   try {
     const body = (await request.json()) as IUser

@@ -1,77 +1,97 @@
 'use client'
 
-import Button from '@/components/common/Button/Button'
-import Input from '@/components/common/Input/Input'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import { Subscriber } from '@/entities/Subscriber'
+import { Box, Link, Pagination, TextField } from '@mui/material'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useCallback, useEffect, useState } from 'react'
+import SearchIcon from '@mui/icons-material/Search'
+import SubscribersTable from '@/components/common/SubscribersTable/SubscribersTable'
 
-const LoginPage = () => {
-  const [formValues, setFormValues] = useState({
-    username: '',
-    password: ''
-  })
-
-  const handleInputChange = ({
-    target: { name, value }
-  }: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormValues(prevValues => ({ ...prevValues, [name]: value }))
-  }
+export default function Boundry() {
   const router = useRouter()
+  const pathName = usePathname()
+  const searchParams = useSearchParams()
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const [subscribers, setSubscribers] = useState<Subscriber[]>([])
+  const [totalPages, setTotalPages] = useState(1)
+  const [currentPage, setCurrentPage] = useState(1)
 
-    try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formValues)
-      })
-      if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`)
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams.toString())
+      params.set(name, value)
+
+      return params.toString()
+    },
+    [searchParams]
+  )
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`/api/subscribers?${searchParams.toString()}`, {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' }
+        })
+
+        if (!response.ok) {
+          throw new Error(`Response status: ${response.status}`)
+        }
+
+        const data = await response.json()
+        setSubscribers(data.subscribers)
+        setTotalPages(data.totalPages)
+        setCurrentPage(data.page)
+        router.push(`${pathName}?${createQueryString('page', data.page)}`)
+      } catch (error) {
+        console.error((error as Error).message)
       }
-      router.push('/subscribers')
-    } catch (error) {
-      console.error((error as Error).message)
     }
+
+    fetchData()
+  }, [searchParams])
+
+  function handleKeyUp(event: React.KeyboardEvent<HTMLDivElement>) {
+    const value = (event.target as HTMLInputElement).value
+    router.push(`${pathName}?${createQueryString('search', value)}`)
   }
 
+  function handlePaginationChange(value: number) {
+    router.push(`${pathName}?${createQueryString('page', value.toString())}`)
+    setCurrentPage(value)
+  }
   return (
-    <div className="flex items-center justify-center h-lvh bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
-        <Link href="/" className="w-min">
-          <HospitalIcon />
-        </Link>
-        <form className="mt-4" onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <Input
-              label="login"
-              type="text"
-              name="username"
-              required
-              onChange={handleInputChange}
-              value={formValues['username']}
+    <main>
+      <section>
+        <div className="flex justify-between">
+          <Box sx={{ display: 'flex', alignItems: 'flex-end', marginBottom: 2 }}>
+            <SearchIcon sx={{ color: 'black', mr: 1, my: 0.5 }} className="self-center" />
+            <TextField
+              id="search-box"
+              label="Szukaj subskrybentów"
+              onKeyUp={event => handleKeyUp(event)}
             />
-          </div>
-          <div className="mb-4">
-            <Input
-              label="hasło"
-              type="password"
-              name="password"
-              required
-              onChange={handleInputChange}
-              value={formValues['password']}
-            />
-          </div>
-          <Button className="w-full" content="Login"></Button>
-        </form>
-      </div>
-    </div>
+          </Box>
+          <Link href="/">
+            <HospitalIcon />
+          </Link>
+        </div>
+        <SubscribersTable subscribers={subscribers} />
+        <Box sx={{ marginTop: 2, display: 'flex', justifyContent: 'center' }}>
+          <Pagination
+            count={totalPages}
+            page={currentPage}
+            onChange={(event, value) => handlePaginationChange(value)}
+            color="primary"
+            variant="outlined"
+            shape="rounded"
+            disabled={totalPages === 0}
+          />
+        </Box>
+      </section>
+    </main>
   )
 }
-
-export default LoginPage
 
 const HospitalIcon = () => (
   <svg

@@ -22,7 +22,7 @@ export default function ScoreSummary({
         <h4>{`${scoreResult}%`} </h4>
         <p>{calculateScoreType(scoreResult)}</p>
       </div>
-      <Button content="Przejdź do kalkulatora SCORE" onClick={() => setStep(2)} />
+      {scoreResult >= 1 && <Button content="Zapisz się do programu" onClick={() => setStep(2)} />}
     </div>
   )
 }

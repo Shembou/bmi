@@ -12,7 +12,10 @@ export async function initializeDatabase() {
 
         try {
           const userRepository = AppDataSource.getRepository(User)
-          await userRepository.save(user)
+          const users = await userRepository.find()
+          if (users.length == 0) {
+            await userRepository.save(user)
+          }
         } catch (error) {
           console.log('error while adding user', error)
         }

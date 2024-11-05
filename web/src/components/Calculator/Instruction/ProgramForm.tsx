@@ -23,14 +23,17 @@ export default function ProgramForm({
     setFormValues(prevValues => ({ ...prevValues, [name]: checked }))
   }
 
-  const handleSubmit = async(e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      const response = await fetch('/api/subscribers', {
+      const response = await fetch('/api/kalkulator', {
         method: 'POST',
-        headers: {'Content-type': 'application-json'},
+        headers: { 'Content-type': 'application-json' },
         body: JSON.stringify(formValues)
       })
+      if (!response.ok) {
+        console.log(response.status)
+      }
     } catch (error) {
       console.error((error as Error).message)
     }

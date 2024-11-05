@@ -28,7 +28,7 @@ export default function BmiSummary({
         <h4>{bmiResult}</h4>
         <p>{calculateBmiType(bmiResult)}</p>
       </div>
-      <Button content="Przejdź do kalkulatora SCORE" onClick={handleClick} />
+      {bmiResult >= 25 && <Button content="Przejdź do kalkulatora SCORE" onClick={handleClick} />}
     </div>
   )
 }

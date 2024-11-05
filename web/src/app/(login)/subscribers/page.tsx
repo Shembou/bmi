@@ -1,25 +1,12 @@
-import { useEffect } from "react"
+'use client'
 
-export default async function SubscribersPage() {
-  const [subscribers,setSubscribers] = useEffect<ISubscribers[]>(null)
+import { Suspense } from 'react'
+import Boundry from './boundry'
 
-  useEffect(() => {
-    try {
-      const getData = await fetch('/api/subscribers', {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      })
-      if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`)
-      }
-    }
-    catch (error) {
-      console.error((error as Error).message)
-  },[])
-
-  return <main>
-    <section>
-      
-      </section>
-      </main>
+export default function SubscribersPage() {
+  return (
+    <Suspense>
+      <Boundry />
+    </Suspense>
+  )
 }

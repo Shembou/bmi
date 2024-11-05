@@ -1,7 +1,7 @@
 import 'reflect-metadata'
 import { DataSource } from 'typeorm'
 import { User } from '../entities/User'
-import { Subscribers } from '@/entities/Subscriber'
+import { Subscriber } from '@/entities/Subscriber'
 
 export const AppDataSource = new DataSource({
   type: 'mysql',
@@ -12,5 +12,5 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_DATABASE || 'szpital',
   synchronize: true, // Disable in production
   logging: true,
-  entities: [User, Subscribers]
+  entities: [User, Subscriber]
 })

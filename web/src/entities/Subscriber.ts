@@ -30,7 +30,7 @@ export class Subscriber {
   @Column()
   name!: string
 
-  @Column('text')
+  @Column({ unique: true })
   email!: string
 
   @Column()
