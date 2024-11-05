@@ -23,9 +23,17 @@ export default function ProgramForm({
     setFormValues(prevValues => ({ ...prevValues, [name]: checked }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault()
-    console.log(formValues)
+    try {
+      const response = await fetch('/api/subscribers', {
+        method: 'POST',
+        headers: {'Content-type': 'application-json'},
+        body: JSON.stringify(formValues)
+      })
+    } catch (error) {
+      console.error((error as Error).message)
+    }
   }
 
   return (

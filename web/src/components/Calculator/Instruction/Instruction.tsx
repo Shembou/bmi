@@ -34,7 +34,7 @@ export default function Instruction({
       }
     }
   }[]
-  formValues: IFormValues
+  formValues: IFormValues 
   setFormValues: Dispatch<SetStateAction<IFormValues>>
 }) {
   const [bmiResult, setBmiResult] = useState(0)
