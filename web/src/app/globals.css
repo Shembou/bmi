@@ -83,6 +83,21 @@ p {
 a {
     text-decoration: underline;
     text-underline-offset: 2px;
+    transition: color 300ms ease-in-out;
+}
+
+a:focus-visible {
+    outline: 2px dashed #164346;
+    outline-offset: 2px;
+    color: #237F85
+}
+
+a:hover {
+    color: #237F85
+}
+
+.button {
+    color: var(--defaultFontColor) !important
 }
 
 .fade-enter {
@@ -136,4 +151,11 @@ a {
 :focus-visible {
     outline: 2px dashed #164346;
     outline-offset: 2px;
+}
+
+.button:focus-visible {
+    outline-offset: -2px;
+    border: none;
+    outline: 2px dashed #164346;
+
 }
