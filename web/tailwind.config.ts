@@ -11,6 +11,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        '250': '250px'
+      },
       padding: {
         input: '9px'
       },
@@ -85,7 +88,8 @@ const config: Config = {
       'dark-input-border': '#000000',
       'dark-header-border': '#000000',
       'button-hover': '#B2ECEE',
-      'button-purple-hover': '#e9e4f7'
+      'button-purple-hover': '#e9e4f7',
+      'error-color': '#324A4B'
     }
   },
   plugins: [],
