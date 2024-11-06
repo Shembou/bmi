@@ -29,9 +29,11 @@ import portableImagesGrid from './common/portableImagesGrid'
 import videoSection, {youtubeVideos} from './common/videoSection'
 import videoPage from './pages/single/videoPage'
 import videoContent from './common/videoContent'
+import privacyPolicyPage from './pages/single/privacyPolicyPage'
+import rodoPage from './pages/single/rodoPage'
 
 export const baseConfiguration = [header, footer, meta]
-export const singlePages = [homePage, videoPage]
+export const singlePages = [homePage, videoPage, privacyPolicyPage, rodoPage]
 export const multiplePages = [landingPages, sicknessPages]
 
 export const common = [

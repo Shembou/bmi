@@ -13,7 +13,13 @@ import { IPortableImagesGrid } from '../PortableImagesGrid/IPortableImagesGrid'
 import { generateTableOfContent } from '@/utils/generateTableOfContent'
 import TableOfContent from './TableOfContent'
 
-export default function SicknessContent({ content }: { content: PortableTextBlock[] }) {
+export default function SicknessContent({
+  content,
+  header
+}: {
+  content: PortableTextBlock[]
+  header?: string
+}) {
   if (!content) return null
 
   const components = {
@@ -24,7 +30,7 @@ export default function SicknessContent({ content }: { content: PortableTextBloc
     },
     block: {
       h2: ({ value }: { value: [] }) => (
-        <Markdown.h2 id={slugify(toPlainText(value))}>
+        <Markdown.h2 id={slugify(toPlainText(value))} className="pt-12">
           {portableTextToMarkdown(value as INode)}
         </Markdown.h2>
       ),
@@ -44,19 +50,15 @@ export default function SicknessContent({ content }: { content: PortableTextBloc
     },
     listItem: {
       number: ({ children }: { children: React.ReactNode[] }) => (
-        <Markdown.li className="list-none">{children[0] as string}</Markdown.li>
+        <Markdown.li>{children[0] as string}</Markdown.li>
       ),
-      bullet: ({ children }: { children: React.ReactNode[] }) => (
-        <li className="list-none">{children}</li>
-      )
+      bullet: ({ children }: { children: React.ReactNode[] }) => <li>{children}</li>
     },
     list: {
       bullet: ({ children }: { children: React.ReactNode }) => (
-        <ul className="grid gap-4 pt-8 list-none">{children}</ul>
+        <ul className="grid gap-4 pt-8 unorderedList">{children}</ul>
       ),
-      number: ({ children }: { children: React.ReactNode }) => (
-        <ol className="list-none">{children}</ol>
-      )
+      number: ({ children }: { children: React.ReactNode }) => <ol>{children}</ol>
     },
     marks: {
       link: ({ value, children }: { value: { href: string }; children: string }) => {
@@ -73,8 +75,8 @@ export default function SicknessContent({ content }: { content: PortableTextBloc
 
   return (
     <section className="grid gap-12  grid-flow-row xl:grid-flow-col xl:grid-cols-12">
-      <TableOfContent content={nodes} />
-      <div className="xl:col-span-7">
+      <TableOfContent content={nodes} header={header} />
+      <div className="xl:col-span-7 first-of-type:-mt-12">
         <PortableText
           components={components as unknown as Partial<PortableTextReactComponents>}
           value={content}
