@@ -8,7 +8,7 @@ export default function ContactInfo({ employeeCards }: IContactInfo) {
   }
 
   return (
-    <section className="grid gap-x-20 gap-y-12 894:grid-cols-2 relative py-24 grid-cols-1 justify-items-center">
+    <section className="grid gap-x-20 gap-y-12 894:grid-cols-2 relative py-24 grid-cols-1 ">
       {/* <div className="absolute bg-blur-green-color opacity-70 rounded-full w-96 h-96 blur-250 -z-10 -left-44" /> */}
       {/* <div className="absolute bg-blur-blue-color opacity-70 rounded-full w-96 h-96 blur-250 -z-10 -right-44" /> */}
       {employeeCards.map(({ mail, name, title }, index) => (

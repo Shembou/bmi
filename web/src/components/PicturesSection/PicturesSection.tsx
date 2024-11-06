@@ -15,14 +15,14 @@ export default function ({ description, heading, imagesGrid }: IPicturesSection)
             className={`grid items-center gap-x-4 ${i == 1 ? 'md:col-span-3' : ' md:col-span-2'} `}
           >
             {i === 0 ? (
-              <div className="grid h-full text-center">
+              <div className="grid h-full text-start">
                 <Img data={image} height={196} width={329} className="h-full w-full" />
                 <p className=" p-8 border-image-border-color border bg-image-background-color rounded-br-2xl rounded-bl-2xl">
                   {description}
                 </p>
               </div>
             ) : (
-              <div className={`grid text-center ${i == 2 && 'h-full'}`}>
+              <div className={`grid text-start ${i == 2 && 'h-full'}`}>
                 <p
                   className={`p-8 ${i == 1 ? 'border-image-2-border-color border bg-image-2-background-color' : 'border-image-3-border-color border bg-image-3-background-color text-purple-font-color'} rounded-tr-2xl rounded-tl-2xl dark:text-dark-icon-border-color`}
                 >

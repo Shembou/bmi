@@ -76,7 +76,7 @@ export default function BmiForm({
         required
       />
       <Input
-        label="Wzrost"
+        label="Wzrost (cm)"
         type="number"
         name="height"
         onChange={handleInputChange}

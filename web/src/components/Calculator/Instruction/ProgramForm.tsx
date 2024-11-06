@@ -96,19 +96,18 @@ export default function ProgramForm({
         title="podaj poprawny numer telefonu np.111111111 lub 111-111-111"
         required
       />
+      <Checkbox
+        name="policy"
+        onChange={e => handleCheckboxChange(e)}
+        value={formValues['policy'] ?? false}
+        required
+      />
       <ImportFile
         label="Do dokumentów rekrutacyjnych wymagane jest zaświadczenie o zatrudnieniu na dowolnym wzorze"
         name="files"
         error={error}
         setError={setError}
         setFormValues={setFormValues}
-      />
-
-      <Checkbox
-        name="policy"
-        onChange={e => handleCheckboxChange(e)}
-        value={formValues['policy'] ?? false}
-        required
       />
       <Button content="Wyślij zgłoszenie" color="primary" className="w-full sm:px-0" />
     </form>

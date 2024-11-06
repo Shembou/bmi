@@ -11,6 +11,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      padding: {
+        input: '9px'
+      },
       gridTemplateColumns: {
         '23': 'repeat(23, minmax(0,1fr))'
       },
