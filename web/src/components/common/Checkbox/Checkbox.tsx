@@ -31,6 +31,15 @@ export default function Checkbox({
               href="/polityka-prywatnosci"
             >
               Politykę prywatności
+            </a>{' '}
+            oraz{' '}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 underline"
+              href="/rodo"
+            >
+              RODO
             </a>
           </>
         )}
