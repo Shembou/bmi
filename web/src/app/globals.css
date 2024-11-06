@@ -155,7 +155,6 @@ a:hover {
 
 .button:focus-visible {
     outline-offset: -2px;
-    border: none;
     outline: 2px dashed #164346;
 
 }
