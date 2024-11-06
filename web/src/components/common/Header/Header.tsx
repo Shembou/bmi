@@ -34,8 +34,8 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
   }, [])
 
   const fontSizeScales = {
-    small: 0.9,
-    medium: 1,
+    small: 1,
+    medium: 1.05,
     large: 1.1
   }
 
@@ -74,9 +74,9 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
     <header className="relative">
       <div className="max-w-default grid gap-4 pb-20 relative w-full mx-auto px-8">
         {/* <div className="absolute h-130 w-130 -right-40 -top-20 rounded-full opacity-50 bg-lime blur-3xl -z-10"></div> */}
-        <div className="flex md:justify-between items-center md:content-center justify-center flex-wrap md:flex-nowrap gap-y-5">
+        <div className="flex lg:justify-between items-center lg:content-center justify-center flex-wrap lg:flex-nowrap gap-y-5">
           {data[0].logos.map((logo, i) => (
-            <Img className="flex-none" data={logo.image} width={443} height={46} key={i} />
+            <Img className="flex-none" data={logo.image} width={600} height={60} key={i} />
           ))}
           <div className="flex gap-16 align-item items-center">
             <div>
