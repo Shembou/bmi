@@ -10,6 +10,8 @@ import {
   Button,
   Box
 } from '@mui/material'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function SubscribersTable({ subscribers }: { subscribers: Subscriber[] }) {
   const [selectedSubscriber, setSelectedSubscriber] = useState<Subscriber | null>(null)
@@ -79,11 +81,13 @@ export default function SubscribersTable({ subscribers }: { subscribers: Subscri
       window.URL.revokeObjectURL(url)
     } catch (error) {
       console.error((error as Error).message)
+      toast.error('Błąd przy pobieraniu pliku. Możliwe jest, że użytkownik nie dodał pliku')
     }
   }
 
   return (
     <Box sx={{ position: 'relative' }}>
+      <ToastContainer />
       <TableContainer>
         <Table sx={{ minWidth: 650 }} aria-label="subscriber table">
           <TableHead>

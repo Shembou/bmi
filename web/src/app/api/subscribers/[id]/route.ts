@@ -14,18 +14,23 @@ export async function GET(request: NextResponse) {
     const subscriber = await AppDataSource.manager.findOne(Subscriber, {
       where: { id: Number(id) }
     })
-    if (!subscriber || !subscriber.files) {
+    if (subscriber) {
+      if (subscriber.files.length != 0) {
+        const headers = new Headers({
+          'Content-Disposition': `attachment; filename="test.pdf"`,
+          'Content-Type': 'application/pdf'
+        })
+
+        return new Response(subscriber.files, {
+          status: 200,
+          headers
+        })
+      } else {
+        return new Response('File not found', { status: 400 })
+      }
+    } else {
       return new Response('File not found', { status: 400 })
     }
-    const headers = new Headers({
-      'Content-Disposition': `attachment; filename="test.pdf"`,
-      'Content-Type': 'application/pdf'
-    })
-
-    return new Response(subscriber.files, {
-      status: 200,
-      headers
-    })
   } catch (error) {
     console.log(error)
     return new Response('Błąd przy pobieraniu PDFa', { status: 500 })

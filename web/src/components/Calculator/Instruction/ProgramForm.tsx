@@ -4,6 +4,8 @@ import Input from '@/components/common/Input/Input'
 import { IFormValues } from './IFormValues'
 import { Dispatch, SetStateAction, useState } from 'react'
 import ImportFile from '@/components/common/ImportFile/ImportFile'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function ProgramForm({
   formValues,
@@ -55,7 +57,8 @@ export default function ProgramForm({
         body: JSON.stringify(formValues)
       })
       if (!response.ok) {
-        console.log(response.status)
+        if (response.status == 400) toast.warning('Jesteś już uczestnikiem programu.')
+        if (response.status == 500) toast.error('Błąd serwera')
       }
     } catch (error) {
       console.error((error as Error).message)
@@ -67,6 +70,7 @@ export default function ProgramForm({
       className="grid place-self-center self-start gap-8 col-span-full 894:w-80 894:col-span-9 max-w-130 w-full"
       onSubmit={handleSubmit}
     >
+      <ToastContainer />
       <Input
         label="Imię i nazwisko"
         type="text"

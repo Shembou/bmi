@@ -5,6 +5,8 @@ import Input from '@/components/common/Input/Input'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const LoginPage = () => {
   const [formValues, setFormValues] = useState({
@@ -34,6 +36,7 @@ const LoginPage = () => {
       router.push('/subscribers')
     } catch (error) {
       console.error((error as Error).message)
+      toast.error('Niepoprawny login lub hasło')
     }
   }
 
@@ -67,6 +70,7 @@ const LoginPage = () => {
           <Button className="w-full" content="Login"></Button>
         </form>
       </div>
+      <ToastContainer />
     </div>
   )
 }
