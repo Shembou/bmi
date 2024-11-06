@@ -80,7 +80,8 @@ const config: Config = {
       'dark-progressbar-1': '#000000',
       'dark-progressbar-inactive': '#333333',
       'dark-input-border': '#000000',
-      'dark-header-border': '#000000'
+      'dark-header-border': '#000000',
+      'button-hover': '#B2ECEE'
     }
   },
   plugins: [],

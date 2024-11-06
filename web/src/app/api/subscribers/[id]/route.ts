@@ -1,10 +1,10 @@
 import { Subscriber } from '@/entities/Subscriber'
 import { AppDataSource } from '@/lib/data-source'
 import { initializeDatabase } from '@/lib/database'
-import { NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
 import 'reflect-metadata'
 
-export async function GET(request: NextResponse) {
+export async function GET(request: NextRequest) {
   await initializeDatabase()
 
   const url = request.url
