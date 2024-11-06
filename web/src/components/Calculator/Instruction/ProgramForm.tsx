@@ -50,7 +50,6 @@ export default function ProgramForm({
             formValues.files[0] as unknown as File
           )) as unknown as string[]
       }
-      console.log(formValues)
       const response = await fetch('/api/kalkulator', {
         method: 'POST',
         headers: { 'Content-type': 'application-json' },

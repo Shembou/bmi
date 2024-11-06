@@ -16,13 +16,18 @@ export default function ScoreSummary({
   }
 
   return (
-    <div className="p-8 flex justify-between border rounded-3xl border-input-border items-center">
+    <div
+      className="p-8 flex justify-between border rounded-3xl border-input-border items-center mb-20"
+      id="scoreSummary"
+    >
       <h4>Twój wynik Score</h4>
       <div className="px-8 flex w-96 justify-between items-center border rounded-3xl border-input-border">
         <h4>{`${scoreResult}%`} </h4>
         <p>{calculateScoreType(scoreResult)}</p>
       </div>
-      {scoreResult >= 1 && <Button content="Zapisz się do programu" onClick={() => setStep(2)} />}
+      {scoreResult >= 1 && (
+        <Button content="Zapisz się do programu" onClick={() => setStep(2)} className="px-4 " />
+      )}
     </div>
   )
 }

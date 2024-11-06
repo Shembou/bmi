@@ -3,6 +3,7 @@ import Input from '@/components/common/Input/Input'
 import Select from '@/components/common/Select/Select'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { IFormValues } from './IFormValues'
+import { smoothScroll } from '@/utils/smoothScroll'
 
 export default function BmiForm({
   formValues,
@@ -32,6 +33,10 @@ export default function BmiForm({
     const division = Number(Math.pow(Number(formValues['height']) / 100, 2).toFixed(2))
     const result = Math.floor((Number(formValues['weight']) / division) * 10) / 10
     setBmiResult(result)
+
+    setTimeout(() => {
+      smoothScroll(e as React.MouseEvent, 'bmiSummary')
+    }, 100)
   }
 
   return (

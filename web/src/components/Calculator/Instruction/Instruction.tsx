@@ -10,6 +10,7 @@ import { Dispatch, SetStateAction, useState } from 'react'
 import BmiSummary from './BmiSummary'
 import ScoreSummary from './ScoreSummary'
 import { IFormValues } from './IFormValues'
+import Button from '@/components/common/Button/Button'
 
 export default function Instruction({
   heading,
@@ -77,12 +78,22 @@ export default function Instruction({
                 <h2>Pliki do pobrania</h2>
                 {files.map(({ file, name }, index) => (
                   <div key={index}>
-                    <Link href={file.asset.url} className="grid gap-2 grid-flow-col justify-start">
+                    <Link
+                      href={file.asset.url}
+                      className="grid gap-2 grid-flow-col justify-start w-fit"
+                    >
                       {name} <DownloadIcon />
                     </Link>
                   </div>
                 ))}
               </div>
+              {currentStep > 0 && (
+                <Button
+                  className="w-full"
+                  content="Poprzedni krok"
+                  onClick={() => setStep(--currentStep)}
+                />
+              )}
             </header>
             {renderOrder[currentStep]}
           </>
@@ -91,6 +102,13 @@ export default function Instruction({
             <header className="xl:col-span-4 grid gap-6 self-start col-span-full">
               <h2>{heading}</h2>
               <p>{description}</p>
+              {currentStep > 0 && (
+                <Button
+                  className="w-full"
+                  content="Poprzedni krok"
+                  onClick={() => setStep(--currentStep)}
+                />
+              )}
             </header>
             {renderOrder[currentStep]}
           </>

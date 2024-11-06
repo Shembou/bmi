@@ -4,6 +4,7 @@ import RadioGroup from '@/components/common/RadioGroup/RadioGroup'
 import { Dispatch, SetStateAction } from 'react'
 import { IFormValues } from './IFormValues'
 import { calculatePolScore } from '@/utils/calculatePolScore'
+import { smoothScroll } from '@/utils/smoothScroll'
 
 export default function ScoreForm({
   formValues,
@@ -32,6 +33,10 @@ export default function ScoreForm({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setScoreResult(calculatePolScore(formValues))
+
+    setTimeout(() => {
+      smoothScroll(e as React.MouseEvent, 'scoreSummary')
+    }, 100)
   }
 
   return (
