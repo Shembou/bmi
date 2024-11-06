@@ -35,4 +35,7 @@ export class Subscriber {
 
   @Column()
   phone!: string
+
+  @Column({ type: 'longblob' })
+  files!: Buffer
 }

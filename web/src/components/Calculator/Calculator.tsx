@@ -22,7 +22,8 @@ export default function Calculator({ bmi, program, score }: ICalculator) {
     name: '',
     email: '',
     phone: '',
-    policy: false
+    policy: false,
+    files: ['']
   })
 
   const renderOrder = [

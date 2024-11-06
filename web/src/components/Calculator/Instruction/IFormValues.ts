@@ -10,4 +10,5 @@ export interface IFormValues {
   email: string
   phone: string
   policy: boolean
+  files: Array<string>
 }

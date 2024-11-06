@@ -13,6 +13,11 @@ export async function POST(request: NextRequest) {
   try {
     const body = (await request.json()) as IFormValues
 
+    const base64File = body.files as unknown as string
+    const fileBuffer = Buffer.from(base64File.split(',')[1], 'base64')
+
+    console.log(fileBuffer)
+
     const existingSubscriber = await AppDataSource.manager.findOne(Subscriber, {
       where: { email: body.email }
     })
@@ -32,6 +37,7 @@ export async function POST(request: NextRequest) {
     subscriber.phone = body.phone
     subscriber.pressure = Number(body.pressure)
     subscriber.weight = Number(body.weight)
+    subscriber.files = fileBuffer
 
     await AppDataSource.manager.save(subscriber)
 
