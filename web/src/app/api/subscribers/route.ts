@@ -9,10 +9,10 @@ import 'reflect-metadata'
 export async function GET(request: NextRequest) {
   await initializeDatabase()
 
-  const params = request.nextUrl.searchParams
+  const searchParams = request.nextUrl.searchParams
 
   try {
-    const searchParam = params.get('search')
+    const searchParam = searchParams.get('search')
 
     const limit = 100
 
@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
       )
     }
 
-    let page = parseInt(params.get('page') as string) || 1
+    let page = parseInt(searchParams.get('page') as string) || 1
     const totalSubscribers = subscribers.length
     const totalPages = Math.ceil(totalSubscribers / limit)
     const paginatedSubscribers = subscribers.slice((page - 1) * limit, page * limit)

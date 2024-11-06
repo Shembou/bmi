@@ -60,6 +60,28 @@ export default function SubscribersTable({ subscribers }: { subscribers: Subscri
     document.body.removeChild(link)
   }
 
+  const handleDownload = async (id: number) => {
+    console.log(id)
+    try {
+      const response = await fetch(`/api/subscribers/${id}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+      })
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`)
+      }
+      const blob = await response.blob()
+      const url = window.URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'subscriber.pdf'
+      a.click()
+      window.URL.revokeObjectURL(url)
+    } catch (error) {
+      console.error((error as Error).message)
+    }
+  }
+
   return (
     <Box sx={{ position: 'relative' }}>
       <TableContainer>
@@ -116,7 +138,17 @@ export default function SubscribersTable({ subscribers }: { subscribers: Subscri
           onClick={exportToCSV}
           sx={{ position: 'fixed', bottom: 20, right: 20 }}
         >
-          Export to CSV
+          Exportuj do CSV
+        </Button>
+      )}
+      {selectedSubscriber && (
+        <Button
+          variant="contained"
+          color="error"
+          onClick={() => handleDownload(selectedSubscriber.id)}
+          sx={{ position: 'fixed', bottom: 80, right: 20 }}
+        >
+          Pobierz PDF użytkownika
         </Button>
       )}
     </Box>

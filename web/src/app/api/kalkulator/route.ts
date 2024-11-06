@@ -16,8 +16,6 @@ export async function POST(request: NextRequest) {
     const base64File = body.files as unknown as string
     const fileBuffer = Buffer.from(base64File.split(',')[1], 'base64')
 
-    console.log(fileBuffer)
-
     const existingSubscriber = await AppDataSource.manager.findOne(Subscriber, {
       where: { email: body.email }
     })
