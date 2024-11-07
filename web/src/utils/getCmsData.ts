@@ -13,7 +13,7 @@ export async function getCmsData<QueryResponse>({
     token: process.env.SANITY_API_TOKEN,
     perspective: 'published',
     next: {
-      revalidate: 3600
+      revalidate: 60
     }
   })
 }
