@@ -1,11 +1,16 @@
 import { IVideoSection } from './IVideoSection'
 
 export default function VideoSection({ videos }: IVideoSection) {
-  const formatYouTubeURL = (url: string) => {
-    if (url.includes('watch?v=')) {
-      return url.replace('watch?v=', 'embed/')
+  const formatYouTubeURL = (urlOrId: string) => {
+    if (urlOrId.includes('watch?v=')) {
+      return urlOrId.replace('watch?v=', 'embed/')
+    } else if (urlOrId.startsWith('https://youtu.be/')) {
+      return urlOrId.replace('https://youtu.be/', 'https://www.youtube.com/embed/')
+    } else if (urlOrId.includes('youtube.com/embed/')) {
+      return urlOrId
     }
-    return url
+
+    return `https://www.youtube.com/embed/${urlOrId}`
   }
 
   return (
