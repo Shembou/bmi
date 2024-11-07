@@ -9,7 +9,7 @@ const TableOfContent = ({ content, header }: { content: INode[]; header?: string
     <>
       {header && <h2>{header}</h2>}
       <nav
-        className={`h-min xl:col-span-5 p-8 rounded-2xl overflow-hidden w-full xl:sticky xl:max-w-xl xl:bg-white ${header ? 'xl:top-16 xl:mt-32' : 'top-4'}`}
+        className={`h-min xl:col-span-5 p-8 rounded-2xl overflow-hidden w-full xl:sticky xl:max-w-xl xl:bg-white ${header ? 'xl:top-16 xl:mt-32' : 'top-4'} max-h-96 overflow-y-auto`}
       >
         <div className="relative z-10">
           <ol className={'grid gap-5'}>
@@ -27,7 +27,12 @@ const TableOfContent = ({ content, header }: { content: INode[]; header?: string
                   <ul>
                     {subheadings?.map(({ text, slug }, subIndex) => (
                       <li key={subIndex}>
-                        <Link href={`#${slug}`} onClick={e => smoothScroll(e, slug)}>
+                        <Link
+                          href={`#${slug}`}
+                          onClick={e => smoothScroll(e, slug)}
+                          className={'flex gap-2 text-lg no-underline w-fit'}
+                        >
+                          <span>•</span>
                           <span>{removeMarkdown(text as string)}</span>
                         </Link>
                       </li>
