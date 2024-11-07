@@ -132,13 +132,19 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                       nodeRef={ref}
                     >
                       <div
-                        className="absolute w-full grid border border-header-border bg-white rounded-2xl gap-1 p-2"
+                        className="absolute w-full grid border border-header-border bg-white rounded-2xl gap-1 p-2 z-20"
                         ref={ref}
                       >
                         {sublinks?.map(({ link, name }, subIndex) => (
-                          <Link key={subIndex} href={link} className="no-underline text-black">
-                            {name}
-                          </Link>
+                          <>
+                            <Link
+                              key={subIndex}
+                              href={link}
+                              className="no-underline text-black w-fit z-10"
+                            >
+                              {name}
+                            </Link>
+                          </>
                         ))}
                       </div>
                     </CSSTransition>
