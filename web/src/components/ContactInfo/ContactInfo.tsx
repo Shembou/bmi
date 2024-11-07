@@ -1,35 +1,41 @@
 'use client'
 
+import { toast, ToastContainer } from 'react-toastify'
 import { IContactInfo } from './IContactInfo'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function ContactInfo({ employeeCards }: IContactInfo) {
   const handleOnClick = ({ mail }: { mail: string }) => {
     navigator.clipboard.writeText(mail)
+    toast.success(`${mail} został skopiowany do schowka`)
   }
 
   return (
-    <section className="grid gap-x-20 gap-y-12 894:grid-cols-2 relative py-24 grid-cols-1 ">
-      {/* <div className="absolute bg-blur-green-color opacity-70 rounded-full w-96 h-96 blur-250 -z-10 -left-44" /> */}
-      {/* <div className="absolute bg-blur-blue-color opacity-70 rounded-full w-96 h-96 blur-250 -z-10 -right-44" /> */}
-      {employeeCards.map(({ mail, name, title }, index) => (
-        <div key={index} className="gap-4 grid p-8 rounded-3xl bg-white">
-          <h4>{name}</h4>
-          <p>{title}</p>
-          <div className="flex gap-2 items-center">
-            <div className="p-1 border rounded-full bg-icon-bg-color border-icon-border-color dark:bg-dark-icon-bg-color">
-              <Envelope />
+    <>
+      <ToastContainer />
+      <section className="grid gap-x-20 gap-y-12 894:grid-cols-2 relative py-24 grid-cols-1 ">
+        {/* <div className="absolute bg-blur-green-color opacity-70 rounded-full w-96 h-96 blur-250 -z-10 -left-44" /> */}
+        {/* <div className="absolute bg-blur-blue-color opacity-70 rounded-full w-96 h-96 blur-250 -z-10 -right-44" /> */}
+        {employeeCards.map(({ mail, name, title }, index) => (
+          <div key={index} className="gap-4 grid p-8 rounded-3xl bg-white">
+            <h4>{name}</h4>
+            <p>{title}</p>
+            <div className="flex gap-2 items-center">
+              <div className="p-1 border rounded-full bg-icon-bg-color border-icon-border-color dark:bg-dark-icon-bg-color">
+                <Envelope />
+              </div>
+              <p>{mail}</p>
+              <button
+                onClick={() => handleOnClick({ mail })}
+                className="border border-default-font-color rounded-full px-2 text-sm py-1 text-default-font-color bg-icon-bg-color dark:bg-dark-icon-bg-color dark:text-dark-default-font-color"
+              >
+                SKOPIUJ
+              </button>
             </div>
-            <p>{mail}</p>
-            <button
-              onClick={() => handleOnClick({ mail })}
-              className="border border-default-font-color rounded-full px-2 text-sm py-1 text-default-font-color bg-icon-bg-color dark:bg-dark-icon-bg-color dark:text-dark-default-font-color"
-            >
-              SKOPIUJ
-            </button>
           </div>
-        </div>
-      ))}
-    </section>
+        ))}
+      </section>
+    </>
   )
 }
 

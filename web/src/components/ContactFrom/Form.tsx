@@ -4,6 +4,8 @@ import { useState } from 'react'
 import Input from '../common/Input/Input'
 import Checkbox from '../common/Checkbox/Checkbox'
 import Button from '../common/Button/Button'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function Form({
   content,
@@ -30,12 +32,27 @@ export default function Form({
     setFormValues(prevValues => ({ ...prevValues, [name]: checked }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-type': 'application-json' },
+        body: JSON.stringify(formValues)
+      })
+      if (!response.ok) {
+        if (response.status == 400) toast.warning('Jesteś już uczestnikiem programu.')
+        if (response.status == 500) toast.error('Błąd serwera')
+      }
+      toast.success('wiadomość została wysłana')
+    } catch (error) {
+      console.error((error as Error).message)
+    }
   }
 
   return (
     <form className={`${className}`} onSubmit={handleSubmit}>
+      <ToastContainer />
       <Input
         label={email}
         type="email"
