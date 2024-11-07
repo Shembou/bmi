@@ -12,7 +12,7 @@ export default async function Footer() {
   const singlePages = data[0].links.filter(link => link.isExpandable == false)
 
   return (
-    <footer className="rounded-t-32 relative overflow-hidden">
+    <footer className="rounded-t-32 relative overflow-hidden mt-24">
       <div className="max-w-default flex flex-wrap justify-between gap-8 px-8 py-12 mx-auto">
         <div className="absolute h-130 w-130 -left-48 -top-24 rounded-full opacity-60 bg-input-border blur-3xl -z-10"></div>
         <div className="absolute h-130 w-130 -right-96 -top-24 rounded-full opacity-60 bg-input-border blur-3xl -z-10"></div>
