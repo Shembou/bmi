@@ -11,6 +11,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      maxHeight: {
+        '80vh': '80vh'
+      },
       fontSize: {
         '250': '250px'
       },
@@ -27,7 +30,8 @@ const config: Config = {
         'span-16': 'span 16 / span 16'
       },
       height: {
-        '130': '32.5rem'
+        '130': '32.5rem',
+        '80vh': '80vh'
       },
       width: {
         '130': '32.5rem'

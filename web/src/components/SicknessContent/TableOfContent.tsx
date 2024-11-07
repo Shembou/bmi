@@ -9,7 +9,7 @@ const TableOfContent = ({ content, header }: { content: INode[]; header?: string
     <>
       {header && <h2>{header}</h2>}
       <nav
-        className={`h-min xl:col-span-5 p-8 rounded-2xl overflow-hidden w-full xl:sticky xl:max-w-xl xl:bg-white ${header ? 'xl:top-16 xl:mt-32' : 'top-4'} max-h-96 overflow-y-auto`}
+        className={`max-h-80vh xl:col-span-5 p-8 rounded-2xl overflow-hidden w-full xl:sticky xl:max-w-xl xl:bg-white ${header ? 'xl:top-16 xl:mt-32' : 'top-4'} overflow-y-auto`}
       >
         <div className="relative z-10">
           <ol className={'grid gap-5'}>
