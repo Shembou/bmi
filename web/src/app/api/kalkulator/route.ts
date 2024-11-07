@@ -1,0 +1,88 @@
+'use server'
+
+import { IFormValues } from '@/components/Calculator/Instruction/IFormValues'
+import { Subscriber } from '@/entities/Subscriber'
+import { AppDataSource } from '@/lib/data-source'
+import { initializeDatabase } from '@/lib/database'
+import { getCmsData } from '@/utils/getCmsData'
+import { NextRequest } from 'next/server'
+import 'reflect-metadata'
+import { getProgramMailData } from './getProgramMailData'
+import nodemailer from 'nodemailer'
+
+export async function POST(request: NextRequest) {
+  await initializeDatabase()
+
+  interface IProgramMailData {
+    programMail: {
+      html: string
+      text: string
+    }
+  }
+
+  try {
+    const body = (await request.json()) as IFormValues
+
+    const base64File = body.files as unknown as string
+    const fileBuffer = Buffer.from(base64File.split(',')[1], 'base64')
+
+    const existingSubscriber = await AppDataSource.manager.findOne(Subscriber, {
+      where: { email: body.email }
+    })
+
+    if (existingSubscriber) {
+      return new Response('Email already exists', { status: 400 })
+    }
+
+    const data = await getCmsData<IProgramMailData>({ query: getProgramMailData })
+
+    const transporter = nodemailer.createTransport({
+      host: `${process.env.MAIL_HOST}`,
+      port: Number(process.env.MAIL_PORT),
+      auth: {
+        user: `${process.env.MAIL_USER}`,
+        pass: `${process.env.MAIL_PASS}`
+      },
+      secure: false,
+      tls: {
+        rejectUnauthorized: false
+      }
+    })
+
+    await transporter.sendMail({
+      from: `<${process.env.MAIL_USER}>`,
+      to: `${body.email}`,
+      subject: `Program`,
+      text: data.programMail.text,
+      html: data.programMail.html
+    })
+
+    await transporter.sendMail({
+      from: `<${process.env.MAIL_USER}>`,
+      to: `${process.env.MAIL_USER}`,
+      subject: `Program`,
+      text: `Użytkownik: ${body.email} dołączył do programu.\n Imię użytkownika: ${body.name}`,
+      html: `<h2>Użytkownik: ${body.email} dołączył do programu.</h2> <h3>Imię użytkownika: ${body.name}<h3/>`
+    })
+
+    const subscriber = new Subscriber()
+    subscriber.age = Number(body.age)
+    subscriber.cholesterol = Number(body.cholesterol)
+    subscriber.email = body.email
+    subscriber.gender = body.gender as 'male' | 'female'
+    subscriber.height = Number(body.height)
+    subscriber.isSmoking = body.isSmoking == 'no' ? false : true
+    subscriber.name = body.name
+    subscriber.phone = body.phone
+    subscriber.pressure = Number(body.pressure)
+    subscriber.weight = Number(body.weight)
+    subscriber.files = fileBuffer
+
+    await AppDataSource.manager.save(subscriber)
+
+    return new Response('Dodano informacje kontaktowe. Wkrótce się skontaktujemy', { status: 200 })
+  } catch (error) {
+    console.log(error)
+    return new Response('Błąd przy dodawaniu użytkownika', { status: 500 })
+  }
+}

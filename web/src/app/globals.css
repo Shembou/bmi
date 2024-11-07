@@ -3,9 +3,15 @@
 @tailwind utilities;
 
 :root {
-    --background: #ffffff;
+    --background: #FDFDFD;
     --defaultFontColor: #164346;
-    font-size: 16px;
+    --h1-font-size: clamp(1.5rem, 4.5vw, 3rem);
+    --h3-font-size: clamp(1.2rem, 4.5vw, 2rem);
+    --h4-font-size: clamp(1rem, 4.5vw, 1.5rem);
+    --p-font-size: clamp(0.8rem, 3.5vw, 16px);
+    --default-font-size: clamp(0.8rem, 3.5vw, 16px);
+
+    font-size: var(--default-font-size);
     font-weight: 500;
     letter-spacing: 0.16px;
 }
@@ -13,43 +19,57 @@
 body {
     color: var(--defaultFontColor);
     background: var(--background);
-    max-width: 1300px;
     font-family: sans-serif;
     font-style: normal;
-    padding: 16px 32px 48px 16px;
-    margin: 0 auto;
+    padding-top: 16px;
     display: grid;
-    gap: 48px;
 }
+
+.dark {
+    --background: #FFFFFF;
+    --defaultFontColor: #000000;
+}
+
+main {
+    display: grid;
+    margin: 0 auto;
+    gap: 48px;
+    position: relative;
+    max-width: 1368px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
 
 h1,
 h2 {
-    font-size: 48px;
+    font-size: var(--h1-font-size);
     font-weight: 600;
     line-height: 110%;
     letter-spacing: -0.96px;
 }
 
 h3 {
-    font-size: 32px;
+    font-size: var(--h3-font-size);
     letter-spacing: -0.32px;
 }
 
 h4 {
-    font-size: 24px;
+    font-size: var(--h4-font-size);
     letter-spacing: 0.24px;
 }
 
 p {
     line-height: 1.6;
+    font-size: var(--p-font-size);
 }
 
-ul li {
+.unorderedList li {
     position: relative;
     padding-left: 14px;
 }
 
-ul li::before {
+.unorderedList li::before {
     content: "";
     position: absolute;
     left: 0;
@@ -60,7 +80,81 @@ ul li::before {
     top: 10px;
 }
 
-p>a {
+a {
     text-decoration: underline;
     text-underline-offset: 2px;
+    transition: color 300ms ease-in-out;
+}
+
+a:focus-visible {
+    outline: 2px dashed #164346;
+    outline-offset: 2px;
+    color: #237F85
+}
+
+a:hover {
+    color: #237F85
+}
+
+.button {
+    color: var(--defaultFontColor) !important
+}
+
+.fade-enter {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.fade-enter-active {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 300ms, opacity 300ms;
+}
+
+.fade-exit {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.fade-exit-active {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 300ms, opacity 300ms;
+}
+
+.menu-slide-enter {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.menu-slide-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+.menu-slide-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.menu-slide-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+.footerLink {
+    font-size: clamp(0.9rem, 3.5vw, 20px);
+}
+
+:focus-visible {
+    outline: 2px dashed #164346;
+    outline-offset: 2px;
+}
+
+.button:focus-visible {
+    outline-offset: -2px;
+    outline: 2px dashed #164346;
+
 }

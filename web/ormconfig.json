@@ -1,0 +1,8 @@
+{
+    "type": "mysql",
+    "synchronize": false,
+    "logging": false,
+    "entities": ["src/entities/**/*.ts"],
+    "createDatabase": true
+  }
+  

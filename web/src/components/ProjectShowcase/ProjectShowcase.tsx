@@ -7,7 +7,7 @@ export default function ProjectShowcase({
   heading
 }: IProjectShowcase) {
   return (
-    <section className="grid gap-32 items-start grid-flow-col grid-cols-10 py-24">
+    <section className="grid xl:gap-32 items-start grid-flow-row lg:grid-cols-10 py-24 lg:gap-10 lg:grid-flow-col gap-y-10">
       <header className="grid gap-6 col-span-4">
         <h2>{heading}</h2>
         <Markdown className="grid gap-4">{description}</Markdown>

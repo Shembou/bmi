@@ -1,7 +1,7 @@
 export interface IImg {
   data: IImage
-  width: number
-  height: number
+  width?: number
+  height?: number
   alt?: string
   sizes?: string
   priority?: boolean

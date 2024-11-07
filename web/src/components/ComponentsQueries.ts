@@ -1,9 +1,14 @@
+import { GetCalculatorData } from './Calculator/CalculatorQuery'
+import { GetContactFormData } from './ContactFrom/ContactFormQuery'
+import { GetContactInfoData } from './ContactInfo/ContactInfoQueries'
 import { GetEnumeratedTilesData } from './EnumeratedTiles/EnumeratedTilesQuery'
 import { GetHeroData } from './Hero/HeroQuery'
 import { GetPictureSectionData } from './PicturesSection/PicturesSectionQuery'
 import { GetProjectShowcaseData } from './ProjectShowcase/ProjectShowcaseQuery'
 import { GetReferenceSectionData } from './ReferenceSection/ReferenceSectionQuery'
+import { GetSimpleHeroData } from './SimpleHero/SimpleHeroQuery'
 import { GetTilesSectionData } from './TilesSection/TilesSectionQuery'
+import { GetVideoSectionData } from './VideoSection/VideoSectionQueries'
 
 export const GetComponentData = `
     content[] {
@@ -14,5 +19,10 @@ export const GetComponentData = `
         ${GetReferenceSectionData}
         ${GetTilesSectionData}
         ${GetProjectShowcaseData}
+        ${GetCalculatorData}
+        ${GetSimpleHeroData}
+        ${GetContactFormData}
+        ${GetContactInfoData}
+        ${GetVideoSectionData}
     }
 `

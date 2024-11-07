@@ -17,5 +17,17 @@ export default {
       title: 'formularz SCORE',
       name: 'score',
     }),
+    defineField({
+      type: 'program',
+      title: 'formularz zapisania się do programu',
+      name: 'program',
+    }),
   ],
+  preview: {
+    prepare() {
+      return {
+        title: 'Kalkulator',
+      }
+    },
+  },
 }
