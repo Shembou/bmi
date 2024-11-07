@@ -32,8 +32,9 @@ import videoContent from './common/videoContent'
 import privacyPolicyPage from './pages/single/privacyPolicyPage'
 import rodoPage from './pages/single/rodoPage'
 import notFoundPage from './pages/single/notFoundPage'
+import mailingService, {contactMail, programMail} from './common/mailingService'
 
-export const baseConfiguration = [header, footer, meta]
+export const baseConfiguration = [header, footer, meta, mailingService]
 export const singlePages = [homePage, videoPage, privacyPolicyPage, rodoPage, notFoundPage]
 export const multiplePages = [landingPages, sicknessPages]
 
@@ -73,6 +74,8 @@ export const common = [
   youtubeVideos,
   videoContent,
   footerLink,
+  contactMail,
+  programMail,
 ]
 
 export const schemaTypes = [...common, ...singlePages, ...multiplePages, ...baseConfiguration]

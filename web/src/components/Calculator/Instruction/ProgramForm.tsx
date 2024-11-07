@@ -58,6 +58,8 @@ export default function ProgramForm({
       if (!response.ok) {
         if (response.status == 400) toast.warning('Jesteś już uczestnikiem programu.')
         if (response.status == 500) toast.error('Błąd serwera')
+      } else {
+        toast.success('Zapisałeś się do programu')
       }
     } catch (error) {
       console.error((error as Error).message)

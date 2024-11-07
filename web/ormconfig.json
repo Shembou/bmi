@@ -1,12 +1,7 @@
 {
     "type": "mysql",
-    "host": "localhost",
-    "port": 3306,
-    "username": "root",
-    "password": "admin",
-    "database": "szpital",
-    "synchronize": true,
-    "logging": true,
+    "synchronize": false,
+    "logging": false,
     "entities": ["src/entities/**/*.ts"],
     "createDatabase": true
   }

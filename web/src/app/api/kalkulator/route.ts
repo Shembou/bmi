@@ -4,11 +4,21 @@ import { IFormValues } from '@/components/Calculator/Instruction/IFormValues'
 import { Subscriber } from '@/entities/Subscriber'
 import { AppDataSource } from '@/lib/data-source'
 import { initializeDatabase } from '@/lib/database'
+import { getCmsData } from '@/utils/getCmsData'
 import { NextRequest } from 'next/server'
 import 'reflect-metadata'
+import { getProgramMailData } from './getProgramMailData'
+import nodemailer from 'nodemailer'
 
 export async function POST(request: NextRequest) {
   await initializeDatabase()
+
+  interface IProgramMailData {
+    programMail: {
+      html: string
+      text: string
+    }
+  }
 
   try {
     const body = (await request.json()) as IFormValues
@@ -23,6 +33,33 @@ export async function POST(request: NextRequest) {
     if (existingSubscriber) {
       return new Response('Email already exists', { status: 400 })
     }
+
+    const data = await getCmsData<IProgramMailData>({ query: getProgramMailData })
+
+    const transporter = nodemailer.createTransport({
+      host: `${process.env.MAIL_HOST}`,
+      port: Number(process.env.MAIL_PORT),
+      auth: {
+        user: `${process.env.MAIL_USER}`,
+        pass: `${process.env.MAIL_PASS}`
+      }
+    })
+
+    await transporter.sendMail({
+      from: `<${process.env.MAIL_USER}>`,
+      to: `${body.email}`,
+      subject: `Program`,
+      text: data.programMail.text,
+      html: data.programMail.html
+    })
+
+    await transporter.sendMail({
+      from: `<${process.env.MAIL_USER}>`,
+      to: `${process.env.MAIL_USER}`,
+      subject: `Program`,
+      text: `Użytkownik: ${body.email} dołączył do programu.\n Imię użytkownika: ${body.name}`,
+      html: `<h2>Użytkownik: ${body.email} dołączył do programu.</h2> <h3>Imię użytkownika: ${body.name}<h3/>`
+    })
 
     const subscriber = new Subscriber()
     subscriber.age = Number(body.age)

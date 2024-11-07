@@ -7,8 +7,8 @@ export async function initializeDatabase() {
     AppDataSource.initialize()
       .then(async () => {
         const user = new User()
-        user.username = 'admin'
-        user.password = 'admin'
+        user.username = `${process.env.ADMINISTRATOR_USERNAME}`
+        user.password = `${process.env.ADMINISTRATOR_PASSWORD}`
 
         try {
           const userRepository = AppDataSource.getRepository(User)

@@ -10,7 +10,7 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USERNAME || 'root',
   password: process.env.DB_PASSWORD || 'admin',
   database: process.env.DB_DATABASE || 'szpital',
-  synchronize: true, // Disable in production
-  logging: true,
+  synchronize: false, // Disable in production
+  logging: false,
   entities: [User, Subscriber]
 })

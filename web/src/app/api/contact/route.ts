@@ -3,6 +3,8 @@
 import { NextRequest } from 'next/server'
 import 'reflect-metadata'
 import nodemailer from 'nodemailer'
+import { getCmsData } from '@/utils/getCmsData'
+import { getContactMailData } from './getContactMailData'
 
 export async function POST(request: NextRequest) {
   interface IFormValues {
@@ -11,31 +13,38 @@ export async function POST(request: NextRequest) {
     email: string
   }
 
+  interface IContactMailData {
+    contactMail: {
+      html: string
+      text: string
+    }
+  }
+
   try {
     const body = (await request.json()) as IFormValues
 
-    // Nodemailer transport configuration
+    const data = await getCmsData<IContactMailData>({ query: getContactMailData })
+
     const transporter = nodemailer.createTransport({
-      host: 'smtp.ethereal.email',
-      port: 587,
+      host: `${process.env.MAIL_HOST}`,
+      port: Number(`${process.env.MAIL_PORT}`),
       auth: {
-        user: 'caesar.keeling83@ethereal.email',
-        pass: 'gvkz6pstctQCtWs9x1'
+        user: `${process.env.MAIL_USER}`,
+        pass: `${process.env.MAIL_PASS}`
       }
     })
 
-    // Send email to both the user and yourself
-    const info = await transporter.sendMail({
-      from: `<caesar.keeling83@ethereal.email>`,
-      to: `${body.email}, caesar.keeling83@ethereal.email`,
+    await transporter.sendMail({
+      from: `<${process.env.MAIL_USER}>`,
+      to: `${body.email}`,
       subject: `Kontakt`,
-      text: `Wkrótce ktoś od nas się odezwie`,
-      html: `<h2>Wkrótce ktoś od nas się odezwie</h2>`
+      text: data.contactMail.text,
+      html: data.contactMail.html
     })
 
-    const self = await transporter.sendMail({
-      from: `<caesar.keeling83@ethereal.email>`,
-      to: `caesar.keeling83@ethereal.email`,
+    await transporter.sendMail({
+      from: `<${process.env.MAIL_USER}>`,
+      to: `${process.env.MAIL_USER}`,
       subject: `Kontakt`,
       text: `Użytkownik: ${body.email} chce się skontaktować.\n Imię użytkownika: ${body.name} \n treść:${body.content}`,
       html: `<h2>Użytkownik: ${body.email} chce się skontaktować.</h2> <h3>Imię użytkownika: ${body.name}<h3/><p>treść: ${body.content}</p>`

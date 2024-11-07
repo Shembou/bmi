@@ -43,8 +43,9 @@ export default function Form({
       if (!response.ok) {
         if (response.status == 400) toast.warning('Jesteś już uczestnikiem programu.')
         if (response.status == 500) toast.error('Błąd serwera')
+      } else {
+        toast.success('wiadomość została wysłana')
       }
-      toast.success('wiadomość została wysłana')
     } catch (error) {
       console.error((error as Error).message)
     }
