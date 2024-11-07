@@ -3,7 +3,7 @@ import {defineField} from 'sanity'
 
 export default {
   name: 'sicknessPages',
-  title: 'Strony z chorobami',
+  title: 'Strony dla pacjenta',
   type: 'document',
   icon: ActivityIcon,
   fields: [
@@ -28,7 +28,7 @@ export default {
     defineField({
       name: 'portableText',
       type: 'portableText',
-      title: 'Zawrtość podstrony z chorobą',
+      title: 'Zawrtość podstrony dla pacjenta',
     }),
     defineField({
       name: 'content',

@@ -10,7 +10,7 @@ export default {
     defineField({
       name: 'portableText',
       type: 'portableText',
-      title: 'Zawrtość podstrony z chorobą',
+      title: 'Zawrtość podstrony',
     }),
     defineField({
       name: 'content',
