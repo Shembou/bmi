@@ -45,7 +45,7 @@ export default function ScoreForm({
       onSubmit={e => handleSubmit(e)}
     >
       <Input
-        label="Ciśnienie tętnicze skurczowe (mmHg)"
+        label="Ciśnienie tętnicze skurczowe (pierwsza wartość) (mmHg)"
         type="number"
         name="pressure"
         onChange={handleInputChange}

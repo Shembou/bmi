@@ -20,7 +20,7 @@ export default function BmiExplanation() {
         <div className="grid gap-6">
           <div className="grid gap-6 grid-flow-row lg:grid-flow-col items-center">
             <h4 className="col-span-8 text-lg">Prawidłowa waga (BMI 18,5 - 24,9):</h4>
-            <p className="col-span-15">Masa ciała jest w normie; zalecane jest utrzymanie</p>
+            <p className="col-span-15">Masa ciała jest w normie; zalecane jest utrzymanie wagi</p>
           </div>
         </div>
         <div className="grid gap-6">

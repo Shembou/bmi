@@ -18,13 +18,13 @@ export default function ScoreExplanation() {
         </div>
         <div className="grid gap-6">
           <div className="grid gap-6 grid-flow-row lg:grid-flow-col items-center">
-            <h4 className="col-span-9 text-xl">Umiarkowane ryzyko (≥1% - ≤5%):</h4>
+            <h4 className="col-span-9 text-xl">Umiarkowane ryzyko (≥1% - {lt}5%):</h4>
             <p className="col-span-14">Zalecane są zmiany stylu życia i regularne kontrole.</p>
           </div>
         </div>
         <div className="grid gap-6">
           <div className="grid gap-6 grid-flow-row lg:grid-flow-col items-center">
-            <h4 className="col-span-9 text-xl">Wysokie ryzyko (≥5% - ≤10%):</h4>
+            <h4 className="col-span-9 text-xl">Wysokie ryzyko (≥5% - {lt}10%):</h4>
             <p className="col-span-14">Wymaga intensywnych działań prewencyjnych i leczenia.</p>
           </div>
         </div>
