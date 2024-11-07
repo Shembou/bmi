@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
         user: `${process.env.MAIL_USER}`,
         pass: `${process.env.MAIL_PASS}`
       },
-      secure: true,
+      secure: false,
       tls: {
         rejectUnauthorized: false
       }
