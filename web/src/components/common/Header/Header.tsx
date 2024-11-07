@@ -136,15 +136,13 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                         ref={ref}
                       >
                         {sublinks?.map(({ link, name }, subIndex) => (
-                          <>
-                            <Link
-                              key={subIndex}
-                              href={link}
-                              className="no-underline text-black w-fit z-10"
-                            >
-                              {name}
-                            </Link>
-                          </>
+                          <Link
+                            key={subIndex}
+                            href={link}
+                            className="no-underline text-black w-fit z-10"
+                          >
+                            {name}
+                          </Link>
                         ))}
                       </div>
                     </CSSTransition>

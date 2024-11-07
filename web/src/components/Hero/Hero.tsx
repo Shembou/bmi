@@ -11,15 +11,17 @@ export default function Hero({ button, framedImage, heading, text }: IHero) {
         <p className="pb-6">{text}</p>
         {button && <Button {...button} className="px-8"></Button>}
       </div>
-      <div className="flex w-full relative sm:col-span-3 -order-1 sm:order-1">
-        <div className="absolute -top-6 -left-6 bg-lime h-16 w-16 items-center flex justify-center rounded-2xl">
-          <Img data={framedImage.firstIcon} height={39} width={39} />
+      {framedImage && (
+        <div className="flex w-full relative sm:col-span-3 -order-1 sm:order-1">
+          <div className="absolute -top-6 -left-6 bg-lime h-16 w-16 items-center flex justify-center rounded-2xl">
+            <Img data={framedImage.firstIcon} height={39} width={39} />
+          </div>
+          <Img data={framedImage.image} height={385} width={361} className="w-full h-min" />
+          <div className="absolute -bottom-6 -right-6 bg-lime-gray h-16 w-16 items-center flex justify-center rounded-2xl">
+            <Img data={framedImage.secondIcon} height={39} width={39} />
+          </div>
         </div>
-        <Img data={framedImage.image} height={385} width={361} className="w-full h-min" />
-        <div className="absolute -bottom-6 -right-6 bg-lime-gray h-16 w-16 items-center flex justify-center rounded-2xl">
-          <Img data={framedImage.secondIcon} height={39} width={39} />
-        </div>
-      </div>
+      )}
     </section>
   )
 }
