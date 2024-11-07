@@ -42,6 +42,10 @@ export async function POST(request: NextRequest) {
       auth: {
         user: `${process.env.MAIL_USER}`,
         pass: `${process.env.MAIL_PASS}`
+      },
+      secure: true,
+      tls: {
+        rejectUnauthorized: false
       }
     })
 
