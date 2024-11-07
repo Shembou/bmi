@@ -14,7 +14,6 @@ export default function VideoSection({ videos }: IVideoSection) {
         videos.map(({ description, title, url }, index) => (
           <div key={index}>
             <iframe
-              id="ytplayer"
               height={310}
               src={formatYouTubeURL(url)}
               className="rounded-3xl w-full"
