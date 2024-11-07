@@ -10,7 +10,7 @@ export default {
     defineField({
       name: 'name',
       type: 'string',
-      title: 'Nazwa choroby',
+      title: 'Nazwa strony',
     }),
     defineField({
       name: 'slug',
