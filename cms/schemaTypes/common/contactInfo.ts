@@ -14,6 +14,13 @@ export default {
       of: [{type: 'employeeCard', name: 'employeeCard'}],
     },
   ],
+  preview: {
+    prepare() {
+      return {
+        title: 'Karta pracowników',
+      }
+    },
+  },
 }
 
 export const employeeCard = {

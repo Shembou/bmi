@@ -14,6 +14,13 @@ export default {
       of: [{type: 'youtubeVideos', name: 'youtubeVideos', title: 'linki do filmu YouTube'}],
     }),
   ],
+  preview: {
+    prepare() {
+      return {
+        title: 'sekcja z filmami video',
+      }
+    },
+  },
 }
 
 export const youtubeVideos = {

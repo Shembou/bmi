@@ -23,4 +23,11 @@ export default {
       name: 'program',
     }),
   ],
+  preview: {
+    prepare() {
+      return {
+        title: 'Kalkulator',
+      }
+    },
+  },
 }
