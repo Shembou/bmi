@@ -129,7 +129,7 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
             ))}
           </nav>
           <div className="flex gap-16 align-item items-center">
-            <div>
+            <div className="flex flex-nowrap items-center">
               Czcionka:{' '}
               <button
                 className="text-sm w-6 h-6"

@@ -59,7 +59,7 @@ export default async function Footer() {
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap justify-between max-w-130 w-full gap-2">
+        <div className="flex flex-wrap justify-between max-w-2xl w-full gap-2">
           <div className="flex flex-col">
             {singlePages.map(({ name, link }, index) => (
               <Link key={index} href={link} className="no-underline py-2 footerLink w-fit">
