@@ -33,19 +33,19 @@ export default function BmiSummary({
           <h4>{bmiResult}</h4>
           <p>{calculateBmiType(bmiResult)}</p>
         </div>
-        {(bmiResult >= 25 || bmiResult <= 18.5) && (
+        {bmiResult >= 25 && (
           <Button content="Przejdź do kalkulatora SCORE" className="px-4" onClick={handleClick} />
         )}
       </div>
-      {bmiResult >= 25 || bmiResult <= 18.5 ? (
+      {bmiResult >= 25 && (
         <div className="flex content-between gap-auto justify-between py-9 md:flex-row flex-col gap-4 mb-9">
           <h4 className="max-w-96">
-            Twoje wyniki BMI wskazują, że kwalifikujesz się do naszego programu wsparcia.
+            Twój wynik BMI wskazuje, że kwalifikujesz się do naszego programu wsparcia.
           </h4>
           <div className="max-w-130 grid gap-6">
             <p>
-              Nasz program został stworzony, aby pomóc Ci osiągnąć i utrzymać zdrowy poziom BMI.
-              Cieszymy się, że możemy Cię wesprzeć na tej drodze.
+              Projekt jest przeznaczony dla osób, które wymagają pomocy w osiągnięciu prawidłowego
+              poziomu BMI. Cieszymy się, że możemy wesprzeć Cię w tym procesie.
             </p>
             <h4>Co teraz?</h4>
             <div className="flex gap-2 items-center">
@@ -54,14 +54,15 @@ export default function BmiSummary({
             </div>
           </div>
         </div>
-      ) : (
+      )}
+      {bmiResult < 25 && bmiResult > 18.5 && (
         <div className="flex content-between gap-auto justify-between py-9 md:flex-row flex-col gap-4 mb-9">
-          <h4 className="max-w-96">Wyniki Twojego BMI są znakomite!</h4>
+          <h4 className="max-w-96">Wynik Twojego BMI jest prawidłowy.</h4>
           <div className="max-w-130 grid gap-6">
             <p>
-              Gratulacje! Twoje wyniki BMI są na bardzo dobrym poziomie, co oznacza, że nie
-              kwalifikujesz się do naszego programu wsparcia. Nasz program jest przeznaczony dla
-              osób, które wymagają dodatkowej pomocy w osiągnięciu zdrowego poziomu BMI.
+              Gratulacje! Twój wyniki BMI jest prawidłowy, co oznacza, że nie kwalifikujesz się do
+              naszego programu wsparcia. Projekt jest przeznaczony dla osób, które wymagają pomocy w
+              osiągnięciu prawidłowego poziomu BMI.
             </p>
             <h4>Co teraz?</h4>
             <div className="flex gap-2 items-center">
@@ -75,6 +76,18 @@ export default function BmiSummary({
                 specjalistą.
               </p>
             </div>
+          </div>
+        </div>
+      )}
+      {bmiResult <= 18.5 && (
+        <div className="flex content-between gap-auto justify-between py-9 md:flex-row flex-col gap-4 mb-9">
+          <h4 className="max-w-96">Wynik Twojego BMI jest prawidłowy.</h4>
+          <div className="max-w-130 grid gap-6">
+            <p>
+              Twoje wyniki BMI wskazują, że kwalifikujesz się do naszego programu wsparcia. Powinno
+              być: Twój wynik wskazuje na niedowagę. Zalecana jest konsultacja z lekarzem lub
+              dietetykiem.
+            </p>
           </div>
         </div>
       )}

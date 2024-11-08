@@ -12,9 +12,7 @@ export default function ScoreExplanation() {
       <div className="grid gap-6">
         <div className="grid gap-6 grid-flow-row lg:grid-flow-col items-center">
           <h4 className="col-span-9 text-xl">Niskie ryzyko ({lt}1%):</h4>
-          <p className="col-span-14">
-            Masa ciała jest zbyt niska; zalecana jest konsultacja z lekarzem lub dietetykiem.
-          </p>
+          <p className="col-span-14">Minimalne ryzyko wystąpienia zdarzeń sercowo-naczyniowych.</p>
         </div>
         <div className="grid gap-6">
           <div className="grid gap-6 grid-flow-row lg:grid-flow-col items-center">
