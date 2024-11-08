@@ -128,7 +128,13 @@ export default function Instruction({
 
 const DownloadIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" fill="none">
-    <g stroke="#164346" strokeLinecap="round" strokeLinejoin="round" clipPath="url(#a)">
+    <g
+      stroke="#164346"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      clipPath="url(#a)"
+      className="dark:stroke-dark-icon-bg-color"
+    >
       <path d="M4 17.359v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2m-13-6 5 5 5-5m-5-7v12"></path>
     </g>
     <defs>

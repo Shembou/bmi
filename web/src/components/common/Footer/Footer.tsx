@@ -14,41 +14,41 @@ export default async function Footer() {
   return (
     <footer className="rounded-t-32 relative overflow-hidden mt-24">
       <div className="max-w-default flex flex-wrap justify-between gap-8 px-8 py-12 mx-auto">
-        <div className="absolute h-130 w-130 -left-48 -top-24 rounded-full opacity-60 bg-input-border blur-3xl -z-10"></div>
-        <div className="absolute h-130 w-130 -right-96 -top-24 rounded-full opacity-60 bg-input-border blur-3xl -z-10"></div>
+        <div className="absolute h-130 w-130 -left-48 -top-24 rounded-full opacity-60 bg-input-border blur-3xl -z-10 dark:bg-white"></div>
+        <div className="absolute h-130 w-130 -right-96 -top-24 rounded-full opacity-60 bg-input-border blur-3xl -z-10 dark:bg-white"></div>
         <div className="grid gap-6 ">
           <Img data={data[1].logo} width={183} height={51} />
           <h4 className="text-xl leading-4">{data[0].info.name}</h4>
           <div className="grid gap-4">
             <div className="flex gap-1 items-center">
-              <div className="p-1 border rounded-full bg-icon-bg-color border-icon-border-color dark:bg-dark-icon-bg-color">
+              <div className="p-1 border rounded-full bg-icon-bg-color border-icon-border-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color">
                 <Img
                   data={data[0].info.addressConfiguration.logo}
                   height={16}
                   width={16}
-                  className="flex-shrink-0"
+                  className="flex-shrink-0 filter-yellow"
                 />
               </div>
               <p>{data[0].info.addressConfiguration.address}</p>
             </div>
             <div className="flex gap-1 items-center">
-              <div className="p-1 border rounded-full bg-icon-bg-color border-icon-border-color dark:bg-dark-icon-bg-color">
+              <div className="p-1 border rounded-full bg-icon-bg-color border-icon-border-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color">
                 <Img
                   data={data[0].info.mailConfiguration.logo}
                   height={16}
                   width={16}
-                  className="flex-shrink-0"
+                  className="flex-shrink-0 filter-yellow"
                 />
               </div>
               <p>{data[0].info.mailConfiguration.mail}</p>
             </div>
             <div className="flex gap-1 items-center">
-              <div className="p-1 border rounded-full bg-icon-bg-color border-icon-border-color dark:bg-dark-icon-bg-color">
+              <div className="p-1 border rounded-full bg-icon-bg-color border-icon-border-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color">
                 <Img
                   data={data[0].info.phoneConfiguration.logo}
                   height={16}
                   width={16}
-                  className="flex-shrink-0"
+                  className="flex-shrink-0 filter-yellow"
                 />
               </div>
               <p>

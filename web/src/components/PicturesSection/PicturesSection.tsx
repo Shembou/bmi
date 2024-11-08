@@ -17,14 +17,14 @@ export default function ({ description, heading, imagesGrid }: IPicturesSection)
             {i === 0 ? (
               <div className="grid h-full text-start">
                 <Img data={image} height={196} width={329} className="h-full w-full" />
-                <p className=" p-8 border-image-border-color border bg-image-background-color rounded-br-2xl rounded-bl-2xl">
+                <p className=" p-8 border-image-border-color border bg-image-background-color rounded-br-2xl rounded-bl-2xl dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color">
                   {description}
                 </p>
               </div>
             ) : (
               <div className={`grid text-start ${i == 2 && 'h-full'}`}>
                 <p
-                  className={`p-8 ${i == 1 ? 'border-image-2-border-color border bg-image-2-background-color' : 'border-image-3-border-color border bg-image-3-background-color text-purple-font-color'} rounded-tr-2xl rounded-tl-2xl dark:text-dark-icon-border-color`}
+                  className={`p-8 ${i == 1 ? 'border-image-2-border-color border bg-image-2-background-color' : 'border-image-3-border-color border bg-image-3-background-color text-purple-font-color'} rounded-tr-2xl rounded-tl-2xl dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color dark:text-dark-icon-bg-color`}
                 >
                   {description}
                 </p>

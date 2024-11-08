@@ -79,7 +79,7 @@ const config: Config = {
       'blur-blue-color': '#8FE6EC',
       'input-bg': '#F4FEFF',
       red: '#FF0000',
-      'dark-icon-bg-color': '#ffffff',
+      'dark-icon-bg-color': '#E1FF00',
       'dark-icon-border-color': '#000000',
       'dark-default-font-color': '#000000',
       'dark-lime': '#ffffff',

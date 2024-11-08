@@ -79,16 +79,19 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
             <Img className="flex-none" data={logo.image} width={600} height={60} key={i} />
           ))}
           <Link href="/">
-            <Img data={data[1].logo} width={183} height={51} />
+            <Img data={data[1].logo} width={183} height={51} className="filter-white" />
           </Link>
         </div>
         <div className="py-3 flex justify-between gap-y-3 flex-col xl:flex-row items-center">
-          <nav className="flex text-base text-center items-center px-8 border border-header-border py-4 rounded-full bg-white xl:w-fit w-full justify-between flex-wrap xl:gap-8">
+          <nav className="flex text-base text-center items-center px-8 border border-header-border py-4 rounded-full bg-white xl:w-fit w-full justify-between flex-wrap xl:gap-8 dark:bg-dark-icon-border-color dark:border-dark-icon-border-color ">
             {data[0].links.map(({ isExpandable, link, name, sublinks }, index) => (
               <Fragment key={index}>
                 {isExpandable ? (
                   <div className="relative">
-                    <button className="flex text-black" onClick={() => handleOnClick(index)}>
+                    <button
+                      className="flex text-black dark:text-dark-icon-bg-color"
+                      onClick={() => handleOnClick(index)}
+                    >
                       {name} <ChevronDown />
                     </button>
                     <CSSTransition
@@ -99,11 +102,15 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                       nodeRef={ref}
                     >
                       <div
-                        className="absolute w-full grid border border-header-border bg-white rounded-2xl gap-1 p-2 z-20"
+                        className="absolute w-full grid border border-header-border bg-white rounded-2xl gap-1 p-2 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color"
                         ref={ref}
                       >
                         {sublinks?.map(({ link, name }, subIndex) => (
-                          <Link key={subIndex} href={link} className="no-underline text-black z-10">
+                          <Link
+                            key={subIndex}
+                            href={link}
+                            className="no-underline text-black z-10 dark:text-dark-icon-bg-color"
+                          >
                             {name}
                           </Link>
                         ))}
@@ -111,7 +118,10 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                     </CSSTransition>
                   </div>
                 ) : (
-                  <Link href={link} className="no-underline text-black">
+                  <Link
+                    href={link}
+                    className="no-underline text-black dark:text-dark-icon-bg-color"
+                  >
                     {name}
                   </Link>
                 )}
@@ -166,9 +176,15 @@ function ContrastIcon() {
       fill="none"
       aria-label="Przycisk do zmiany kontrastu"
     >
-      <g stroke="#000" strokeLinecap="round" strokeLinejoin="round" clipPath="url(#a)">
-        <path d="M3 12.18a9 9 0 1018 0 9 9 0 00-18 0z"></path>
-        <path fill="#000" strokeWidth="4" d="M12 17.18a5 5 0 100-10v10z"></path>
+      <g
+        stroke="#000"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        clipPath="url(#a)"
+        className="dark:stroke-dark-icon-bg-color"
+      >
+        <path d="M3 12.18a9 9 0 1018 0 9 9 0 00-18 0z" transform="translate(0.3, 0)"></path>
+        <path fill="#000" strokeWidth="5" d="M12 17.18a5 5 0 100-10v10z"></path>
       </g>
       <defs>
         <clipPath id="a">
@@ -188,6 +204,7 @@ const ChevronDown = () => (
       strokeLinecap="round"
       strokeLinejoin="round"
       d="m4 7.359 5 4.58 5-4.58"
+      className="dark:stroke-dark-icon-bg-color"
     ></path>
   </svg>
 )

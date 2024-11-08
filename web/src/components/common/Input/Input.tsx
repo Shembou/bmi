@@ -26,7 +26,7 @@ export default function Input({
           onChange={onChange}
           placeholder={placeholder}
           name={name}
-          className={`w-full px-3 py-input border rounded-2xl focus:outline-none focus:ring-2 ${error ? 'border-red-500' : 'border-input-border'} ${className}`}
+          className={`w-full px-3 py-input border rounded-2xl focus:outline-none focus:ring-2 dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color dark:ring-dark-icon-bg-color ${error ? 'border-red-500' : 'border-input-border'} ${className}`}
           title={title}
           required={required}
           {...(pattern && { pattern })}
@@ -39,7 +39,7 @@ export default function Input({
           onChange={onChange}
           placeholder={placeholder}
           name={name}
-          className={`w-full px-3 py-input border rounded-full focus:outline-none focus:ring-2 ${error ? 'border-red-500' : 'border-input-border'} ${className}`}
+          className={`w-full px-3 py-input border rounded-full focus:outline-none dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color focus:ring-2 dark:ring-dark-icon-bg-color ${error ? 'border-red-500' : 'border-input-border'} ${className}`}
           title={title}
           min={min}
           max={max}

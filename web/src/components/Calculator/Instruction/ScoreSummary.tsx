@@ -17,11 +17,11 @@ export default function ScoreSummary({
 
   return (
     <div
-      className="p-8 flex justify-between border rounded-3xl border-input-border items-center mb-20"
+      className="p-8 flex justify-between border rounded-3xl border-input-border items-center mb-20 dark:border-dark-icon-bg-color"
       id="scoreSummary"
     >
       <h4>Twój wynik Score</h4>
-      <div className="px-8 flex w-96 justify-between items-center border rounded-3xl border-input-border">
+      <div className="px-8 flex w-96 justify-between items-center border rounded-3xl border-input-border dark:border-dark-icon-bg-color">
         <h4>{`${scoreResult}%`} </h4>
         <p>{calculateScoreType(scoreResult)}</p>
       </div>

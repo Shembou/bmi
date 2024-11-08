@@ -13,12 +13,17 @@ export default function Hero({ button, framedImage, heading, text }: IHero) {
       </div>
       {framedImage && (
         <div className="flex w-full relative sm:col-span-3 -order-1 sm:order-1">
-          <div className="absolute -top-6 -left-6 bg-lime h-16 w-16 items-center flex justify-center rounded-2xl">
-            <Img data={framedImage.firstIcon} height={39} width={39} />
+          <div className="absolute -top-6 -left-6 bg-lime h-16 w-16 items-center flex justify-center rounded-2xl dark:bg-dark-icon-bg-color">
+            <Img data={framedImage.firstIcon} height={39} width={39} className="filter-black" />
           </div>
-          <Img data={framedImage.image} height={385} width={361} className="w-full h-min" />
-          <div className="absolute -bottom-6 -right-6 bg-lime-gray h-16 w-16 items-center flex justify-center rounded-2xl">
-            <Img data={framedImage.secondIcon} height={39} width={39} />
+          <Img
+            data={framedImage.image}
+            height={385}
+            width={361}
+            className="w-full h-min border dark:border-dark-icon-bg-color rounded-3xl border-white dark:bg-dark-icon-bg-color"
+          />
+          <div className="absolute -bottom-6 -right-6 bg-lime-gray h-16 w-16 items-center flex justify-center rounded-2xl dark:bg-dark-icon-bg-color">
+            <Img data={framedImage.secondIcon} height={39} width={39} className="filter-black" />
           </div>
         </div>
       )}

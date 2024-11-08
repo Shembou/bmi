@@ -12,6 +12,7 @@ export const ArrowIcon = () => (
       strokeLinecap="round"
       strokeLinejoin="round"
       clipPath="url(#clip0_5664_4835)"
+      className="dark:stroke-dark-icon-bg-color"
     >
       <path d="m8.25 7.109 2.25 2.25-2.25 2.25"></path>
       <path d="M2.25 9.359a6.75 6.75 0 1 0 13.5 0 6.75 6.75 0 0 0-13.5 0"></path>

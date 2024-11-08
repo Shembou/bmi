@@ -25,11 +25,11 @@ export default function BmiSummary({
   return (
     <>
       <div
-        className="p-8 flex justify-between border rounded-3xl border-input-border items-center"
+        className="p-8 flex justify-between border rounded-3xl border-input-border items-center dark:border-dark-icon-bg-color"
         id="bmiSummary"
       >
         <h4>Twój wynik BMI</h4>
-        <div className="px-8 flex w-96 justify-between items-center border rounded-3xl border-input-border">
+        <div className="px-8 flex w-96 justify-between items-center border rounded-3xl border-input-border dark:border-dark-icon-bg-color">
           <h4>{bmiResult}</h4>
           <p>{calculateBmiType(bmiResult)}</p>
         </div>

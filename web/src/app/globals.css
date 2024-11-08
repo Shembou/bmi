@@ -10,7 +10,11 @@
     --h4-font-size: clamp(1rem, 4.5vw, 1.5rem);
     --p-font-size: clamp(0.8rem, 3.5vw, 16px);
     --default-font-size: clamp(0.8rem, 3.5vw, 16px);
-
+    --outline-color: #164346;
+    --default-link-color: #237F85;
+    --filter-white: none;
+    --filter-black: none;
+    --filter-yellow: none;
     font-size: var(--default-font-size);
     font-weight: 500;
     letter-spacing: 0.16px;
@@ -26,8 +30,13 @@ body {
 }
 
 .dark {
-    --background: #FFFFFF;
-    --defaultFontColor: #000000;
+    --defaultFontColor: #E1FF00;
+    --background: #000000;
+    --filter-white: brightness(0) invert(1);
+    --outline-color: #E1FF00;
+    --default-link-color: #E1FF00;
+    --filter-black: brightness(0);
+    --filter-yellow: brightness(0) invert(1) sepia(1) saturate(10000%) hue-rotate(7deg);
 }
 
 main {
@@ -87,17 +96,17 @@ a {
 }
 
 a:focus-visible {
-    outline: 2px dashed #164346;
+    outline: 2px dashed var(--defaultFontColor);
     outline-offset: 2px;
-    color: #237F85
+    color: var(--default-link-color)
 }
 
 a:hover {
-    color: #237F85
+    color: var(--default-link-color)
 }
 
 .button {
-    color: var(--defaultFontColor) !important
+    color: var(--defaultFontColor)
 }
 
 .fade-enter {
@@ -149,12 +158,35 @@ a:hover {
 }
 
 :focus-visible {
-    outline: 2px dashed #164346;
+    outline: 2px dashed var(--outline-color);
     outline-offset: 2px;
 }
 
 .button:focus-visible {
     outline-offset: -2px;
-    outline: 2px dashed #164346;
+    outline: 2px dashed var(--outline-color);
+}
 
+.filter-white {
+    filter: var(--filter-white)
+}
+
+.filter-black {
+    filter: var(--filter-black)
+}
+
+.filter-yellow {
+    filter: var(--filter-yellow)
+}
+
+input[type="checkbox"] {
+    accent-color: var(--defaultFontColor);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--background) inset !important;
+    -webkit-text-fill-color: var(--defaultFontColor)
 }

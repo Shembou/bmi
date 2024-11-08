@@ -14,7 +14,7 @@ export default function Checkbox({
         type="checkbox"
         checked={value}
         onChange={onChange}
-        className="h-4 w-4"
+        className="h-4 w-4 "
         name={name}
         required={required}
       />
