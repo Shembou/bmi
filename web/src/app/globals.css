@@ -29,6 +29,12 @@ body {
     display: grid;
 }
 
+body,
+nav,
+button {
+    transition: background 300ms ease-in-out;
+}
+
 .dark {
     --defaultFontColor: #E1FF00;
     --background: #000000;
@@ -89,10 +95,19 @@ p {
     top: 10px;
 }
 
+h1,
+h2,
+h3,
+h4,
+p,
+span,
+a {
+    transition: color 300ms ease-in-out;
+}
+
 a {
     text-decoration: underline;
     text-underline-offset: 2px;
-    transition: color 300ms ease-in-out;
 }
 
 a:focus-visible {
