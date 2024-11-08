@@ -17,7 +17,7 @@ export default async function Footer() {
         <div className="absolute h-130 w-130 -left-48 -top-24 rounded-full opacity-60 bg-input-border blur-3xl -z-10 dark:bg-white"></div>
         <div className="absolute h-130 w-130 -right-96 -top-24 rounded-full opacity-60 bg-input-border blur-3xl -z-10 dark:bg-white"></div>
         <div className="grid gap-6 ">
-          <Img data={data[1].logo} width={183} height={51} />
+          <Img data={data[1].logo} width={183} height={51} className="filter-white" />
           <h4 className="text-xl leading-4">{data[0].info.name}</h4>
           <div className="grid gap-4">
             <div className="flex gap-1 items-center">
