@@ -74,48 +74,15 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
     <header className="relative">
       <div className="max-w-default grid gap-4 pb-20 relative w-full mx-auto px-8">
         {/* <div className="absolute h-130 w-130 -right-40 -top-20 rounded-full opacity-50 bg-lime blur-3xl -z-10"></div> */}
-        <div className="flex lg:justify-between items-center lg:content-center justify-center flex-wrap lg:flex-nowrap gap-y-5">
+        <div className="flex md:justify-between items-center md:content-center justify-center flex-wrap  gap-y-5">
           {data[0].logos.map((logo, i) => (
             <Img className="flex-none" data={logo.image} width={600} height={60} key={i} />
           ))}
-          <div className="flex gap-16 align-item items-center">
-            <div>
-              Czcionka:{' '}
-              <button
-                className="text-sm w-6 h-6"
-                onClick={() => updateFontSizes(fontSizeScales.small)}
-              >
-                A
-              </button>{' '}
-              |{' '}
-              <button
-                className="text-base w-7 h-7"
-                onClick={() => updateFontSizes(fontSizeScales.medium)}
-              >
-                A+
-              </button>{' '}
-              |{' '}
-              <button
-                className="text-lg w-10 h-8"
-                onClick={() => updateFontSizes(fontSizeScales.large)}
-              >
-                A++
-              </button>
-            </div>
-            <div>
-              <div className="flex gap-2 items-center">
-                Kontrast:{' '}
-                <button className="p-2" onClick={() => toggleContrast()}>
-                  <ContrastIcon />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="py-3 flex justify-between gap-y-3 flex-col xl:flex-row items-center">
-          <Link href="/" className="xl:-order-1 order-2">
+          <Link href="/">
             <Img data={data[1].logo} width={183} height={51} />
           </Link>
+        </div>
+        <div className="py-3 flex justify-between gap-y-3 flex-col xl:flex-row items-center">
           <nav className="flex text-base text-center items-center px-8 border border-header-border py-4 rounded-full bg-white xl:w-fit w-full justify-between flex-wrap xl:gap-8">
             {data[0].links.map(({ isExpandable, link, name, sublinks }, index) => (
               <Fragment key={index}>
@@ -151,6 +118,39 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
               </Fragment>
             ))}
           </nav>
+          <div className="flex gap-16 align-item items-center">
+            <div>
+              Czcionka:{' '}
+              <button
+                className="text-sm w-6 h-6"
+                onClick={() => updateFontSizes(fontSizeScales.small)}
+              >
+                A
+              </button>{' '}
+              |{' '}
+              <button
+                className="text-base w-7 h-7"
+                onClick={() => updateFontSizes(fontSizeScales.medium)}
+              >
+                A+
+              </button>{' '}
+              |{' '}
+              <button
+                className="text-lg w-10 h-8"
+                onClick={() => updateFontSizes(fontSizeScales.large)}
+              >
+                A++
+              </button>
+            </div>
+            <div>
+              <div className="flex gap-2 items-center">
+                Kontrast:{' '}
+                <button className="p-2" onClick={() => toggleContrast()}>
+                  <ContrastIcon />
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
