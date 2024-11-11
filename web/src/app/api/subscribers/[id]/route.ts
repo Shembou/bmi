@@ -9,9 +9,6 @@ export async function GET(request: NextRequest) {
   const url = request.url
   const parts = url.split('/')
   const id = parts[parts.length - 1]
-  console.log(url)
-
-  console.log(id)
 
   try {
     const subscriber = await AppDataSource.manager.findOne(Subscriber, {

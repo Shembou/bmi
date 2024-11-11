@@ -194,7 +194,6 @@ export default function ProgramForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log(formValues)
     if (formValues.files.length == 0 || formValues.files[0] == '') {
       setError('Wymagany plik')
       return
