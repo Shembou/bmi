@@ -8,7 +8,7 @@ import Link from 'next/link'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-export default function SubscriberPage({ params }: { params: { id: string } }) {
+export default function SubscriberPage({ params }: { params: Promise<{ id: string }> }) {
   const id = use<{ id: string }>(params as unknown as Usable<{ id: string }>).id
 
   const [data, setData] = useState<IFormValues | null>(null)
