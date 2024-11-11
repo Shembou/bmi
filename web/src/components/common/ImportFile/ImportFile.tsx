@@ -96,7 +96,7 @@ export default function ImportFile({
         />
       </div>
       {error && <p className="-mt-8 text-lg text-red">{error}</p>}
-      {label && <label className="text-sm -mt-4">{label}</label>}
+      {label && <label className="text-xs -mt-4">{label}</label>}
     </>
   )
 }

@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react'
-import { IImage } from '../common/Img/IImg'
 import { IFormValues } from './Instruction/IFormValues'
+import { IReferenceSection } from '../ReferenceSection/IReferenceSection'
 
 export interface ICalculator {
   program: IProgram
@@ -48,7 +48,8 @@ export interface IProgram {
       heading: string
       description: string
     }
-    image: IImage
+    link: string
+    referenceSection: IReferenceSection
     files: {
       name: string
       file: {

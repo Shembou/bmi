@@ -18,7 +18,7 @@ export default function Input({
   ...props
 }: IInput) {
   return (
-    <div>
+    <div className={`${className}`}>
       {label && <label className="block mb-1 text-sm font-medium pl-4">{label}</label>}
       {textarea ? (
         <textarea
@@ -26,7 +26,7 @@ export default function Input({
           onChange={onChange}
           placeholder={placeholder}
           name={name}
-          className={`w-full px-3 py-input border rounded-2xl focus:outline-none focus:ring-2 dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color dark:ring-dark-icon-bg-color ${error ? 'border-red-500' : 'border-input-border'} ${className}`}
+          className={`w-full px-3 py-input border rounded-2xl focus:outline-none focus:ring-2 dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color dark:ring-dark-icon-bg-color ${error ? 'border-red-500' : 'border-input-border'}`}
           title={title}
           required={required}
           {...(pattern && { pattern })}
@@ -39,7 +39,7 @@ export default function Input({
           onChange={onChange}
           placeholder={placeholder}
           name={name}
-          className={`w-full px-3 py-input border rounded-full focus:outline-none dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color focus:ring-2 dark:ring-dark-icon-bg-color ${error ? 'border-red-500' : 'border-input-border'} ${className}`}
+          className={`w-full px-3 py-input border rounded-full focus:outline-none dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color focus:ring-2 dark:ring-dark-icon-bg-color ${error ? 'border-red-500' : 'border-input-border'}`}
           title={title}
           min={min}
           max={max}

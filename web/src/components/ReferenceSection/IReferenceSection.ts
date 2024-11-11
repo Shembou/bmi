@@ -6,4 +6,5 @@ export interface IReferenceSection {
   image: IImage
   isPictureOnRight: boolean
   description: string
+  className?: string
 }

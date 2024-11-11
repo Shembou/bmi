@@ -30,11 +30,87 @@ export class Subscriber {
   @Column()
   name!: string
 
+  @Column('bigint')
+  pesel!: number
+
+  @Column({ type: 'date', nullable: true })
+  dateOfBirth!: Date
+
+  @Column()
+  placeOfBirth!: string
+
+  @Column()
+  education!: string
+
+  @Column()
+  foreignOrigin!: boolean
+
+  @Column()
+  foreignCountry!: boolean
+
+  @Column()
+  nationalMinority!: string
+
+  @Column()
+  isHomeless!: boolean
+
+  @Column()
+  isDisabled!: string
+
+  @Column()
+  phone!: string
+
   @Column({ unique: true })
   email!: string
 
   @Column()
-  phone!: string
+  voivodeship!: string
+
+  @Column()
+  district!: string
+
+  @Column()
+  commune!: string
+
+  @Column()
+  town!: string
+
+  @Column()
+  postalCodee!: string
+
+  @Column()
+  houseNumber!: string
+
+  @Column()
+  localNumber!: string
+
+  @Column()
+  areaOfResidence!: 'DEGURBA1' | 'DEGURBA2' | 'DEGURBA3'
+
+  @Column()
+  status!:
+    | 'selfEmployed'
+    | 'publicGovernmentAdministrationWorker'
+    | 'localGovernmentAdministrationWorker'
+    | 'nonGovernmentalOrganizationWorker'
+    | 'MSMEWorker'
+    | 'largeEnterpriseWorker'
+    | 'medicalActivitiesWorker'
+    | 'schoolWorkerTeachingStaff'
+    | 'schoolWorkerNonTeachingStaff'
+    | 'schoolWorkerAdministrationStaff'
+    | 'universityWorker'
+    | 'scientificInstituteWorker'
+    | 'researchInstituteWorker'
+    | 'ŁukasiewiczResearchNetworkWorker'
+    | 'internationalInstituteWorker'
+    | 'federationOfHigherEducationAndScienceSystemEntitiesWorker'
+    | 'stateLegalEntityWorker'
+    | 'other'
+    | ''
+
+  @Column()
+  shiftChanges!: boolean
 
   @Column({ type: 'longblob' })
   files!: Buffer

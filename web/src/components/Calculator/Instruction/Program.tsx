@@ -4,7 +4,7 @@ import Instruction from '../Instruction/Instruction'
 
 export default function Program({
   currentStep,
-  programForm: { titleAndDescription, files, image },
+  programForm: { titleAndDescription, files, link, referenceSection },
   programHero,
   setStep,
   formValues,
@@ -21,10 +21,11 @@ export default function Program({
         currentStep={currentStep}
         {...titleAndDescription}
         files={files}
-        image={image}
         setStep={setStep}
         formValues={formValues}
         setFormValues={setFormValues}
+        link={link}
+        referenceSection={referenceSection}
       />
     </section>
   )

@@ -9,6 +9,7 @@ import { NextRequest } from 'next/server'
 import 'reflect-metadata'
 import { getProgramMailData } from './getProgramMailData'
 import nodemailer from 'nodemailer'
+import { TStatus } from '@/components/Calculator/Instruction/TStatus'
 
 export async function POST(request: NextRequest) {
   await initializeDatabase()
@@ -35,6 +36,40 @@ export async function POST(request: NextRequest) {
     }
 
     const data = await getCmsData<IProgramMailData>({ query: getProgramMailData })
+
+    const subscriber = new Subscriber()
+    subscriber.age = Number(body.age)
+    subscriber.gender = body.gender as 'male' | 'female'
+    subscriber.weight = Number(body.weight)
+    subscriber.height = Number(body.height)
+    subscriber.pressure = Number(body.pressure)
+    subscriber.isSmoking = body.isSmoking == 'no' ? false : true
+    subscriber.cholesterol = Number(body.cholesterol)
+    subscriber.name = body.name
+    subscriber.pesel = Number(body.pesel)
+    subscriber.dateOfBirth = new Date(body.dateOfBirth)
+    subscriber.placeOfBirth = body.placeOfBirth
+    subscriber.education = body.education
+    subscriber.foreignOrigin = body.foreignOrigin == 'true' ? true : false
+    subscriber.foreignCountry = body.foreignCountry == 'true' ? true : false
+    subscriber.nationalMinority = body.nationalMinority
+    subscriber.isHomeless = body.isHomeless == 'true' ? true : false
+    subscriber.isDisabled = body.isDisabled
+    subscriber.phone = body.phone
+    subscriber.email = body.email
+    subscriber.voivodeship = body.voivodeship
+    subscriber.district = body.district
+    subscriber.commune = body.commune
+    subscriber.town = body.town
+    subscriber.houseNumber = body.houseNumber
+    subscriber.postalCodee = body.postalCode
+    subscriber.localNumber = body.localNumber
+    subscriber.areaOfResidence = body.areaOfResidence as 'DEGURBA1' | 'DEGURBA2' | 'DEGURBA3'
+    subscriber.status = body.status as TStatus
+    subscriber.shiftChanges = body.shiftChanges == 'true' ? true : false
+    subscriber.files = fileBuffer
+
+    await AppDataSource.manager.save(subscriber)
 
     const transporter = nodemailer.createTransport({
       host: `${process.env.MAIL_HOST}`,
@@ -64,21 +99,6 @@ export async function POST(request: NextRequest) {
       text: `Użytkownik: ${body.email} dołączył do programu.\n Imię użytkownika: ${body.name}`,
       html: `<h2>Użytkownik: ${body.email} dołączył do programu.</h2> <h3>Imię użytkownika: ${body.name}<h3/>`
     })
-
-    const subscriber = new Subscriber()
-    subscriber.age = Number(body.age)
-    subscriber.cholesterol = Number(body.cholesterol)
-    subscriber.email = body.email
-    subscriber.gender = body.gender as 'male' | 'female'
-    subscriber.height = Number(body.height)
-    subscriber.isSmoking = body.isSmoking == 'no' ? false : true
-    subscriber.name = body.name
-    subscriber.phone = body.phone
-    subscriber.pressure = Number(body.pressure)
-    subscriber.weight = Number(body.weight)
-    subscriber.files = fileBuffer
-
-    await AppDataSource.manager.save(subscriber)
 
     return new Response('Dodano informacje kontaktowe. Wkrótce się skontaktujemy', { status: 200 })
   } catch (error) {
