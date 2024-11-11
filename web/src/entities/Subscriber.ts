@@ -76,7 +76,7 @@ export class Subscriber {
   town!: string
 
   @Column()
-  postalCodee!: string
+  postalCode!: string
 
   @Column()
   houseNumber!: string

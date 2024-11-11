@@ -6,6 +6,32 @@ import 'reflect-metadata'
 
 export async function GET(request: NextRequest) {
   await initializeDatabase()
+  const url = request.url
+  const parts = url.split('/')
+  const id = parts[parts.length - 1]
+  console.log(url)
+
+  console.log(id)
+
+  try {
+    const subscriber = await AppDataSource.manager.findOne(Subscriber, {
+      where: { id: Number(id) }
+    })
+    if (subscriber) {
+      return new Response(JSON.stringify(subscriber), {
+        status: 200
+      })
+    } else {
+      return new Response('User not found', { status: 400 })
+    }
+  } catch (error) {
+    console.log(error)
+    return new Response('Błąd przy pobieraniu użytkownika', { status: 500 })
+  }
+}
+
+export async function POST(request: NextRequest) {
+  await initializeDatabase()
 
   const url = request.url
   const parts = url.split('/')

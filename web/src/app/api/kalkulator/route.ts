@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
     subscriber.commune = body.commune
     subscriber.town = body.town
     subscriber.houseNumber = body.houseNumber
-    subscriber.postalCodee = body.postalCode
+    subscriber.postalCode = body.postalCode
     subscriber.localNumber = body.localNumber
     subscriber.areaOfResidence = body.areaOfResidence as 'DEGURBA1' | 'DEGURBA2' | 'DEGURBA3'
     subscriber.status = body.status as TStatus
