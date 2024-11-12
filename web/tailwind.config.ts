@@ -34,13 +34,15 @@ const config: Config = {
         '80vh': '80vh'
       },
       width: {
-        '130': '32.5rem'
+        '130': '32.5rem',
+        '2px': '2px'
       },
       blur: {
         '250': '250px'
       },
       screens: {
-        '894': '894px'
+        '894': '894px',
+        '1210': '1210px'
       },
       maxWidth: {
         '130': '32.5rem',
@@ -93,7 +95,8 @@ const config: Config = {
       'dark-header-border': '#000000',
       'button-hover': '#B2ECEE',
       'button-purple-hover': '#e9e4f7',
-      'error-color': '#324A4B'
+      'error-color': '#324A4B',
+      'form-border-color': '#DDDDDD'
     }
   },
   plugins: [],

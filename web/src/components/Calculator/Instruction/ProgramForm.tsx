@@ -224,10 +224,10 @@ export default function ProgramForm({
   return (
     <>
       <form
-        className="flex flex-row justify-between flex-wrap items-start gap-y-10"
+        className="flex flex-row justify-between flex-wrap gap-y-10 gap-x-2 894:gap-x-14 1210:gap-x-2"
         onSubmit={handleSubmit}
       >
-        <div className="gap-6 grid md:max-w-80 max-w-130">
+        <div className="gap-6 grid 894:max-w-80 max-w-130 place-self-start">
           <h4>Dane uczestnika projektu</h4>
           <Input
             label="Imię i nazwisko"
@@ -303,7 +303,8 @@ export default function ProgramForm({
             selectedValue={formValues['isDisabled'] ?? ''}
           />
         </div>
-        <div className="gap-6 grid md:max-w-80 max-w-130">
+        <div className="w-2px bg-form-border-color mx-4 hidden 894:inline" />
+        <div className="gap-6 grid 894:max-w-80 max-w-130 flex-auto place-self-start">
           <h4>Dane kontaktowe</h4>
           <Input
             label="Numer telefonu"
@@ -368,7 +369,7 @@ export default function ProgramForm({
               className="col-span-5"
             />
           </div>
-          <div className="grid grid-flow-col gap-4 grid-cols-12">
+          <div className="grid grid-flow-col gap-4 grid-cols-12 place-self-start">
             <Input
               label="Nr domu"
               type="text"
@@ -395,7 +396,8 @@ export default function ProgramForm({
             spanClassName="text-sm"
           />
         </div>
-        <div className="gap-6 grid md:max-w-80 max-w-130">
+        <div className="w-2px bg-form-border-color mx-4 hidden 1210:inline" />
+        <div className="gap-6 grid 894:max-w-80 max-w-130">
           <h4>Szczegóły wsparcia</h4>
           <span>Status osoby na rynku pracy w chwili przystąpienia do projektu</span>
           <RadioGroup
