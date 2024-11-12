@@ -103,7 +103,7 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                     >
                       {sublinks && sublinks.length > 3 ? (
                         <div ref={ref}>
-                          <div className="pt-4 absolute w-full grid  bg-white rounded-2xl gap-1 p-2 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color shadow-md">
+                          <div className="mt-3 absolute w-full grid  bg-white rounded-2xl gap-1 p-2 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color shadow-md">
                             {sublinks?.map(
                               ({ link, name }, subIndex) =>
                                 (subIndex % 2) + 1 === 1 && (
@@ -117,7 +117,7 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                                 )
                             )}
                           </div>
-                          <div className="pt-4 absolute w-full grid bg-white rounded-2xl gap-1 p-2 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color translate-x-full shadow-md">
+                          <div className="mt-3 absolute w-full grid bg-white rounded-2xl gap-1 p-2 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color translate-x-full shadow-md">
                             {sublinks?.map(
                               ({ link, name }, subIndex) =>
                                 subIndex % 2 === 1 && (
