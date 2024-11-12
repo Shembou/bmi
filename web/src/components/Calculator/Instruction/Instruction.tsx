@@ -11,6 +11,7 @@ import Button from '@/components/common/Button/Button'
 import ProgramInstruction from './ProgramInstruction'
 import { IReferenceSection } from '@/components/ReferenceSection/IReferenceSection'
 import ReferenceSection from '@/components/ReferenceSection/ReferenceSection'
+import { scrollIntoId } from '@/utils/smoothScroll'
 
 export default function Instruction({
   heading,
@@ -44,6 +45,12 @@ export default function Instruction({
 
   const [scoreResult, setScoreResult] = useState<number | undefined>(undefined)
 
+  const handlePreviousStep = () => {
+    setStep(--currentStep)
+    setTimeout(() => {
+      scrollIntoId('instruction')
+    }, 400)
+  }
   const renderOrder = [
     <>
       <BmiForm formValues={formValues} setFormValues={setFormValues} setBmiResult={setBmiResult} />
@@ -93,7 +100,7 @@ export default function Instruction({
                 <Button
                   className="w-full max-w-130"
                   content="Poprzedni krok"
-                  onClick={() => setStep(--currentStep)}
+                  onClick={() => handlePreviousStep()}
                 />
               )}
             </header>
