@@ -101,20 +101,53 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                       unmountOnExit
                       nodeRef={ref}
                     >
-                      <div
-                        className="absolute w-full grid border border-header-border bg-white rounded-2xl gap-1 p-2 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color"
-                        ref={ref}
-                      >
-                        {sublinks?.map(({ link, name }, subIndex) => (
-                          <Link
-                            key={subIndex}
-                            href={link}
-                            className="no-underline text-black z-10 dark:text-dark-icon-bg-color"
-                          >
-                            {name}
-                          </Link>
-                        ))}
-                      </div>
+                      {sublinks && sublinks.length > 3 ? (
+                        <div ref={ref}>
+                          <div className="pt-4 absolute w-full grid  bg-white rounded-2xl gap-1 p-2 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color shadow-md">
+                            {sublinks?.map(
+                              ({ link, name }, subIndex) =>
+                                (subIndex % 2) + 1 === 1 && (
+                                  <Link
+                                    key={subIndex}
+                                    href={link}
+                                    className="no-underline text-black z-10 dark:text-dark-icon-bg-color"
+                                  >
+                                    {name}
+                                  </Link>
+                                )
+                            )}
+                          </div>
+                          <div className="pt-4 absolute w-full grid bg-white rounded-2xl gap-1 p-2 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color translate-x-full shadow-md">
+                            {sublinks?.map(
+                              ({ link, name }, subIndex) =>
+                                subIndex % 2 === 1 && (
+                                  <Link
+                                    key={subIndex}
+                                    href={link}
+                                    className="no-underline text-black z-10 dark:text-dark-icon-bg-color"
+                                  >
+                                    {name}
+                                  </Link>
+                                )
+                            )}
+                          </div>
+                        </div>
+                      ) : (
+                        <div
+                          className="absolute w-full grid border border-header-border bg-white rounded-2xl gap-1 p-2 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color"
+                          ref={ref}
+                        >
+                          {sublinks?.map(({ link, name }, subIndex) => (
+                            <Link
+                              key={subIndex}
+                              href={link}
+                              className={`no-underline text-black z-10 dark:text-dark-icon-bg-color`}
+                            >
+                              {name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
                     </CSSTransition>
                   </div>
                 ) : (
