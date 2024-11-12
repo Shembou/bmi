@@ -1,4 +1,5 @@
 import Button from '@/components/common/Button/Button'
+import { scrollIntoId } from '@/utils/smoothScroll'
 import { Dispatch } from 'react'
 
 export default function ScoreSummary({
@@ -15,6 +16,13 @@ export default function ScoreSummary({
     return 'Bardzo wysokie ryzyko'
   }
 
+  const handleClick = () => {
+    setStep(2)
+    setTimeout(() => {
+      scrollIntoId('instruction')
+    }, 400)
+  }
+
   return (
     <div
       className="p-8 flex justify-between border rounded-3xl border-input-border items-center mb-20 dark:border-dark-icon-bg-color"
@@ -26,7 +34,7 @@ export default function ScoreSummary({
         <p>{calculateScoreType(scoreResult)}</p>
       </div>
       {scoreResult >= 1 && (
-        <Button content="Zapisz się do programu" onClick={() => setStep(2)} className="px-4 " />
+        <Button content="Zapisz się do programu" onClick={() => handleClick()} className="px-4 " />
       )}
     </div>
   )

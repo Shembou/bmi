@@ -1,5 +1,6 @@
 import Button from '@/components/common/Button/Button'
 import { ArrowIcon } from '@/components/common/Icons/ArrowIcon'
+import { scrollIntoId } from '@/utils/smoothScroll'
 import { Dispatch } from 'react'
 
 export default function BmiSummary({
@@ -20,6 +21,9 @@ export default function BmiSummary({
 
   const handleClick = () => {
     setStep(1)
+    setTimeout(() => {
+      scrollIntoId('instruction')
+    }, 400)
   }
 
   return (

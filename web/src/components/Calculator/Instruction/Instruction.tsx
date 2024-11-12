@@ -69,7 +69,10 @@ export default function Instruction({
 
   return (
     <>
-      <div className="py-24 grid justify-between grid-cols-23 xl:grid-rows-1 grid-flow-row-dense items-start gap-y-5">
+      <div
+        className="py-24 grid justify-between grid-cols-23 xl:grid-rows-1 grid-flow-row-dense items-start gap-y-5"
+        id="instruction"
+      >
         {files ? (
           <>
             <ProgramInstruction
