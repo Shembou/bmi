@@ -81,13 +81,9 @@ export default function BmiSummary({
       )}
       {bmiResult <= 18.5 && (
         <div className="flex content-between gap-auto justify-between py-9 md:flex-row flex-col gap-4 mb-9">
-          <h4 className="max-w-96">Wynik Twojego BMI jest prawidłowy.</h4>
+          <h4 className="max-w-96">Twój wynik wskazuje na niedowagę.</h4>
           <div className="max-w-130 grid gap-6">
-            <p>
-              Twoje wyniki BMI wskazują, że kwalifikujesz się do naszego programu wsparcia. Powinno
-              być: Twój wynik wskazuje na niedowagę. Zalecana jest konsultacja z lekarzem lub
-              dietetykiem.
-            </p>
+            <p>Zalecana jest konsultacja z lekakrzem lub dietetykiem.</p>
           </div>
         </div>
       )}

@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { IFormValues } from './Instruction/IFormValues'
 
 export default function Calculator({ bmi, program, score }: ICalculator) {
-  const [order, setOrder] = useState(2)
+  const [order, setOrder] = useState(0)
   const nodeRef = useRef(null)
 
   const [formValues, setFormValues] = useState<IFormValues>({
