@@ -35,8 +35,8 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
 
   const fontSizeScales = {
     small: 1,
-    medium: 1.05,
-    large: 1.1
+    medium: 1.04,
+    large: 1.08
   }
 
   const updateFontSizes = (scale: number) => {
