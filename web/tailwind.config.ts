@@ -11,6 +11,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      borderWidth: {
+        '0.5': '0.5px'
+      },
       maxHeight: {
         '80vh': '80vh'
       },
@@ -96,7 +99,9 @@ const config: Config = {
       'button-hover': '#B2ECEE',
       'button-purple-hover': '#e9e4f7',
       'error-color': '#324A4B',
-      'form-border-color': '#DDDDDD'
+      'form-border-color': '#DDDDDD',
+      'header-border-color': '#EAEEE8',
+      'default-link-color': '#237F85'
     }
   },
   plugins: [],

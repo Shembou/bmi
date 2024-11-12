@@ -3,18 +3,32 @@
 import { ExpandedItems, IHeader } from './IHeader'
 import Img from '../Img/Img'
 import Link from 'next/link'
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { createRef, Fragment, RefObject, useEffect, useRef, useState } from 'react'
 import { IMeta } from '../Meta/IMeta'
 import { CSSTransition } from 'react-transition-group'
 
 const Header = ({ data }: { data: [IHeader, IMeta] }) => {
   const [expandedItems, setExpandedItems] = useState<ExpandedItems>({})
   const [isHighContrast, setIsHighContrast] = useState(false)
-  const ref = useRef(null)
+  const [subExpandedItems, setSubExpandedItems] = useState<ExpandedItems>({})
+  const multipleRefs = useRef<Array<RefObject<HTMLDivElement>>>([])
+
+  useEffect(() => {
+    data[0].links.forEach((link, index) => {
+      if (link.sublinks && link.sublinks.length > 0) {
+        multipleRefs.current[index] = createRef()
+      }
+    })
+  }, [data])
 
   const handleOnClick = (index: number) => {
     setExpandedItems(prev => ({
-      ...prev,
+      [index]: !prev[index]
+    }))
+  }
+
+  const handleSubLinkOnClick = (index: number) => {
+    setSubExpandedItems(prev => ({
       [index]: !prev[index]
     }))
   }
@@ -89,65 +103,55 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                 {isExpandable ? (
                   <div className="relative">
                     <button
-                      className="flex text-black dark:text-dark-icon-bg-color"
+                      className="flex text-black dark:text-dark-icon-bg-color hover:text-default-link-color transition-colors"
                       onClick={() => handleOnClick(index)}
                     >
-                      {name} <ChevronDown />
+                      {name} <ChevronDown isExpanded={expandedItems[index]} />
                     </button>
                     <CSSTransition
                       in={expandedItems[index]}
                       timeout={300}
                       classNames="menu-slide"
                       unmountOnExit
-                      nodeRef={ref}
+                      nodeRef={multipleRefs.current[index]}
                     >
-                      {sublinks && sublinks.length > 3 ? (
-                        <div ref={ref}>
-                          <div className="mt-3 absolute w-full grid  bg-white rounded-2xl gap-1 p-2 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color shadow-md">
-                            {sublinks?.map(
-                              ({ link, name }, subIndex) =>
-                                (subIndex % 2) + 1 === 1 && (
-                                  <Link
-                                    key={subIndex}
-                                    href={link}
-                                    className="no-underline text-black z-10 dark:text-dark-icon-bg-color"
-                                  >
-                                    {name}
-                                  </Link>
-                                )
-                            )}
-                          </div>
-                          <div className="mt-3 absolute w-full grid bg-white rounded-2xl gap-1 p-2 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color translate-x-full shadow-md">
-                            {sublinks?.map(
-                              ({ link, name }, subIndex) =>
-                                subIndex % 2 === 1 && (
-                                  <Link
-                                    key={subIndex}
-                                    href={link}
-                                    className="no-underline text-black z-10 dark:text-dark-icon-bg-color"
-                                  >
-                                    {name}
-                                  </Link>
-                                )
-                            )}
-                          </div>
-                        </div>
-                      ) : (
-                        <div
-                          className="absolute w-full grid border border-header-border bg-white rounded-2xl gap-1 p-2 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color"
-                          ref={ref}
-                        >
-                          {sublinks?.map(({ link, name }, subIndex) => (
+                      <div
+                        className="absolute -mx-16 grid mt-1 shadow-md bg-white rounded-2xl gap-1 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color text-left"
+                        ref={multipleRefs.current[index]}
+                      >
+                        {sublinks?.map(({ link, name, isExpandable, expandableLinks }, subIndex) =>
+                          isExpandable ? (
+                            <button
+                              key={subIndex}
+                              className={`relative flex gap-2 items-center no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinks.length && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full py-1 px-3 text-start focus-visible:-outline-offset-2 hover:text-default-link-color transition-colors`}
+                              onClick={() => handleSubLinkOnClick(subIndex)}
+                            >
+                              {name} <ChevronDown isExpanded={subExpandedItems[subIndex]} />
+                              {subExpandedItems[subIndex] && (
+                                <div className="absolute grid shadow-md bg-white rounded-2xl gap-1 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color right-0 top-0 translate-x-full">
+                                  {expandableLinks.map(({ link, name }, index) => (
+                                    <Link
+                                      href={link}
+                                      key={index}
+                                      className={`no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinks.length && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full py-1 px-3 focus-visible:-outline-offset-2`}
+                                    >
+                                      {name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
+                            </button>
+                          ) : (
                             <Link
                               key={subIndex}
                               href={link}
-                              className={`no-underline text-black z-10 dark:text-dark-icon-bg-color`}
+                              className={`no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinks.length && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full py-1 px-3 focus-visible:-outline-offset-2`}
                             >
                               {name}
                             </Link>
-                          ))}
-                        </div>
-                      )}
+                          )
+                        )}
+                      </div>
                     </CSSTransition>
                   </div>
                 ) : (
@@ -230,8 +234,15 @@ function ContrastIcon() {
 
 export default Header
 
-const ChevronDown = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" fill="none" viewBox="0 0 18 19">
+const ChevronDown = ({ isExpanded }: { isExpanded: boolean }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="18"
+    height="19"
+    fill="none"
+    viewBox="0 0 18 19"
+    className={` ${isExpanded && 'rotate-180'} transition-transform`}
+  >
     <path
       stroke="#0A090B"
       strokeLinecap="round"

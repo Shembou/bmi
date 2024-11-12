@@ -11,6 +11,11 @@ export interface IHeader {
     sublinks?: {
       link: string
       name: string
+      isExpandable: boolean
+      expandableLinks: {
+        link: string
+        name: string
+      }[]
     }[]
   }[]
 }

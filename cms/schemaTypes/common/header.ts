@@ -91,6 +91,37 @@ export const headerLink = {
               name: 'name',
               title: 'Nazwa linka',
             },
+            defineField({
+              type: 'boolean',
+              name: 'isExpandable',
+              title: 'Czy jest rozwijany?',
+              initialValue: false,
+            }),
+            defineField({
+              type: 'array',
+              name: 'expandableLinks',
+              title: 'Rozwijalne linki',
+              of: [
+                {
+                  type: 'object',
+                  name: 'expandableLink',
+                  title: 'Rozwijalny link',
+                  fields: [
+                    {
+                      type: 'string',
+                      name: 'link',
+                      title: 'Link',
+                    },
+                    {
+                      type: 'string',
+                      name: 'name',
+                      title: 'Nazwa linka',
+                    },
+                  ],
+                },
+              ],
+              hidden: ({parent}: {parent: any}) => !parent?.isExpandable,
+            }),
           ],
         },
       ],
