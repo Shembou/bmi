@@ -27,30 +27,6 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
     }))
   }
 
-  const handleOnHover = (index: number) => {
-    setExpandedItems(() => ({
-      [index]: true
-    }))
-  }
-
-  const handleOnExit = (index: number) => {
-    setExpandedItems(() => ({
-      [index]: false
-    }))
-  }
-
-  const handleSubLinkOnHover = (index: number) => {
-    setSubExpandedItems(() => ({
-      [index]: true
-    }))
-  }
-
-  const handleSubLinkOnExit = (index: number) => {
-    setSubExpandedItems(() => ({
-      [index]: false
-    }))
-  }
-
   const handleSubLinkOnClick = (index: number) => {
     setSubExpandedItems(prev => ({
       [index]: !prev[index]
@@ -129,7 +105,6 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                     <button
                       className="flex text-black dark:text-dark-icon-bg-color hover:text-default-link-color transition-colors"
                       onClick={() => handleOnClick(index)}
-                      onMouseEnter={() => handleOnHover(index)}
                     >
                       {name} <ChevronDown isExpanded={expandedItems[index]} />
                     </button>
@@ -143,8 +118,6 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                       <div
                         className="absolute -mx-16 grid mt-1 shadow-md bg-white rounded-2xl gap-1 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color text-left"
                         ref={multipleRefs.current[index]}
-                        onMouseEnter={() => handleOnHover(index)}
-                        onMouseLeave={() => handleOnExit(index)}
                       >
                         {sublinks?.map(({ link, name, isExpandable, expandableLinks }, subIndex) =>
                           isExpandable ? (
@@ -152,8 +125,6 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                               key={subIndex}
                               className={`relative flex gap-2 items-center no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinks.length && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full py-1 px-3 text-start focus-visible:-outline-offset-2 hover:text-default-link-color transition-colors`}
                               onClick={() => handleSubLinkOnClick(subIndex)}
-                              onMouseEnter={() => handleSubLinkOnHover(subIndex)}
-                              onMouseLeave={() => handleSubLinkOnExit(subIndex)}
                             >
                               {name} <ChevronDown isExpanded={subExpandedItems[subIndex]} />
                               {subExpandedItems[subIndex] && (
