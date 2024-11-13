@@ -1,0 +1,33 @@
+services:
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: szpital
+    ports:
+      - "1234:3306"
+    networks:
+      - localhost
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: production
+      DB_USERNAME: root
+      DB_PASSWORD: admin
+      DB_DATABASE: szpital
+      DB_PORT: 3306
+      DB_HOST: mysql
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+    networks:
+      - localhost
+
+networks: 
+  localhost:
+    name: localhost
+    driver: bridge
