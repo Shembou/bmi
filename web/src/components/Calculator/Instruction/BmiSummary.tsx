@@ -87,7 +87,7 @@ export default function BmiSummary({
         <div className="flex content-between gap-auto justify-between py-9 md:flex-row flex-col gap-4 mb-9">
           <h4 className="max-w-96">Twój wynik wskazuje na niedowagę.</h4>
           <div className="max-w-130 grid gap-6">
-            <p>Zalecana jest konsultacja z lekakrzem lub dietetykiem.</p>
+            <p>Zalecana jest konsultacja z lekarzem lub dietetykiem.</p>
           </div>
         </div>
       )}
