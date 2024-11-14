@@ -19,6 +19,7 @@ export const GetHeroData = `
             ${GetButtonData}
         },
         heading,
-        text
+        text,
+        tag,
     },
 `

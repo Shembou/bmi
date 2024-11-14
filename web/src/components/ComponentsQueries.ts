@@ -3,6 +3,7 @@ import { GetContactFormData } from './ContactFrom/ContactFormQuery'
 import { GetContactInfoData } from './ContactInfo/ContactInfoQueries'
 import { GetEnumeratedTilesData } from './EnumeratedTiles/EnumeratedTilesQuery'
 import { GetHeroData } from './Hero/HeroQuery'
+import { GetNewsSectionData } from './NewsSection/NewsSectionQueries'
 import { GetPictureSectionData } from './PicturesSection/PicturesSectionQuery'
 import { GetProjectShowcaseData } from './ProjectShowcase/ProjectShowcaseQuery'
 import { GetReferenceSectionData } from './ReferenceSection/ReferenceSectionQuery'
@@ -24,5 +25,6 @@ export const GetComponentData = `
         ${GetContactFormData}
         ${GetContactInfoData}
         ${GetVideoSectionData}
+        ${GetNewsSectionData}
     }
 `
