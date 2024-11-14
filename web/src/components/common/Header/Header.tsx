@@ -126,13 +126,13 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
           </Link>
         </div>
         <div className="py-3 flex justify-between gap-y-3 flex-col items-center">
-          <nav className="flex text-base text-center items-center px-8 border border-header-border py-4 rounded-full bg-white xl:w-fit w-full justify-between flex-wrap xl:gap-8 dark:bg-dark-icon-border-color dark:border-dark-icon-border-color ">
+          <nav className="flex text-base text-center items-center px-8 border border-header-border rounded-full bg-white xl:w-fit w-full justify-between flex-wrap xl:gap-8 dark:bg-dark-icon-border-color dark:border-dark-icon-border-color py-1">
             {data[0].links.map(({ isExpandable, link, name, sublinks }, index) => (
               <Fragment key={index}>
                 {isExpandable ? (
                   <div className="relative">
                     <button
-                      className="flex text-black dark:text-dark-icon-bg-color hover:text-default-link-color transition-colors"
+                      className="flex text-black dark:text-dark-icon-bg-color hover:text-default-link-color transition-colors py-3"
                       onClick={() => handleOnClick(index)}
                       onMouseEnter={!isTouchDevice ? () => handleOnHover(index) : undefined}
                     >
@@ -155,7 +155,7 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                           isExpandable ? (
                             <button
                               key={subIndex}
-                              className={`relative flex gap-2 items-center no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinks.length && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full py-1 px-3 text-start focus-visible:-outline-offset-2 hover:text-default-link-color transition-colors`}
+                              className={`relative flex gap-2 items-center no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinks.length && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full px-3 text-start focus-visible:-outline-offset-2 hover:text-default-link-color transition-colors py-3`}
                               onClick={() => handleSubLinkOnClick(subIndex)}
                               onMouseEnter={
                                 !isTouchDevice ? () => handleSubLinkOnHover(subIndex) : undefined
@@ -171,7 +171,7 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                                     <Link
                                       href={link}
                                       key={index}
-                                      className={`no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinks.length && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full py-1 px-3 focus-visible:-outline-offset-2`}
+                                      className={`no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinks.length && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full px-3 focus-visible:-outline-offset-2  py-3`}
                                       onClick={() => handleLinkClick()}
                                     >
                                       {name}
@@ -184,7 +184,7 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                             <Link
                               key={subIndex}
                               href={link}
-                              className={`no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinks.length && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full py-1 px-3 focus-visible:-outline-offset-2`}
+                              className={`no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinks.length && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full py-3 px-3 focus-visible:-outline-offset-2`}
                               onClick={() => handleLinkClick()}
                             >
                               {name}
@@ -197,7 +197,7 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                 ) : (
                   <Link
                     href={link}
-                    className="no-underline text-black dark:text-dark-icon-bg-color"
+                    className="no-underline text-black dark:text-dark-icon-bg-color py-3"
                     onClick={() => handleLinkClick()}
                   >
                     {name}
