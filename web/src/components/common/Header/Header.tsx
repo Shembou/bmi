@@ -125,7 +125,7 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
             <Img data={data[1].logo} width={183} height={51} className="filter-white" />
           </Link>
         </div>
-        <div className="py-3 flex justify-between gap-y-3 flex-col xl:flex-row items-center">
+        <div className="py-3 flex justify-between gap-y-3 flex-col items-center">
           <nav className="flex text-base text-center items-center px-8 border border-header-border py-4 rounded-full bg-white xl:w-fit w-full justify-between flex-wrap xl:gap-8 dark:bg-dark-icon-border-color dark:border-dark-icon-border-color ">
             {data[0].links.map(({ isExpandable, link, name, sublinks }, index) => (
               <Fragment key={index}>
