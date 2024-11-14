@@ -122,7 +122,13 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
             <Img className="flex-none" data={logo.image} width={600} height={60} key={i} />
           ))}
           <Link href="/" onClick={() => handleLinkClick()}>
-            <Img data={data[1].logo} width={183} height={51} className="filter-white" />
+            <Img
+              data={data[1].logo}
+              width={183}
+              height={51}
+              className="filter-white"
+              alt="Przejdź do strony głównej"
+            />
           </Link>
         </div>
         <div className="py-3 flex justify-between gap-y-3 flex-col items-center">
