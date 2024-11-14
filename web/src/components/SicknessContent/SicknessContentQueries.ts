@@ -1,3 +1,4 @@
+import { GetCheckboxListSection } from '../CheckboxListSection/CheckboxListSectionQueries'
 import { GetPortableImagesGridData } from '../PortableImagesGrid/PortableImagesGridQueries'
 
 const GetBlockData = `
@@ -19,5 +20,6 @@ export const GetPortableTextData = `
     _type,
     ${GetBlockData}
     ${GetPortableImagesGridData}
+    ${GetCheckboxListSection}
   },
 `
