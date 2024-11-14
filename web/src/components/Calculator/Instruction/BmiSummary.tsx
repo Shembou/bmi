@@ -73,13 +73,6 @@ export default function BmiSummary({
               <ArrowIcon />
               <p>Kontynuuj swoje zdrowe nawyki i utrzymuj dobre wyniki!</p>
             </div>
-            <div className="flex gap-2 items-center">
-              <ArrowIcon />
-              <p>
-                Jeśli masz pytania dotyczące zdrowia i stylu życia, skontaktuj się z naszym
-                specjalistą.
-              </p>
-            </div>
           </div>
         </div>
       )}

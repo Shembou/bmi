@@ -62,7 +62,7 @@ export default function ImportFile({
         onKeyDown={handleKeyDown}
       >
         {uploadedFiles.length === 0 ? (
-          <label htmlFor={name} className="flex items-center cursor-pointer justify-self-center ">
+          <label htmlFor={name} className="flex items-center cursor-pointer justify-self-center">
             <span className="flex items-center gap-2 w-full z-20 dark:text-black">
               Dołącz plik <UploadIcon />
             </span>
@@ -96,7 +96,7 @@ export default function ImportFile({
         />
       </div>
       {error && <p className="-mt-8 text-lg text-red">{error}</p>}
-      {label && <label className="text-xs -mt-4">{label}</label>}
+      {label && <label className="text-sm -mt-4">{label}</label>}
     </>
   )
 }

@@ -12,6 +12,7 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
   const [isHighContrast, setIsHighContrast] = useState(false)
   const [subExpandedItems, setSubExpandedItems] = useState<ExpandedItems>({})
   const multipleRefs = useRef<Array<RefObject<HTMLDivElement>>>([])
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
 
   useEffect(() => {
     data[0].links.forEach((link, index) => {
@@ -19,7 +20,35 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
         multipleRefs.current[index] = createRef()
       }
     })
+
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+    setIsTouchDevice(isTouch)
   }, [data])
+
+  const handleLinkClick = () => {
+    setExpandedItems({})
+  }
+
+  const handleOnHover = (index: number) => {
+    setExpandedItems(() => ({
+      [index]: true
+    }))
+  }
+  const handleOnExit = (index: number) => {
+    setExpandedItems(() => ({
+      [index]: false
+    }))
+  }
+  const handleSubLinkOnHover = (index: number) => {
+    setSubExpandedItems(() => ({
+      [index]: true
+    }))
+  }
+  const handleSubLinkOnExit = (index: number) => {
+    setSubExpandedItems(() => ({
+      [index]: false
+    }))
+  }
 
   const handleOnClick = (index: number) => {
     setExpandedItems(prev => ({
@@ -92,7 +121,7 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
           {data[0].logos.map((logo, i) => (
             <Img className="flex-none" data={logo.image} width={600} height={60} key={i} />
           ))}
-          <Link href="/">
+          <Link href="/" onClick={() => handleLinkClick()}>
             <Img data={data[1].logo} width={183} height={51} className="filter-white" />
           </Link>
         </div>
@@ -105,6 +134,7 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                     <button
                       className="flex text-black dark:text-dark-icon-bg-color hover:text-default-link-color transition-colors"
                       onClick={() => handleOnClick(index)}
+                      onMouseEnter={!isTouchDevice ? () => handleOnHover(index) : undefined}
                     >
                       {name} <ChevronDown isExpanded={expandedItems[index]} />
                     </button>
@@ -118,6 +148,8 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                       <div
                         className="absolute -mx-16 grid mt-1 shadow-md bg-white rounded-2xl gap-1 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color text-left"
                         ref={multipleRefs.current[index]}
+                        onMouseEnter={!isTouchDevice ? () => handleOnHover(index) : undefined}
+                        onMouseLeave={!isTouchDevice ? () => handleOnExit(index) : undefined}
                       >
                         {sublinks?.map(({ link, name, isExpandable, expandableLinks }, subIndex) =>
                           isExpandable ? (
@@ -125,6 +157,12 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                               key={subIndex}
                               className={`relative flex gap-2 items-center no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinks.length && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full py-1 px-3 text-start focus-visible:-outline-offset-2 hover:text-default-link-color transition-colors`}
                               onClick={() => handleSubLinkOnClick(subIndex)}
+                              onMouseEnter={
+                                !isTouchDevice ? () => handleSubLinkOnHover(subIndex) : undefined
+                              }
+                              onMouseLeave={
+                                !isTouchDevice ? () => handleSubLinkOnExit(subIndex) : undefined
+                              }
                             >
                               {name} <ChevronDown isExpanded={subExpandedItems[subIndex]} />
                               {subExpandedItems[subIndex] && (
@@ -134,6 +172,7 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                                       href={link}
                                       key={index}
                                       className={`no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinks.length && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full py-1 px-3 focus-visible:-outline-offset-2`}
+                                      onClick={() => handleLinkClick()}
                                     >
                                       {name}
                                     </Link>
@@ -146,6 +185,7 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                               key={subIndex}
                               href={link}
                               className={`no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinks.length && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full py-1 px-3 focus-visible:-outline-offset-2`}
+                              onClick={() => handleLinkClick()}
                             >
                               {name}
                             </Link>
@@ -158,6 +198,7 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                   <Link
                     href={link}
                     className="no-underline text-black dark:text-dark-icon-bg-color"
+                    onClick={() => handleLinkClick()}
                   >
                     {name}
                   </Link>
