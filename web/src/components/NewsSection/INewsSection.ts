@@ -13,5 +13,6 @@ export interface INews {
   news: {
     slug: string
     hero: IHero
+    _createdAt: string
   }[]
 }
