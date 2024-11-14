@@ -24,10 +24,10 @@ export default function NewsTiles({ news }: INews) {
       {news.slice(0, itemsToShow).map(({ hero, slug, _createdAt }, index) => (
         <div
           key={index}
-          className={`p-8 rounded-3xl border border-news-tiles-color md:flex ${index % 2 === 0 ? 'justify-between' : 'gap-6'} items-start relative overflow-hidden grid gap-6 gap-y-10`}
+          className={`p-8 rounded-3xl border border-news-tiles-color md:flex ${index % 2 === 0 ? 'justify-between' : 'gap-6'} items-start relative overflow-hidden grid gap-6 gap-y-10 dark:border-dark-icon-bg-color`}
         >
           <div
-            className={`absolute h-130 w-130 -left-32 -top-28 rounded-full opacity-40 blur-250 -z-10 ${colors[index % colors.length]}`}
+            className={`absolute h-130 w-130 -left-32 -top-28 rounded-full opacity-40 blur-250 -z-10 ${colors[index % colors.length]} dark:bg-white`}
           ></div>
 
           {index % 2 === 0 ? (
