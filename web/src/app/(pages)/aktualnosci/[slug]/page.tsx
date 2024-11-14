@@ -21,7 +21,7 @@ export default async function NewsSlugPage({ params }: { params: Promise<{ slug:
   console.log(data.hero)
 
   return data ? (
-    <main>
+    <main id="mainContent">
       <Hero {...data.hero} _createdAt={data._createdAt} />
       <SicknessContent content={data.portableText} />
       <Components content={data.content} />

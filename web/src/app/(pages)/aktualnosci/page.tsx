@@ -6,7 +6,7 @@ import { GetNewsPageData } from './NewsPageQueries'
 export default async function NewsPage() {
   const data = await getCmsData<INewsPage>({ query: GetNewsPageData })
   return (
-    <main>
+    <main id="mainContent">
       <Components content={data.content} />
     </main>
   )
