@@ -20,7 +20,7 @@ export default async function SicknessPage({ params }: { params: Promise<{ slug:
   const data = await getCmsData<ISicknessPage>({ query: GetSicknessPageData, params: slug })
 
   return data ? (
-    <main>
+    <main id="mainContent">
       <Hero {...data.hero} />
       <SicknessContent content={data.portableText} />
       <Components content={data.content} />

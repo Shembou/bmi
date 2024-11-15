@@ -8,6 +8,7 @@ import { IProjectShowcase } from './ProjectShowcase/IProjectShowcase'
 import { IReferenceSection } from './ReferenceSection/IReferenceSection'
 import { ITilesSection } from './TilesSection/ITilesSection'
 import { IVideoSection } from './VideoSection/IVideoSection'
+import { INewsSection } from './NewsSection/INewsSection'
 
 type TComponentExtension = IHero &
   IEnumeratedTiles &
@@ -18,7 +19,8 @@ type TComponentExtension = IHero &
   ICalculator &
   IContactForm &
   IContactInfo &
-  IVideoSection
+  IVideoSection &
+  INewsSection
 export type TComponent = {
   _type: string
 } & TComponentExtension

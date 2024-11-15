@@ -101,7 +101,10 @@ const config: Config = {
       'error-color': '#324A4B',
       'form-border-color': '#DDDDDD',
       'header-border-color': '#EAEEE8',
-      'default-link-color': '#237F85'
+      'default-link-color': '#237F85',
+      'news-tiles-color': '#D8D3E9',
+      'news-bg-blur-color-blue': '#C9FCFF',
+      'news-bg-blur-color-green': '#A8E7C9'
     }
   },
   plugins: [],

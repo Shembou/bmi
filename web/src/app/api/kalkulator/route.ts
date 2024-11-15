@@ -22,10 +22,16 @@ export async function POST(request: NextRequest) {
   }
 
   try {
+    let fileBuffer: Buffer
+
     const body = (await request.json()) as IFormValues
 
-    const base64File = body.files as unknown as string
-    const fileBuffer = Buffer.from(base64File.split(',')[1], 'base64')
+    if (body.files[0] != '') {
+      const base64File = body.files as unknown as string
+      fileBuffer = Buffer.from(base64File.split(',')[1], 'base64')
+    } else {
+      fileBuffer = Buffer.from('', 'base64')
+    }
 
     const existingSubscriber = await AppDataSource.manager.findOne(Subscriber, {
       where: { email: body.email }
@@ -61,6 +67,7 @@ export async function POST(request: NextRequest) {
     subscriber.district = body.district
     subscriber.commune = body.commune
     subscriber.town = body.town
+    subscriber.streetName = body.streetName
     subscriber.houseNumber = body.houseNumber
     subscriber.postalCode = body.postalCode
     subscriber.localNumber = body.localNumber
@@ -68,8 +75,6 @@ export async function POST(request: NextRequest) {
     subscriber.status = body.status as TStatus
     subscriber.shiftChanges = body.shiftChanges == 'true' ? true : false
     subscriber.files = fileBuffer
-
-    await AppDataSource.manager.save(subscriber)
 
     const transporter = nodemailer.createTransport({
       host: `${process.env.MAIL_HOST}`,
@@ -99,6 +104,8 @@ export async function POST(request: NextRequest) {
       text: `Użytkownik: ${body.email} dołączył do programu.\n Imię użytkownika: ${body.name}`,
       html: `<h2>Użytkownik: ${body.email} dołączył do programu.</h2> <h3>Imię użytkownika: ${body.name}<h3/>`
     })
+
+    await AppDataSource.manager.save(subscriber)
 
     return new Response('Dodano informacje kontaktowe. Wkrótce się skontaktujemy', { status: 200 })
   } catch (error) {

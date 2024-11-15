@@ -7,7 +7,7 @@ export default async function VideoPage() {
   const data = await getCmsData<IComponents>({ query: GetVideoPageData })
 
   return (
-    <main>
+    <main id="mainContent">
       <Components content={data.content} />
     </main>
   )

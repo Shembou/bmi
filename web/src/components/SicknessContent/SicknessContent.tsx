@@ -12,6 +12,8 @@ import PortableImagesGrid from '../PortableImagesGrid/PortableImagesGrid'
 import { IPortableImagesGrid } from '../PortableImagesGrid/IPortableImagesGrid'
 import { generateTableOfContent } from '@/utils/generateTableOfContent'
 import TableOfContent from './TableOfContent'
+import { ICheckboxListSection } from '../CheckboxListSection/ICheckboxListSection'
+import CheckboxListSection from '../CheckboxListSection/CheckboxListSection'
 
 export default function SicknessContent({
   content,
@@ -26,6 +28,9 @@ export default function SicknessContent({
     types: {
       portableImagesGrid: ({ value }: { value: IPortableImagesGrid }) => (
         <PortableImagesGrid {...value} />
+      ),
+      checkboxListSection: ({ value }: { value: ICheckboxListSection }) => (
+        <CheckboxListSection {...value} />
       )
     },
     block: {

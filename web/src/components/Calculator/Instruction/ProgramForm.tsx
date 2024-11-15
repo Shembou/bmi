@@ -194,12 +194,12 @@ export default function ProgramForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (formValues.files.length == 0 || formValues.files[0] == '') {
-      setError('Wymagany plik')
-      return
-    }
+    // if (formValues.files.length == 0 || formValues.files[0] == '') {
+    //   setError('Wymagany plik')
+    //   return
+    // }
     try {
-      if (formValues.files.length != 0) {
+      if (formValues.files[0] != '') {
         if (typeof formValues.files != 'string')
           formValues.files = (await convertToBase64(
             formValues.files[0] as unknown as File
@@ -345,6 +345,14 @@ export default function ProgramForm({
             type="text"
             name="commune"
             value={formValues['commune'] ?? ''}
+            onChange={e => handleInputChange(e)}
+            required
+          />
+          <Input
+            label="Ulica"
+            type="text"
+            name="streetName"
+            value={formValues['streetName'] ?? ''}
             onChange={e => handleInputChange(e)}
             required
           />

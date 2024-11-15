@@ -7,7 +7,7 @@ import SicknessContent from '@/components/SicknessContent/SicknessContent'
 export default async function RODOPage() {
   const data = await getCmsData<IRODOPage>({ query: GetRODOPageData })
   return (
-    <main>
+    <main id="mainContent">
       <SicknessContent content={data.portableText} header={'RODO'} />
       <Components content={data.content} />
     </main>

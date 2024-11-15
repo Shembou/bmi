@@ -61,7 +61,7 @@ export default function Boundry() {
     setCurrentPage(value)
   }
   return (
-    <main>
+    <main id="mainContent">
       <section>
         <div className="flex justify-between">
           <Box sx={{ display: 'flex', alignItems: 'flex-end', marginBottom: 2 }}>

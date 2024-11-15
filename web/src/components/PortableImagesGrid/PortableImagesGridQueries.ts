@@ -5,5 +5,5 @@ export const GetPortableImagesGridData = `
         images[] {
             ${GetImage}
         }
-    }
+    },
 `

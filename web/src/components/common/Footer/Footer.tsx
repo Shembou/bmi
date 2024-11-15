@@ -61,11 +61,15 @@ export default async function Footer() {
         </div>
         <div className="flex flex-wrap justify-between max-w-2xl w-full gap-2">
           <div className="flex flex-col">
-            {singlePages.map(({ name, link }, index) => (
-              <Link key={index} href={link} className="no-underline py-2 footerLink w-fit">
-                {name}
-              </Link>
-            ))}
+            {singlePages.map(({ name, link }, index) =>
+              link ? (
+                <Link key={index} href={link} className="no-underline py-2 footerLink w-fit">
+                  {name}
+                </Link>
+              ) : (
+                <p className="no-underline py-2 footerLink w-fit">{name}</p>
+              )
+            )}
           </div>
           {data[0].links.map(({ isExpandable, name, sublinks }, index) => (
             <Fragment key={index}>

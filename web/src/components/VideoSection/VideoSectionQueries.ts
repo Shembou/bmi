@@ -4,6 +4,6 @@ export const GetVideoSectionData = `
             url,
             description,
             title
-        }
-    }
+        },
+    },
 `

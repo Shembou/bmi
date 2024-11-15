@@ -13,6 +13,11 @@ export default {
       type: 'string',
     }),
     defineField({
+      name: 'tag',
+      title: 'Etykieta (opcjonalne)',
+      type: 'string',
+    }),
+    defineField({
       name: 'text',
       title: 'Text',
       type: 'text',

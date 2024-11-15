@@ -10,4 +10,6 @@ export interface IHero {
   text: string
   button: IButton
   heading: string
+  tag?: string
+  _createdAt?: string
 }

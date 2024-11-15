@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
       where: { id: Number(id) }
     })
     if (subscriber) {
-      if (subscriber.files.length != 0) {
+      if (subscriber.files.length > 0) {
         const headers = new Headers({
           'Content-Disposition': `attachment; filename="test.pdf"`,
           'Content-Type': 'application/pdf'
@@ -49,13 +49,12 @@ export async function POST(request: NextRequest) {
           headers
         })
       } else {
-        return new Response('File not found', { status: 400 })
+        return new Response('Błąd przy pobieraniu PDFa', { status: 400 })
       }
     } else {
-      return new Response('File not found', { status: 400 })
+      return new Response('Błąd przy pobieraniu użytkowników', { status: 400 })
     }
-  } catch (error) {
-    console.log(error)
+  } catch {
     return new Response('Błąd przy pobieraniu PDFa', { status: 500 })
   }
 }

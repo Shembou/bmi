@@ -37,6 +37,7 @@ export default function Calculator({ bmi, program, score }: ICalculator) {
     voivodeship: '',
     district: '',
     commune: '',
+    streetName: '',
     town: '',
     postalCode: '',
     houseNumber: '',

@@ -24,6 +24,7 @@ export interface IFormValues {
   district: string
   commune: string
   town: string
+  streetName: string
   postalCode: string
   houseNumber: string
   localNumber: string
