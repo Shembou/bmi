@@ -18,7 +18,6 @@ export default async function NewsSlugPage({ params }: { params: Promise<{ slug:
   const slug = await params
 
   const data = await getCmsData<INewsSlugPage>({ query: GetNewsSlugPageData, params: slug })
-  console.log(data.hero)
 
   return data ? (
     <main id="mainContent">
