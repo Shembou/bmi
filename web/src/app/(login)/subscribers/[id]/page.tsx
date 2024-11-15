@@ -71,6 +71,10 @@ export default function SubscriberPage({ params }: { params: Promise<{ id: strin
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
       })
+      if (response.status == 400) {
+        toast.warning('Użytkownik nie zamieścił żadnego PDFa')
+        return
+      }
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`)
       }
@@ -83,7 +87,7 @@ export default function SubscriberPage({ params }: { params: Promise<{ id: strin
       window.URL.revokeObjectURL(url)
     } catch (error) {
       console.error((error as Error).message)
-      toast.error('Błąd przy pobieraniu pliku. Możliwe jest, że użytkownik nie dodał pliku')
+      toast.error('Błąd przy pobieraniu pliku.')
     }
   }
 

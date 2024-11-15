@@ -22,10 +22,16 @@ export async function POST(request: NextRequest) {
   }
 
   try {
+    let fileBuffer: Buffer
+
     const body = (await request.json()) as IFormValues
 
-    const base64File = body.files as unknown as string
-    const fileBuffer = Buffer.from(base64File.split(',')[1], 'base64')
+    if (body.files[0] != '') {
+      const base64File = body.files as unknown as string
+      fileBuffer = Buffer.from(base64File.split(',')[1], 'base64')
+    } else {
+      fileBuffer = Buffer.from('', 'base64')
+    }
 
     const existingSubscriber = await AppDataSource.manager.findOne(Subscriber, {
       where: { email: body.email }
