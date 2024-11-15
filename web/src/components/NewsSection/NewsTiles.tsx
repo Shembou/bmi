@@ -5,6 +5,7 @@ import formatDateToPolishLocaleString from '@/utils/formatDateToPolishLocaleStri
 import { INews } from './INewsSection'
 import Button from '../common/Button/Button'
 import Img from '../common/Img/Img'
+import Pagination from '../common/Pagination/Pagination'
 
 export default function NewsTiles({ news }: INews) {
   const colors = [
@@ -86,46 +87,8 @@ export default function NewsTiles({ news }: INews) {
         </div>
       ))}
       {itemsToShow < news.length && (
-        <div
-          className="grid items-center text-center justify-center mt-8 p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors gap-6"
-          aria-label="Wczytaj więcej artykułów"
-        >
-          <div className="grid gap-3 font-semibold">
-            <p>
-              Widzisz {itemsToShow} z {news.length}
-            </p>
-            <div className="transform h-1 w-28 overflow-hidden bg-[#97B3B5] place-self-center">
-              <div
-                className="h-full bg-[#164346]"
-                style={{ width: `${(itemsToShow / news.length) * 100}%` }}
-              ></div>
-            </div>
-          </div>
-          <button onClick={handleLoadMore} className="flex items-center gap-2 font-semibold">
-            Wczytaj więcej <ExpandMoreIcon />
-          </button>
-        </div>
+        <Pagination itemsToShow={itemsToShow} length={news.length} handleClick={handleLoadMore} />
       )}
     </div>
   )
 }
-
-const ExpandMoreIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
-    <path
-      stroke="#164346"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.5"
-      d="M12.375 7.234 8 10.984l-4.375-3.75"
-    ></path>
-    <path
-      stroke="#164346"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.5"
-      d="M12.375 4.734 8 8.484l-4.375-3.75"
-      opacity="0.5"
-    ></path>
-  </svg>
-)
