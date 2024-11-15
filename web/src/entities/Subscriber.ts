@@ -71,6 +71,8 @@ export class Subscriber {
 
   @Column()
   commune!: string
+  @Column()
+  streetName!: string
 
   @Column()
   town!: string

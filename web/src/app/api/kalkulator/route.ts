@@ -61,6 +61,7 @@ export async function POST(request: NextRequest) {
     subscriber.district = body.district
     subscriber.commune = body.commune
     subscriber.town = body.town
+    subscriber.streetName = body.streetName
     subscriber.houseNumber = body.houseNumber
     subscriber.postalCode = body.postalCode
     subscriber.localNumber = body.localNumber
@@ -68,8 +69,6 @@ export async function POST(request: NextRequest) {
     subscriber.status = body.status as TStatus
     subscriber.shiftChanges = body.shiftChanges == 'true' ? true : false
     subscriber.files = fileBuffer
-
-    await AppDataSource.manager.save(subscriber)
 
     const transporter = nodemailer.createTransport({
       host: `${process.env.MAIL_HOST}`,
@@ -99,6 +98,8 @@ export async function POST(request: NextRequest) {
       text: `Użytkownik: ${body.email} dołączył do programu.\n Imię użytkownika: ${body.name}`,
       html: `<h2>Użytkownik: ${body.email} dołączył do programu.</h2> <h3>Imię użytkownika: ${body.name}<h3/>`
     })
+
+    await AppDataSource.manager.save(subscriber)
 
     return new Response('Dodano informacje kontaktowe. Wkrótce się skontaktujemy', { status: 200 })
   } catch (error) {
