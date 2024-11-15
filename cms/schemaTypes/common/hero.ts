@@ -8,6 +8,11 @@ export default {
   icon: StarIcon,
   fields: [
     defineField({
+      name: 'heading',
+      title: 'Nagłówek',
+      type: 'string',
+    }),
+    defineField({
       name: 'tag',
       title: 'Etykieta (opcjonalne)',
       type: 'string',
