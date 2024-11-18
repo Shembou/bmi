@@ -39,7 +39,7 @@ export default function NewsTiles({ news }: INews) {
                   <span>•</span>
                   <span>{hero.tag}</span>
                 </div>
-                <h3 className="pb-6">{hero.heading}</h3>
+                <h2 className="pb-6 h3">{hero.heading}</h2>
                 <p className="pb-12">{hero.text}</p>
                 {slug && (
                   <Button
@@ -71,7 +71,7 @@ export default function NewsTiles({ news }: INews) {
                   <span>•</span>
                   <span>{hero.tag}</span>
                 </div>
-                <h3 className="pb-6">{hero.heading}</h3>
+                <h2 className="pb-6 h3">{hero.heading}</h2>
                 <p className="pb-12">{hero.text}</p>
                 {slug && (
                   <Button

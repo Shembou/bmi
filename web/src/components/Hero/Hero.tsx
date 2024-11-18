@@ -15,7 +15,7 @@ export default function Hero({ button, framedImage, heading, text, _createdAt, t
             <span>{tag}</span>
           </div>
         )}
-        <h2>{heading}</h2>
+        <h1>{heading}</h1>
         <p className="pb-6">{text}</p>
         {button && <Button {...button} className="px-8"></Button>}
       </div>

@@ -1,5 +1,5 @@
 import Calculator from './Calculator/Calculator'
-import ContactForm from './ContactFrom/ContactForm'
+import ContactForm from './ContactForm/ContactForm'
 import ContactInfo from './ContactInfo/ContactInfo'
 import EnumeratedTiles from './EnumeratedTiles/EnumeratedTiles'
 import Hero from './Hero/Hero'
@@ -37,7 +37,7 @@ export default function Components({ content }: IComponents) {
       case 'contactInfo':
         return <ContactInfo key={index} {...(component as TComponent)} />
       case 'videoSection':
-        return <VideoSection key={index} {...(component as TComponent)} />
+        return <VideoSection key={index} {...(component as TComponent)} i={index} />
       case 'news':
         return <NewsSection key={index} {...(component as TComponent)} />
       default:

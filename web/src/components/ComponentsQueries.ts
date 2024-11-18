@@ -1,5 +1,5 @@
 import { GetCalculatorData } from './Calculator/CalculatorQuery'
-import { GetContactFormData } from './ContactFrom/ContactFormQuery'
+import { GetContactFormData } from './ContactForm/ContactFormQuery'
 import { GetContactInfoData } from './ContactInfo/ContactInfoQueries'
 import { GetEnumeratedTilesData } from './EnumeratedTiles/EnumeratedTilesQuery'
 import { GetHeroData } from './Hero/HeroQuery'

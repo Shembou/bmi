@@ -13,7 +13,7 @@ export default function Program({
   return (
     <section>
       <header className="grid text-center max-w-2xl place-self-center gap-6 pb-24">
-        <h2>{programHero.heading}</h2>
+        <h1>{programHero.heading}</h1>
         <p>{programHero.description}</p>
       </header>
       <ProgressBar currentStep={currentStep} />

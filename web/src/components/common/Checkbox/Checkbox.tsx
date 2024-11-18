@@ -9,7 +9,7 @@ export default function Checkbox({
   children
 }: ICheckbox) {
   return (
-    <div className={`flex items-center space-x-2 ${className} pl-4`}>
+    <label className={`flex items-center text-sm space-x-2 pl-4 gap-1${className}`}>
       <div className="relative flex flex-shrink-0 w-6 h-6 border rounded bg-white dark:bg-black border-input-border dark:border-dark-icon-bg-color">
         <input
           type="checkbox"
@@ -20,32 +20,30 @@ export default function Checkbox({
           required={required}
         />
       </div>
-      <label className="text-sm">
-        {children ? (
-          <>{children}</>
-        ) : (
-          <>
-            Akceptuję{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 underline"
-              href="/polityka-prywatnosci"
-            >
-              Politykę prywatności
-            </a>{' '}
-            oraz{' '}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 underline"
-              href="/rodo"
-            >
-              RODO
-            </a>
-          </>
-        )}
-      </label>
-    </div>
+      {children ? (
+        <div>{children}</div>
+      ) : (
+        <div>
+          Akceptuję{' '}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 underline"
+            href="/polityka-prywatnosci"
+          >
+            Politykę prywatności
+          </a>{' '}
+          oraz{' '}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 underline"
+            href="/rodo"
+          >
+            RODO
+          </a>
+        </div>
+      )}
+    </label>
   )
 }

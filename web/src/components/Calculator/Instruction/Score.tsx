@@ -13,7 +13,7 @@ export default function Score({
   return (
     <section>
       <header className="grid text-center max-w-2xl place-self-center gap-6 pb-24">
-        <h2>{scoreHero.heading}</h2>
+        <h1>{scoreHero.heading}</h1>
         <p>{scoreHero.description}</p>
       </header>
       <ProgressBar currentStep={currentStep} />
