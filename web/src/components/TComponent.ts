@@ -1,5 +1,5 @@
 import { ICalculator } from './Calculator/ICalculator'
-import { IContactForm } from './ContactFrom/IContactForm'
+import { IContactForm } from './ContactForm/IContactForm'
 import { IContactInfo } from './ContactInfo/IContactInfo'
 import { IEnumeratedTiles } from './EnumeratedTiles/IEnumeratedTiles'
 import { IHero } from './Hero/IHero'

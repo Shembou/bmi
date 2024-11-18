@@ -28,7 +28,7 @@ export default function ProgramInstruction({
     <div className="col-span-full grid grid-flow-row gap-y-20 ">
       <header className="flex gap-10 flex-wrap justify-between">
         <div className="max-w-130 gap-6 grid">
-          <h3>{heading}</h3>
+          <h2 className="h3">{heading}</h2>
           <p>{description}</p>
           {currentStep > 0 && (
             <Button

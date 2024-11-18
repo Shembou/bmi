@@ -6,7 +6,7 @@ export default function ({ description, heading, imagesGrid }: IPicturesSection)
     <section className="grid gap-16 py-24">
       <div className="grid grid-cols-2 gap-16">
         <h2>{heading}</h2>
-        <h4>{description}</h4>
+        <h3>{description}</h3>
       </div>
       <div className="grid gap-7 size-full md:grid-flow-row items-center  md:grid-cols-7 grid-cols-none">
         {imagesGrid.map(({ description, image }, i) => (

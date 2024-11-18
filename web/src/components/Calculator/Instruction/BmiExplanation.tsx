@@ -6,7 +6,7 @@ export default function BmiExplanation() {
   return (
     <div className="grid gap-8 mx-2 xl:col-span-9 col-span-full 894:col-span-13">
       <header>
-        <h4>Wynik BMI podzielony jest na następujące kategorie:</h4>
+        <h3 className="h4">Wynik BMI podzielony jest na następujące kategorie:</h3>
       </header>
       <div className="grid gap-6">
         <div className="grid gap-6 grid-flow-row lg:grid-flow-col items-center bold">

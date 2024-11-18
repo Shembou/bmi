@@ -64,6 +64,7 @@ export default function BmiForm({
         onChange={e => handleGenderChange(e)}
         value={gender}
         name={'gender'}
+        id={'gender'}
       />
       <Input
         label="Waga (kg)"

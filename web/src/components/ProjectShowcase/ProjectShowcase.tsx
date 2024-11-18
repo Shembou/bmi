@@ -15,7 +15,7 @@ export default function ProjectShowcase({
       <div className="grid gap-8 col-span-6">
         {arrayTitleAndDescription.map(({ description, heading }, index) => (
           <div key={index} className="grid gap-4">
-            <h4 className="pl-3">{heading}</h4>
+            <h3 className="pl-3 h4">{heading}</h3>
             <Markdown className="p-3 border border-custom-border-color rounded-2xl bg-white dark:bg-black dark:border-dark-icon-bg-color">
               {description}
             </Markdown>

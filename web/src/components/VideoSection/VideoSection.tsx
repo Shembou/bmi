@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { IVideoSection } from './IVideoSection'
 import Pagination from '../common/Pagination/Pagination'
 
-export default function VideoSection({ videos }: IVideoSection) {
+export default function VideoSection({ videos, i }: IVideoSection) {
   const formatYouTubeURL = (urlOrId: string) => {
     if (urlOrId.includes('watch?v=')) {
       return urlOrId.replace('watch?v=', 'embed/')
@@ -31,13 +31,16 @@ export default function VideoSection({ videos }: IVideoSection) {
             videos.slice(0, itemsToShow).map(({ description, title, url }, index) => (
               <div key={index}>
                 <iframe
+                  title={title}
+                  aria-label="wideo"
+                  aria-labelledby=""
                   height={310}
                   src={formatYouTubeURL(url)}
                   className="rounded-3xl w-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
-                <h4 className="pt-3">{title}</h4>
+                {i == 1 ? <h2 className="pt-3 h3">{title}</h2> : <h3 className="pt-3">{title}</h3>}
                 <p className="p3-3">{description}</p>
               </div>
             ))}

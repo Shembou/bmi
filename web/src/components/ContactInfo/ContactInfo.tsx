@@ -21,7 +21,7 @@ export default function ContactInfo({ employeeCards }: IContactInfo) {
             key={index}
             className="gap-4 grid p-8 rounded-3xl bg-white dark:bg-dark-icon-bg-color dark:text-dark-icon-border-color"
           >
-            <h4>{name}</h4>
+            <h3 className="h4">{name}</h3>
             <p>{title}</p>
             <div className="flex gap-2 items-center">
               <div className="p-1 border rounded-full bg-icon-bg-color border-icon-border-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color">

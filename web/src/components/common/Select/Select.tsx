@@ -7,15 +7,21 @@ export default function Select({
   className = '',
   error = '',
   name,
-  options
+  options,
+  id
 }: ISelect) {
   return (
     <div>
-      {label && <label className="block mb-1 text-sm font-medium pl-4">{label}</label>}
+      {label && (
+        <label className="block mb-1 text-sm font-medium pl-4" htmlFor={id}>
+          {label}
+        </label>
+      )}
       <div
         className={`dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color dark: w-full px-3 py-2 border rounded-full focus:outline-none focus:ring-2 ${error ? 'border-red-500' : 'border-input-border'} ${className}`}
       >
         <select
+          id={id}
           value={value}
           onChange={onChange}
           className={`w-full dark:bg-dark-icon-border-color`}

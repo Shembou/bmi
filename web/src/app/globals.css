@@ -64,12 +64,15 @@ h2 {
   letter-spacing: -0.96px;
 }
 
-h3 {
+h3,
+.h3 {
   font-size: var(--h3-font-size);
   letter-spacing: -0.32px;
+  font-weight: 500;
 }
 
-h4 {
+h4,
+.h4 {
   font-size: var(--h4-font-size);
   letter-spacing: 0.24px;
 }
@@ -261,7 +264,7 @@ input[type='checkbox'].checkbox:checked::before {
   position: absolute;
   top: 10px;
   left: 10px;
-background-color: #dddddd;
+  background-color: #dddddd;
   color: #fff;
   padding: 10px;
   z-index: 1000;
