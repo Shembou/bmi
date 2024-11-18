@@ -1,4 +1,4 @@
-import { GetImage } from '../common/Img/ImgQueries'
+import { GetReferenceSectionData } from '../ReferenceSection/ReferenceSectionQuery'
 
 export const GetCalculatorData = `
     _type == "calculator" => {
@@ -20,9 +20,10 @@ export const GetCalculatorData = `
               }
             }
           },
-          image {
-            ${GetImage}
-          }
+          link,
+          referenceSection {
+            ${GetReferenceSectionData}
+          },
         },
       },
       bmi {

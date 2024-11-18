@@ -25,9 +25,7 @@ export async function GET(request: NextRequest) {
           subscriber.age.toString().toLowerCase().includes(searchParam) ||
           subscriber.cholesterol.toString().toLowerCase().includes(searchParam) ||
           subscriber.email.toLowerCase().includes(searchParam) ||
-          subscriber.gender.toLowerCase().includes(searchParam) ||
           subscriber.height.toString().toLowerCase().includes(searchParam) ||
-          subscriber.isSmoking.toString().toLowerCase().includes(searchParam) ||
           subscriber.phone.toLowerCase().includes(searchParam) ||
           subscriber.pressure.toString().toLowerCase().includes(searchParam) ||
           subscriber.weight.toString().toLowerCase().includes(searchParam)

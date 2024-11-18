@@ -18,7 +18,7 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
   const data = await getCmsData<ILandingPage>({ query: GetLandingPageData, params: slug })
 
   return data ? (
-    <main>
+    <main id="mainContent">
       <Components content={data.content} />
     </main>
   ) : (

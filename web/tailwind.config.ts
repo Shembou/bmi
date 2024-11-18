@@ -11,6 +11,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      borderWidth: {
+        '0.5': '0.5px'
+      },
+      maxHeight: {
+        '80vh': '80vh'
+      },
       fontSize: {
         '250': '250px'
       },
@@ -27,16 +33,19 @@ const config: Config = {
         'span-16': 'span 16 / span 16'
       },
       height: {
-        '130': '32.5rem'
+        '130': '32.5rem',
+        '80vh': '80vh'
       },
       width: {
-        '130': '32.5rem'
+        '130': '32.5rem',
+        '2px': '2px'
       },
       blur: {
         '250': '250px'
       },
       screens: {
-        '894': '894px'
+        '894': '894px',
+        '1210': '1210px'
       },
       maxWidth: {
         '130': '32.5rem',
@@ -75,7 +84,7 @@ const config: Config = {
       'blur-blue-color': '#8FE6EC',
       'input-bg': '#F4FEFF',
       red: '#FF0000',
-      'dark-icon-bg-color': '#ffffff',
+      'dark-icon-bg-color': '#E1FF00',
       'dark-icon-border-color': '#000000',
       'dark-default-font-color': '#000000',
       'dark-lime': '#ffffff',
@@ -89,7 +98,13 @@ const config: Config = {
       'dark-header-border': '#000000',
       'button-hover': '#B2ECEE',
       'button-purple-hover': '#e9e4f7',
-      'error-color': '#324A4B'
+      'error-color': '#324A4B',
+      'form-border-color': '#DDDDDD',
+      'header-border-color': '#EAEEE8',
+      'default-link-color': '#237F85',
+      'news-tiles-color': '#D8D3E9',
+      'news-bg-blur-color-blue': '#C9FCFF',
+      'news-bg-blur-color-green': '#A8E7C9'
     }
   },
   plugins: [],

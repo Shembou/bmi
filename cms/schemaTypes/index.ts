@@ -33,10 +33,22 @@ import privacyPolicyPage from './pages/single/privacyPolicyPage'
 import rodoPage from './pages/single/rodoPage'
 import notFoundPage from './pages/single/notFoundPage'
 import mailingService, {contactMail, programMail} from './common/mailingService'
+import newsPage from './pages/single/newsPage'
+import newsPages from './pages/multiple/newsPages'
+import {checkboxListSection} from './common/checkboxListSection'
+import newsContent from './common/newsContent'
+import news from './common/news'
 
 export const baseConfiguration = [header, footer, meta, mailingService]
-export const singlePages = [homePage, videoPage, privacyPolicyPage, rodoPage, notFoundPage]
-export const multiplePages = [landingPages, sicknessPages]
+export const singlePages = [
+  homePage,
+  videoPage,
+  privacyPolicyPage,
+  rodoPage,
+  notFoundPage,
+  newsPage,
+]
+export const multiplePages = [landingPages, sicknessPages, newsPages]
 
 export const common = [
   hero,
@@ -76,6 +88,9 @@ export const common = [
   footerLink,
   contactMail,
   programMail,
+  checkboxListSection,
+  newsContent,
+  news,
 ]
 
 export const schemaTypes = [...common, ...singlePages, ...multiplePages, ...baseConfiguration]

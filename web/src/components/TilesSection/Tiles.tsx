@@ -14,7 +14,7 @@ export default function Tiles({ tiles }: { tiles: ITile[] }) {
         index % 2 === 0 ? (
           <Fragment key={index}>
             <div
-              className={`justify-self-center max-w-130 md:max-w-none md:w-full bg-${colors[index % 3]} border-${borderColors[index % 3]} grid gap-2 ${index == 4 && 'md:col-span-11'} ${index == 0 && 'md:col-span-7'} ${index == 2 && 'md:col-span-10'} ${index + 1 == tiles.length && 'md:col-span-full md:max-w-xl justify-self-center'} p-8 rounded-xl border`}
+              className={`dark:bg-dark-icon-bg-color dark:text-dark-icon-border-color dark:border-dark-icon-bg-color justify-self-center max-w-130 md:max-w-none md:w-full bg-${colors[index % 3]} border-${borderColors[index % 3]} grid gap-2 ${index == 4 && 'md:col-span-11'} ${index == 0 && 'md:col-span-7'} ${index == 2 && 'md:col-span-10'} ${index + 1 == tiles.length && 'md:col-span-full md:max-w-xl justify-self-center'} p-8 rounded-xl border`}
             >
               <div className="flex gap-2">
                 <h4>{`0${index + 1}`}</h4>
@@ -32,7 +32,7 @@ export default function Tiles({ tiles }: { tiles: ITile[] }) {
         ) : (
           <div
             key={index}
-            className={`justify-self-center max-w-130 md:max-w-none md:w-full bg-${colors[(index + 1) % 3]} border-${borderColors[(index + 1) % 3]} grid gap-2  ${index == 1 && 'md:col-span-15'} ${index == 3 && 'md:col-span-12'} ${index == 5 && 'md:col-span-11'} p-8 rounded-xl border`}
+            className={`dark:bg-dark-icon-bg-color dark:text-dark-icon-border-color dark:border-dark-icon-bg-color justify-self-center max-w-130 md:max-w-none md:w-full bg-${colors[(index + 1) % 3]} border-${borderColors[(index + 1) % 3]} grid gap-2  ${index == 1 && 'md:col-span-15'} ${index == 3 && 'md:col-span-12'} ${index == 5 && 'md:col-span-11'} p-8 rounded-xl border`}
           >
             <div className="flex gap-2">
               <h4>{`0${index + 1}`}</h4>
@@ -56,12 +56,13 @@ const ArrowRight = ({ color, strokeColor }: { color: string; strokeColor: string
     className="col-span-1 self-center place-self-center md:rotate-0 rotate-90"
   >
     <g clipPath="url(#clip0_5562_5850)">
-      <path fill="#fff" d="M0 .859h32v32H0z"></path>
+      <path fill="#fff" d="M0 .859h32v32H0z" className="dark:fill-dark-icon-border-color"></path>
       <path
         fill={color}
         stroke={strokeColor}
         strokeLinecap="round"
         strokeLinejoin="round"
+        className="dark:stroke-dark-icon-bg-color dark:fill-dark-icon-bg-color"
         d="M17.333 10.192h-8l5.334 6.667-5.334 6.666h8l5.334-6.666z"
       ></path>
     </g>

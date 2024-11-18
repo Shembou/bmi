@@ -6,6 +6,7 @@ import { getCmsData } from '@/utils/getCmsData'
 import { IHeader } from '@/components/common/Header/IHeader'
 import { IMeta } from '@/components/common/Meta/IMeta'
 import { GetHeaderData } from '@/components/common/Header/HeaderQueries'
+import { Metadata } from 'next'
 
 const geistSans = localFont({
   src: '../fonts/DarkerGrotesque-Medium.woff',
@@ -17,6 +18,10 @@ const geistMono = localFont({
   variable: '--font-darker-grotesque-semi-bold',
   weight: '600'
 })
+
+export const metadata: Metadata = {
+  title: 'Projekt "Kompleksowo aktywni"'
+}
 
 export default async function RootLayout({
   children

@@ -56,5 +56,6 @@ export default {
       },
     },
     {type: 'portableImagesGrid'},
+    {type: 'checkboxListSection'}
   ],
 }

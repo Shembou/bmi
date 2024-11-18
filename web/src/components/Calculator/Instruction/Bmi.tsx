@@ -13,7 +13,7 @@ export default function Bmi({
   return (
     <section>
       <header className="grid text-center max-w-2xl place-self-center gap-6 pb-24">
-        <h2>{bmiHero.heading}</h2>
+        <h1>{bmiHero.heading}</h1>
         <p>{bmiHero.description}</p>
       </header>
       <ProgressBar currentStep={currentStep} />

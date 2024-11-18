@@ -7,7 +7,7 @@ import { IPrivacyPolicy } from './IPrivacyPolicy'
 export default async function PrivacyPolicyPage() {
   const data = await getCmsData<IPrivacyPolicy>({ query: GetPrivacyPolicyPageData })
   return (
-    <main>
+    <main id="mainContent">
       <SicknessContent content={data.portableText} header={'Polityka Prywatności'} />
       <Components content={data.content} />
     </main>

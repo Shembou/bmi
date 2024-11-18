@@ -6,4 +6,5 @@ export interface ISelect {
   error?: string
   options: { label: string; value: string }[]
   name: string
+  id: string
 }

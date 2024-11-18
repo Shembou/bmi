@@ -35,9 +35,14 @@ export const programInstruction = {
       of: [{type: 'fileManagement', name: 'fileManagement', title: 'plik'}],
     }),
     defineField({
-      name: 'image',
-      type: 'image',
-      title: 'Zdjęcie obok formularza',
+      name: 'link',
+      type: 'string',
+      title: 'Link do regulaminu',
+    }),
+    defineField({
+      name: 'referenceSection',
+      type: 'referenceSection',
+      title: 'Sekcja z przyciskiem',
     }),
   ],
 }

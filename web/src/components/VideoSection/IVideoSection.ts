@@ -4,4 +4,5 @@ export interface IVideoSection {
     description: string
     title: string
   }[]
+  i: number
 }

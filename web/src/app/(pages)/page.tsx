@@ -6,7 +6,7 @@ import Components from '@/components/Components'
 export default async function Home() {
   const data = await getCmsData<IComponents>({ query: GetHomePageData })
   return (
-    <main>
+    <main id="mainContent">
       <Components content={data.content} />
     </main>
   )

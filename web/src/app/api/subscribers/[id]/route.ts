@@ -6,6 +6,29 @@ import 'reflect-metadata'
 
 export async function GET(request: NextRequest) {
   await initializeDatabase()
+  const url = request.url
+  const parts = url.split('/')
+  const id = parts[parts.length - 1]
+
+  try {
+    const subscriber = await AppDataSource.manager.findOne(Subscriber, {
+      where: { id: Number(id) }
+    })
+    if (subscriber) {
+      return new Response(JSON.stringify(subscriber), {
+        status: 200
+      })
+    } else {
+      return new Response('User not found', { status: 400 })
+    }
+  } catch (error) {
+    console.log(error)
+    return new Response('Błąd przy pobieraniu użytkownika', { status: 500 })
+  }
+}
+
+export async function POST(request: NextRequest) {
+  await initializeDatabase()
 
   const url = request.url
   const parts = url.split('/')
@@ -15,7 +38,7 @@ export async function GET(request: NextRequest) {
       where: { id: Number(id) }
     })
     if (subscriber) {
-      if (subscriber.files.length != 0) {
+      if (subscriber.files.length > 0) {
         const headers = new Headers({
           'Content-Disposition': `attachment; filename="test.pdf"`,
           'Content-Type': 'application/pdf'
@@ -26,13 +49,12 @@ export async function GET(request: NextRequest) {
           headers
         })
       } else {
-        return new Response('File not found', { status: 400 })
+        return new Response('Błąd przy pobieraniu PDFa', { status: 400 })
       }
     } else {
-      return new Response('File not found', { status: 400 })
+      return new Response('Błąd przy pobieraniu użytkowników', { status: 400 })
     }
-  } catch (error) {
-    console.log(error)
+  } catch {
     return new Response('Błąd przy pobieraniu PDFa', { status: 500 })
   }
 }

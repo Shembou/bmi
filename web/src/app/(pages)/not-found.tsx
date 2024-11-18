@@ -8,7 +8,7 @@ export default async function NotFound() {
   const data = await getCmsData<INotFound>({ query: GetNotFoundPageData })
 
   return (
-    <main className="w-full mb-24">
+    <main className="w-full" id="mainContent">
       <NotFoundComponent {...data} />
       <Components content={data.content} />
     </main>

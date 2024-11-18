@@ -14,7 +14,12 @@ export const GetHeaderData = `
       name,
       sublinks[] {
         link,
-        name
+        name,
+        isExpandable,
+        expandableLinks[] {
+          link,
+          name,
+        }
       }
     },
   },
