@@ -3,7 +3,7 @@ import { ICheckboxListSection } from './ICheckboxListSection'
 
 export default function CheckboxListSection({ list }: ICheckboxListSection) {
   return (
-    <div className="pt-8">
+    <div className="pt-8 grid gap-2">
       {list.map((test, index) => (
         <div className="flex gap-2" key={index}>
           <CheckIcon />
