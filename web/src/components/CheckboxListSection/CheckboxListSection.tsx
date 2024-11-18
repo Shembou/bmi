@@ -5,7 +5,7 @@ export default function CheckboxListSection({ list }: ICheckboxListSection) {
   return (
     <div className="pt-8">
       {list.map((test, index) => (
-        <div className="flex gap-2">
+        <div className="flex gap-2" key={index}>
           <CheckIcon />
           <Markdown key={index}>{test}</Markdown>
         </div>
