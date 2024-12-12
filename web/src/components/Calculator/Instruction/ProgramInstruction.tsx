@@ -42,9 +42,14 @@ export default function ProgramInstruction({
           <h3>Pliki do pobrania</h3>
           {files.map(({ file, name }, index) => (
             <div key={index}>
-              <Link href={file.asset.url} className="grid gap-2 grid-flow-col justify-start w-fit">
+              <a
+                href={file.asset.url}
+                className="grid gap-2 grid-flow-col justify-start w-fit"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {name} <DownloadIcon />
-              </Link>
+              </a>
             </div>
           ))}
         </div>
