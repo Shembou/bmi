@@ -348,14 +348,6 @@ export default function ProgramForm({
             onChange={e => handleInputChange(e)}
             required
           />
-          <Input
-            label="Ulica"
-            type="text"
-            name="streetName"
-            value={formValues['streetName'] ?? ''}
-            onChange={e => handleInputChange(e)}
-            required
-          />
           <div className="grid grid-flow-col gap-4 grid-cols-12">
             <Input
               label="Miejscowość"
@@ -377,6 +369,14 @@ export default function ProgramForm({
               className="col-span-5"
             />
           </div>
+          <Input
+            label="Ulica"
+            type="text"
+            name="streetName"
+            value={formValues['streetName'] ?? ''}
+            onChange={e => handleInputChange(e)}
+            required
+          />
           <div className="grid grid-flow-col gap-4 grid-cols-12 place-self-start">
             <Input
               label="Nr domu"
