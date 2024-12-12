@@ -3,7 +3,7 @@
 import { ExpandedItems, IHeader } from './IHeader'
 import Img from '../Img/Img'
 import Link from 'next/link'
-import { createRef, Fragment, RefObject, useEffect, useRef, useState } from 'react'
+import { createRef, Fragment, RefObject, useEffect, useId, useRef, useState } from 'react'
 import { IMeta } from '../Meta/IMeta'
 import { CSSTransition } from 'react-transition-group'
 
@@ -113,6 +113,41 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
     }
   }
 
+  const renderNestedLink = (
+    link: string,
+    name: string,
+    subIndex: number,
+    sublinksLength: number,
+    index?: number | string
+  ) => {
+    if (index == undefined) {
+      index = useId()
+    }
+    if (link.startsWith('https://cdn.sanity.io')) {
+      return (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinksLength && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full px-3 focus-visible:-outline-offset-2  py-3`}
+          key={index}
+        >
+          {name}
+        </a>
+      )
+    }
+    return (
+      <Link
+        href={link}
+        className={`no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinksLength && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full px-3 focus-visible:-outline-offset-2  py-3`}
+        onClick={handleLinkClick}
+        key={index}
+      >
+        {name}
+      </Link>
+    )
+  }
+
   return (
     <>
       <a href="#mainContent" className="skip-to-main-content">
@@ -125,11 +160,44 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
             {data[0].logos.map((logo, i) => (
               <Img className="flex-none" data={logo.image} width={600} height={60} key={i} />
             ))}
+            <div className="flex gap-16 align-item items-center">
+              <div className="flex flex-nowrap items-center">
+                Czcionka:{' '}
+                <button
+                  className="text-sm w-6 h-6"
+                  onClick={() => updateFontSizes(fontSizeScales.small)}
+                >
+                  A
+                </button>{' '}
+                |{' '}
+                <button
+                  className="text-base w-7 h-7"
+                  onClick={() => updateFontSizes(fontSizeScales.medium)}
+                >
+                  A+
+                </button>{' '}
+                |{' '}
+                <button
+                  className="text-lg w-10 h-8"
+                  onClick={() => updateFontSizes(fontSizeScales.large)}
+                >
+                  A++
+                </button>
+              </div>
+              <div>
+                <div className="flex gap-2 items-center">
+                  Kontrast:{' '}
+                  <button className="p-2" onClick={() => toggleContrast()}>
+                    <ContrastIcon />
+                  </button>
+                </div>
+              </div>
+            </div>
             <Link href="/" onClick={() => handleLinkClick()}>
               <Img
                 data={data[1].logo}
-                width={183}
-                height={51}
+                width={220}
+                height={70}
                 className="filter-white"
                 alt="Przejdź do strony głównej"
               />
@@ -180,28 +248,20 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                                   {name} <ChevronDown isExpanded={subExpandedItems[subIndex]} />
                                   {subExpandedItems[subIndex] && (
                                     <div className="absolute grid shadow-md bg-white rounded-2xl gap-1 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color right-0 top-0 translate-x-full">
-                                      {expandableLinks.map(({ link, name }, index) => (
-                                        <Link
-                                          href={link}
-                                          key={index}
-                                          className={`no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinks.length && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full px-3 focus-visible:-outline-offset-2  py-3`}
-                                          onClick={() => handleLinkClick()}
-                                        >
-                                          {name}
-                                        </Link>
-                                      ))}
+                                      {expandableLinks.map(({ link, name }, index) =>
+                                        renderNestedLink(
+                                          link,
+                                          name,
+                                          subIndex,
+                                          sublinks.length,
+                                          index
+                                        )
+                                      )}
                                     </div>
                                   )}
                                 </button>
                               ) : (
-                                <Link
-                                  key={subIndex}
-                                  href={link}
-                                  className={`no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinks.length && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full py-3 px-3 focus-visible:-outline-offset-2`}
-                                  onClick={() => handleLinkClick()}
-                                >
-                                  {name}
-                                </Link>
+                                renderNestedLink(link, name, subIndex, sublinks.length)
                               )
                           )}
                         </div>
@@ -219,39 +279,6 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                 </Fragment>
               ))}
             </nav>
-            <div className="flex gap-16 align-item items-center">
-              <div className="flex flex-nowrap items-center">
-                Czcionka:{' '}
-                <button
-                  className="text-sm w-6 h-6"
-                  onClick={() => updateFontSizes(fontSizeScales.small)}
-                >
-                  A
-                </button>{' '}
-                |{' '}
-                <button
-                  className="text-base w-7 h-7"
-                  onClick={() => updateFontSizes(fontSizeScales.medium)}
-                >
-                  A+
-                </button>{' '}
-                |{' '}
-                <button
-                  className="text-lg w-10 h-8"
-                  onClick={() => updateFontSizes(fontSizeScales.large)}
-                >
-                  A++
-                </button>
-              </div>
-              <div>
-                <div className="flex gap-2 items-center">
-                  Kontrast:{' '}
-                  <button className="p-2" onClick={() => toggleContrast()}>
-                    <ContrastIcon />
-                  </button>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </header>
