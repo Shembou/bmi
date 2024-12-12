@@ -3,7 +3,7 @@
 import { ExpandedItems, IHeader } from './IHeader'
 import Img from '../Img/Img'
 import Link from 'next/link'
-import { createRef, Fragment, RefObject, useEffect, useRef, useState } from 'react'
+import { createRef, Fragment, RefObject, useEffect, useId, useRef, useState } from 'react'
 import { IMeta } from '../Meta/IMeta'
 import { CSSTransition } from 'react-transition-group'
 
@@ -118,8 +118,11 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
     name: string,
     subIndex: number,
     sublinksLength: number,
-    index?: number
+    index?: number | string
   ) => {
+    if (index == undefined) {
+      index = useId()
+    }
     if (link.startsWith('https://cdn.sanity.io')) {
       return (
         <a
