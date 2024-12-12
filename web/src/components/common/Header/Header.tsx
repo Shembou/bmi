@@ -125,11 +125,44 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
             {data[0].logos.map((logo, i) => (
               <Img className="flex-none" data={logo.image} width={600} height={60} key={i} />
             ))}
+            <div className="flex gap-16 align-item items-center">
+              <div className="flex flex-nowrap items-center">
+                Czcionka:{' '}
+                <button
+                  className="text-sm w-6 h-6"
+                  onClick={() => updateFontSizes(fontSizeScales.small)}
+                >
+                  A
+                </button>{' '}
+                |{' '}
+                <button
+                  className="text-base w-7 h-7"
+                  onClick={() => updateFontSizes(fontSizeScales.medium)}
+                >
+                  A+
+                </button>{' '}
+                |{' '}
+                <button
+                  className="text-lg w-10 h-8"
+                  onClick={() => updateFontSizes(fontSizeScales.large)}
+                >
+                  A++
+                </button>
+              </div>
+              <div>
+                <div className="flex gap-2 items-center">
+                  Kontrast:{' '}
+                  <button className="p-2" onClick={() => toggleContrast()}>
+                    <ContrastIcon />
+                  </button>
+                </div>
+              </div>
+            </div>
             <Link href="/" onClick={() => handleLinkClick()}>
               <Img
                 data={data[1].logo}
-                width={183}
-                height={51}
+                width={220}
+                height={70}
                 className="filter-white"
                 alt="Przejdź do strony głównej"
               />
@@ -219,39 +252,6 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                 </Fragment>
               ))}
             </nav>
-            <div className="flex gap-16 align-item items-center">
-              <div className="flex flex-nowrap items-center">
-                Czcionka:{' '}
-                <button
-                  className="text-sm w-6 h-6"
-                  onClick={() => updateFontSizes(fontSizeScales.small)}
-                >
-                  A
-                </button>{' '}
-                |{' '}
-                <button
-                  className="text-base w-7 h-7"
-                  onClick={() => updateFontSizes(fontSizeScales.medium)}
-                >
-                  A+
-                </button>{' '}
-                |{' '}
-                <button
-                  className="text-lg w-10 h-8"
-                  onClick={() => updateFontSizes(fontSizeScales.large)}
-                >
-                  A++
-                </button>
-              </div>
-              <div>
-                <div className="flex gap-2 items-center">
-                  Kontrast:{' '}
-                  <button className="p-2" onClick={() => toggleContrast()}>
-                    <ContrastIcon />
-                  </button>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </header>
