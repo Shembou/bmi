@@ -1,6 +1,5 @@
 import { Dispatch } from 'react'
 import Button from '@/components/common/Button/Button'
-import Link from 'next/link'
 
 export default function ProgramInstruction({
   heading,
