@@ -34,4 +34,5 @@ export interface IFormValues {
   files: Array<string>
   statute: boolean
   rodo: boolean
+  dateAdded?: string
 }

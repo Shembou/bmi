@@ -116,4 +116,7 @@ export class Subscriber {
 
   @Column({ type: 'longblob' })
   files!: Buffer
+
+  @Column({ type: 'date', default: null })
+  dateAdded!: Date
 }

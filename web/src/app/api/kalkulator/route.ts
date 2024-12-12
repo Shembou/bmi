@@ -75,6 +75,7 @@ export async function POST(request: NextRequest) {
     subscriber.status = body.status as TStatus
     subscriber.shiftChanges = body.shiftChanges == 'true' ? true : false
     subscriber.files = fileBuffer
+    subscriber.dateAdded = new Date(Date.now())
 
     const transporter = nodemailer.createTransport({
       host: `${process.env.MAIL_HOST}`,
@@ -92,7 +93,7 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail({
       from: `<${process.env.MAIL_USER}>`,
       to: `${body.email}`,
-      subject: `Program`,
+      subject: `Program kompleksowo aktywni`,
       text: data.programMail.text,
       html: data.programMail.html
     })
@@ -100,7 +101,7 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail({
       from: `<${process.env.MAIL_USER}>`,
       to: `${process.env.MAIL_USER}`,
-      subject: `Program`,
+      subject: `Program kompleksowo aktywni`,
       text: `Użytkownik: ${body.email} dołączył do programu.\n Imię użytkownika: ${body.name}`,
       html: `<h2>Użytkownik: ${body.email} dołączył do programu.</h2> <h3>Imię użytkownika: ${body.name}<h3/>`
     })
