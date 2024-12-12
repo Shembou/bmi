@@ -113,6 +113,38 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
     }
   }
 
+  const renderNestedLink = (
+    link: string,
+    name: string,
+    subIndex: number,
+    sublinksLength: number,
+    index?: number
+  ) => {
+    if (link.startsWith('https://cdn.sanity.io')) {
+      return (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinksLength && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full px-3 focus-visible:-outline-offset-2  py-3`}
+          key={index}
+        >
+          {name}
+        </a>
+      )
+    }
+    return (
+      <Link
+        href={link}
+        className={`no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinksLength && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full px-3 focus-visible:-outline-offset-2  py-3`}
+        onClick={handleLinkClick}
+        key={index}
+      >
+        {name}
+      </Link>
+    )
+  }
+
   return (
     <>
       <a href="#mainContent" className="skip-to-main-content">
@@ -213,28 +245,20 @@ const Header = ({ data }: { data: [IHeader, IMeta] }) => {
                                   {name} <ChevronDown isExpanded={subExpandedItems[subIndex]} />
                                   {subExpandedItems[subIndex] && (
                                     <div className="absolute grid shadow-md bg-white rounded-2xl gap-1 z-20 dark:text-dark-icon-bg-color dark:bg-dark-icon-border-color dark:border-dark-icon-bg-color right-0 top-0 translate-x-full">
-                                      {expandableLinks.map(({ link, name }, index) => (
-                                        <Link
-                                          href={link}
-                                          key={index}
-                                          className={`no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinks.length && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full px-3 focus-visible:-outline-offset-2  py-3`}
-                                          onClick={() => handleLinkClick()}
-                                        >
-                                          {name}
-                                        </Link>
-                                      ))}
+                                      {expandableLinks.map(({ link, name }, index) =>
+                                        renderNestedLink(
+                                          link,
+                                          name,
+                                          subIndex,
+                                          sublinks.length,
+                                          index
+                                        )
+                                      )}
                                     </div>
                                   )}
                                 </button>
                               ) : (
-                                <Link
-                                  key={subIndex}
-                                  href={link}
-                                  className={`no-underline text-black z-10 dark:text-dark-icon-bg-color ${subIndex + 1 != sublinks.length && 'border-b-0.5 border-header-border-color dark:border-dark-icon-bg-color'} w-full py-3 px-3 focus-visible:-outline-offset-2`}
-                                  onClick={() => handleLinkClick()}
-                                >
-                                  {name}
-                                </Link>
+                                renderNestedLink(link, name, subIndex, sublinks.length)
                               )
                           )}
                         </div>
