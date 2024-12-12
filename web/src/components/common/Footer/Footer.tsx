@@ -67,7 +67,9 @@ export default async function Footer() {
                   {name}
                 </Link>
               ) : (
-                <p className="no-underline py-2 footerLink w-fit">{name}</p>
+                <p className="no-underline py-2 footerLink w-fit" key={index}>
+                  {name}
+                </p>
               )
             )}
           </div>
