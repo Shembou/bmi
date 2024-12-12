@@ -121,7 +121,8 @@ export default function SubscriberPage({ params }: { params: Promise<{ id: strin
     'localNumber',
     'areaOfResidence',
     'status',
-    'shiftChanges'
+    'shiftChanges',
+    'dateAdded'
   ]
 
   const polishLabels = {
@@ -154,10 +155,11 @@ export default function SubscriberPage({ params }: { params: Promise<{ id: strin
     localNumber: 'Numer mieszkania',
     areaOfResidence: 'Obszar zamieszkania',
     status: 'Status',
-    shiftChanges: 'Praca zmianowa'
+    shiftChanges: 'Praca zmianowa',
+    dateAdded: 'Data dodania'
   }
 
-  const mapValueToPolish = (value: string | boolean) => {
+  const mapValueToPolish = (value: string | boolean | undefined) => {
     if (value == true || value == 'true') return 'Tak'
     if (value == false || value == 'false') return 'Nie'
     if (value == 'unknown') return 'Odmowa podania danych'
