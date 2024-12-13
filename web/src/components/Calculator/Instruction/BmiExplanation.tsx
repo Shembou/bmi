@@ -11,7 +11,7 @@ export default function BmiExplanation() {
       <div className="grid gap-6">
         <div className="grid gap-6 grid-flow-row lg:grid-flow-col items-center bold">
           <h4 className="col-span-8 text-lg">
-            Niedowaga <br /> (BMI {lt} 18,5):
+            Niedowaga <br /> (BMI {lt} 18,5)
           </h4>
           <p className="col-span-15">
             Masa ciała jest zbyt niska; zalecana jest konsultacja z lekarzem lub dietetykiem.
@@ -19,14 +19,14 @@ export default function BmiExplanation() {
         </div>
         <div className="grid gap-6">
           <div className="grid gap-6 grid-flow-row lg:grid-flow-col items-center">
-            <h4 className="col-span-8 text-lg">Prawidłowa waga (BMI 18,5 - 24,9):</h4>
+            <h4 className="col-span-8 text-lg">Prawidłowa waga (BMI 18,5 - 24,9)</h4>
             <p className="col-span-15">Masa ciała jest w normie; zalecane jest utrzymanie wagi.</p>
           </div>
         </div>
         <div className="grid gap-6">
           <div className="grid gap-6 grid-flow-row lg:grid-flow-col items-center">
             <h4 className="col-span-8 text-lg">
-              Nadwaga <br /> (BMI 25 - 29,9):
+              Nadwaga <br /> (BMI 25 - 29,9)
             </h4>
             <p className="col-span-15">
               Nadmierna masa ciała; zalecane są zmiany stylu życia, aby uniknąć ryzyka chorób
@@ -36,7 +36,7 @@ export default function BmiExplanation() {
         </div>
         <div className="grid gap-6">
           <div className="grid gap-6 grid-flow-row lg:grid-flow-col items-center">
-            <h4 className="col-span-8 text-lg">Otyłość I stopnia (BMI 30 - 34,9):</h4>
+            <h4 className="col-span-8 text-lg">Otyłość I stopnia (BMI 30 - 34,9)</h4>
             <p className="col-span-15">
               Znaczna nadmierna masa ciała; konieczne są działania prewencyjne i kontrola medyczna.
             </p>
@@ -44,7 +44,7 @@ export default function BmiExplanation() {
         </div>
         <div className="grid gap-6">
           <div className="grid gap-6 grid-flow-row lg:grid-flow-col items-center">
-            <h4 className="col-span-8 text-lg">Otyłość II stopnia (BMI 35 - 39,9):</h4>
+            <h4 className="col-span-8 text-lg">Otyłość II stopnia (BMI 35 - 39,9)</h4>
             <p className="col-span-15">
               Wysokie ryzyko zdrowotne; wymaga intensywnych działań prewencyjnych i leczenia.
             </p>
@@ -52,7 +52,7 @@ export default function BmiExplanation() {
         </div>
         <div className="grid gap-6">
           <div className="grid gap-6 grid-flow-row lg:grid-flow-col items-center">
-            <h4 className="col-span-8 text-lg">Otyłość III stopnia (BMI {ge} 40):</h4>
+            <h4 className="col-span-8 text-lg">Otyłość III stopnia (BMI {ge} 40)</h4>
             <p className="col-span-15">
               Bardzo wysokie ryzyko zdrowotne; konieczna jest natychmiastowa interwencja medyczna.
             </p>
