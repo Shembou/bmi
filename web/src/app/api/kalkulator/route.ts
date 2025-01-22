@@ -86,7 +86,7 @@ export async function POST(request: NextRequest) {
       },
       secure: true,
       tls: {
-        rejectUnauthorized: process.env.MAILER_REJECT_UNAUTHORIZED === 'true',
+        rejectUnauthorized: process.env.MAILER_REJECT_UNAUTHORIZED === 'true'
       }
     })
 

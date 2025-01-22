@@ -12,7 +12,7 @@ export default function Bmi({
 }: IBmi) {
   return (
     <section>
-      <header className="grid text-center max-w-2xl place-self-center gap-6 pb-24">
+      <header className="grid text-center max-w-2xl place-self-center gap-6 pb-24 m-auto">
         <h1>{bmiHero.heading}</h1>
         <p>{bmiHero.description}</p>
       </header>

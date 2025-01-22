@@ -12,7 +12,7 @@ export default function Program({
 }: IProgram) {
   return (
     <section>
-      <header className="grid text-center max-w-2xl place-self-center gap-6 pb-24">
+      <header className="grid text-center max-w-2xl place-self-center gap-6 pb-24 m-auto">
         <h1>{programHero.heading}</h1>
         <p>{programHero.description}</p>
       </header>
