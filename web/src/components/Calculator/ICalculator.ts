@@ -49,6 +49,7 @@ export interface IProgram {
       description: string
     }
     link: string
+    enclosureLink: string
     referenceSection: IReferenceSection
     files: {
       name: string

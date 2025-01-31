@@ -21,6 +21,7 @@ export const GetCalculatorData = `
             }
           },
           link,
+          enclosureLink,
           referenceSection {
             ${GetReferenceSectionData}
           },
