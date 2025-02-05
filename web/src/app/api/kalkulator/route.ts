@@ -85,7 +85,7 @@ export async function POST(request: NextRequest) {
         user: `${process.env.MAIL_USER}`,
         pass: `${process.env.MAIL_PASS}`
       },
-      secure: false,
+      secure: true,
       tls: {
         rejectUnauthorized: process.env.MAILER_REJECT_UNAUTHORIZED === 'true'
       }
