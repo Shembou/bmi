@@ -25,7 +25,6 @@ export async function POST(request: NextRequest) {
 
     const data = await getCmsData<IContactMailData>({ query: getContactMailData })
 
-
     const transporter = nodemailer.createTransport({
       host: `${process.env.MAIL_HOST}`,
       port: Number(`${process.env.MAIL_PORT}`),
