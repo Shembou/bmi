@@ -22,13 +22,12 @@ export async function GET(request: NextRequest) {
       subscribers = subscribers.filter(
         subscriber =>
           subscriber.name.toLowerCase().includes(searchParam) ||
-          subscriber.age.toString().toLowerCase().includes(searchParam) ||
-          subscriber.cholesterol.toString().toLowerCase().includes(searchParam) ||
-          subscriber.email.toLowerCase().includes(searchParam) ||
-          subscriber.height.toString().toLowerCase().includes(searchParam) ||
           subscriber.phone.toLowerCase().includes(searchParam) ||
-          subscriber.pressure.toString().toLowerCase().includes(searchParam) ||
-          subscriber.weight.toString().toLowerCase().includes(searchParam)
+          subscriber.streetName.toLowerCase().includes(searchParam) ||
+          subscriber.town.toLowerCase().includes(searchParam) ||
+          subscriber.voivodeship.toLowerCase().includes(searchParam) ||
+          subscriber.postalCode.toLowerCase().includes(searchParam) ||
+          subscriber.houseNumber.toLocaleLowerCase().includes(searchParam)
       )
     }
 
