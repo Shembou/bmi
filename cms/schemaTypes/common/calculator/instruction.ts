@@ -40,6 +40,11 @@ export const programInstruction = {
       title: 'Link do regulaminu',
     }),
     defineField({
+      name: 'enclosureLink',
+      type: 'string',
+      title: 'Link do klauzuli informacyjnej',
+    }),
+    defineField({
       name: 'referenceSection',
       type: 'referenceSection',
       title: 'Sekcja z przyciskiem',

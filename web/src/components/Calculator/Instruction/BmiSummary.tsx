@@ -1,5 +1,6 @@
 import Button from '@/components/common/Button/Button'
 import { ArrowIcon } from '@/components/common/Icons/ArrowIcon'
+import { calculateBmiType } from '@/utils/calculateBMIType'
 import { scrollIntoId } from '@/utils/smoothScroll'
 import { Dispatch } from 'react'
 
@@ -10,15 +11,6 @@ export default function BmiSummary({
   bmiResult: number
   setStep: Dispatch<number>
 }) {
-  const calculateBmiType = (bmi: number): string => {
-    if (bmi < 18.5) return 'Niedowaga'
-    if (bmi >= 18.5 && bmi <= 24.9) return 'Prawidłowa waga'
-    if (bmi >= 25 && bmi <= 29.9) return 'Nadwaga'
-    if (bmi >= 30 && bmi <= 34.9) return 'Otyłość I stopnia'
-    if (bmi >= 35 && bmi <= 39.9) return 'Otyłość II stopnia'
-    return 'Otyłość III stopnia'
-  }
-
   const handleClick = () => {
     setStep(1)
     setTimeout(() => {

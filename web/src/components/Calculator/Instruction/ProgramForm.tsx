@@ -12,11 +12,13 @@ import { TStatus } from './TStatus'
 export default function ProgramForm({
   formValues,
   setFormValues,
-  statuteLink
+  statuteLink,
+  enclosureLink
 }: {
   formValues: IFormValues
   setFormValues: Dispatch<SetStateAction<IFormValues>>
   statuteLink: string
+  enclosureLink: string
 }) {
   const [error, setError] = useState<string | null>(null)
 
@@ -449,9 +451,9 @@ export default function ProgramForm({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 underline"
-                href="/rodo"
+                href={enclosureLink}
               >
-                RODO
+                Klauzulę informacyjną
               </a>
             </>
           </Checkbox>

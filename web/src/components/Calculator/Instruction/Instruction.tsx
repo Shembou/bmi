@@ -22,7 +22,8 @@ export default function Instruction({
   formValues,
   setFormValues,
   link,
-  referenceSection
+  referenceSection,
+  enclosureLink
 }: {
   heading: string
   description: string
@@ -37,6 +38,7 @@ export default function Instruction({
     }
   }[]
   link?: string
+  enclosureLink?: string
   referenceSection?: IReferenceSection
   formValues: IFormValues
   setFormValues: Dispatch<SetStateAction<IFormValues>>
@@ -69,6 +71,7 @@ export default function Instruction({
         formValues={formValues}
         setFormValues={setFormValues}
         statuteLink={link as string}
+        enclosureLink={enclosureLink as string}
       />
       <ReferenceSection {...(referenceSection as IReferenceSection)} />
     </>

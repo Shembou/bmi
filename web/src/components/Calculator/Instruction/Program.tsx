@@ -4,7 +4,7 @@ import Instruction from '../Instruction/Instruction'
 
 export default function Program({
   currentStep,
-  programForm: { titleAndDescription, files, link, referenceSection },
+  programForm: { titleAndDescription, files, link, referenceSection, enclosureLink },
   programHero,
   setStep,
   formValues,
@@ -26,6 +26,7 @@ export default function Program({
         setFormValues={setFormValues}
         link={link}
         referenceSection={referenceSection}
+        enclosureLink={enclosureLink}
       />
     </section>
   )
