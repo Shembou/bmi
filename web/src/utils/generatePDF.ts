@@ -7,6 +7,7 @@ import './DarkerGrotesque-Bold-bold.js'
 import { calculateScore } from './calculateScore'
 import { TStatus } from '@/components/Calculator/Instruction/TStatus'
 import { footerData } from '../../assets/footerData'
+import { calculateScoreType } from './calculateScoreType'
 
 interface IRectangeStartingPoint {
   x_start: number
@@ -275,7 +276,7 @@ function render_score_results(doc: jsPDF, subscriber: Subscriber) {
   )
 
   const scoreResult = calculateScore(subscriber)
-  const scoreType = calculateBmiType(scoreResult)
+  const scoreType = calculateScoreType(scoreResult)
 
   draw_rectangle_from_starting_point(doc, { x_start: 20, y: 110, x_end: 95 }, bg_variant_dark)
   write_text_starting_points_based_on_rectangle(

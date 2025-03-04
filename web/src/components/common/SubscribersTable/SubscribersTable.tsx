@@ -127,6 +127,7 @@ export default function SubscribersTable({ subscribers }: { subscribers: Subscri
                 </TableSortLabel>
               </TableCell>
               <TableCell>PDF</TableCell>
+              <TableCell>Przesłano PDFa</TableCell>
             </TableRow>
           </TableHead>
           <TableBody className="cursor-pointer">
@@ -145,6 +146,11 @@ export default function SubscribersTable({ subscribers }: { subscribers: Subscri
                   <TableCell>{subscriber.phone}</TableCell>
                   <TableCell onClick={() => generatePDF(subscriber)}>
                     <DownloadIcon />
+                  </TableCell>
+                  <TableCell style={{ textAlign: 'center' }}>
+                    {(subscriber.files as unknown as { data: unknown[] })?.data?.length === 0
+                      ? 'Nie'
+                      : 'Tak'}
                   </TableCell>
                 </TableRow>
               ))
