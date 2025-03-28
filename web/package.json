@@ -20,7 +20,7 @@
     "jose": "^5.9.6",
     "jspdf": "^3.0.0",
     "mysql2": "^3.11.3",
-    "next": "^15.0.2",
+    "next": "^15.2.4",
     "next-mdx-remote": "^5.0.0",
     "next-sanity": "^9.8.61",
     "nodemailer": "^6.9.16",
