@@ -507,12 +507,13 @@ function render_footer(doc: jsPDF, subscriber: Subscriber) {
   doc.setLineDashPattern([1, 1], 0)
 
   doc.setFontSize(14)
-  doc.setFont('times', 'italic')
-
   doc.text(formattedDate, 50, 255, { align: 'center' })
+  doc.setFont('times', 'italic')
   doc.line(20, 257, 87, 257)
   doc.text('Data', 45, 262)
+  doc.setFont('DarkerGrotesque-Bold', 'bold')
   doc.text(subscriber.name, 150, 255, { align: 'center' })
+  doc.setFont('times', 'italic')
   doc.line(105, 257, 189, 257)
   doc.text('Popis uczestnika projektu', 123, 262)
 
