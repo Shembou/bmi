@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
           'Content-Type': 'application/pdf'
         })
 
-        return new Response(subscriber.files, {
+        return new Response(new Uint8Array(subscriber.files), {
           status: 200,
           headers
         })

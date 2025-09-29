@@ -22,7 +22,7 @@
     "mysql2": "^3.11.3",
     "next": "^15.2.4",
     "next-mdx-remote": "^5.0.0",
-    "next-sanity": "^9.8.61",
+    "next-sanity": "^11.4.2",
     "nodemailer": "^6.9.16",
     "playwright": "^1.48.2",
     "react": "^18.3.1",
